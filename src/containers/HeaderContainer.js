@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
+import { Grid } from 'semantic-ui-react'
 
 import UserBar from '../components/header/UserBar'
 import NavBar from '../components/header/NavBar'
@@ -8,12 +9,18 @@ export default class HeaderContainer extends Component {
 
   render() {
     return (
-      <div className="ui grid">
-        <div className="row">
-          <div className="middle floated column"><NavBar /></div>
-          <div className="right floated column"><UserBar /></div>
-        </div>
-      </div>
+      <Grid>
+        <Grid.Column width={3}>
+        </Grid.Column>
+        <Grid.Column width={8}>
+          <NavBar />
+        </Grid.Column>
+        <Grid.Column width={3}>
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <UserBar />
+        </Grid.Column>
+      </Grid>
     )
   }
 

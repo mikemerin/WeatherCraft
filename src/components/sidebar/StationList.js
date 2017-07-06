@@ -10,7 +10,6 @@ export default class SearchBar extends Component {
   }
 
   filterStations() {
-
     this.props.stations.filter(station => {
       if (this.props.stationState === "OTHER")
         { debugger }
@@ -27,14 +26,14 @@ export default class SearchBar extends Component {
           <Grid.Column width={8}>
             <Dropdown placeholder='Select a State'
                       fluid search selection options={ this.props.stateChoices }
-                      onChange={this.props.handleStateChange} />
+                      onChange={ this.props.handleStateChange } />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
             <Dropdown placeholder='Select a Station'
                       fluid search selection options={ this.filterStations() }
-                      onChange={this.props.handleStationChange} />
+                      onChange={ this.props.handleStationChange } />
           </Grid.Column>
         </Grid.Row>
       </Grid>

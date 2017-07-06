@@ -1,52 +1,43 @@
 import React, { Component } from 'react'
+// import { Route, Switch } from 'react-router-dom'
 
 import SearchBar from '../components/sidebar/SearchBar'
 import StationInfo from '../components/sidebar/StationInfo'
 import Map from '../components/sidebar/Map'
-import { united_states, other_states } from '../components/StateChoices'
-import { StationsAdapter } from '../adapters'
 
 
 export default class SideBarContainer extends Component {
 
   constructor() {
     super()
-    this.state = {
-      stationState: '',
-      stations: [],
-      stateChoices: united_states
-    }
-
-    this.handleStateChange = this.handleStateChange.bind(this)
   }
-
-  componentDidMount() {
-    StationsAdapter.all().then(data => {
-      this.setState({ stations: data.slice(0) })
-    } )
-
-  }
-
-  handleStateChange(event, result){
-    event.preventDefault()
-    this.setState({ stationState: result.value })
-    // console.log(other_states.map(x => x.value).includes(this.state.stationState))
-  }
-
-
 
   render() {
     return (
-      <div>
-        <SearchBar stateChoices={ this.state.stateChoices }
-                   stations={ this.state.stations }
-                   stationState={ this.state.stationState }
-                   handleStateChange={ this.handleStateChange }/>
-        <StationInfo />
-        <Map />
+      <div className="centered">
+        <SearchBar stateChoices={ this.props.stateChoices }
+                   date={ this.props.date }
+                   stations={ this.props.stations }
+                   stationState={ this.props.stationState }
+                   handleDateChange={ this.props.handleDateChange }
+                   handleStateChange={ this.props.handleStateChange }
+                   handleStationChange={ this.props.handleStationChange }/>
+
+        <br></br>
+        <StationInfo station={ this.props.station } />
+        <br></br>
+        <Map station={ this.props.station }/>
       </div>
     )
   }
 }
 
 // props.stations.filter(x => x.state === props.stationState).count
+
+// <Switch>
+//   <Route exact path='/:wban' render={(routerProps) => {
+//
+//     return <StationInfo date={ routerProps.date }
+//                         station={ routerProps.station } />
+//     }} />
+// </Switch>
