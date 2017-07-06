@@ -8,25 +8,29 @@ import Map from '../components/sidebar/Map'
 
 export default class SideBarContainer extends Component {
 
-  constructor() {
-    super()
-  }
+  // constructor() {
+  //   super()
+  // }
 
   render() {
+
+    const { stateChoices, date, stations, station, stationState,
+            handleDateChange, handleStateChange, handleStationChange } = this.props
+
     return (
       <div className="centered">
-        <SearchBar stateChoices={ this.props.stateChoices }
-                   date={ this.props.date }
-                   stations={ this.props.stations }
-                   stationState={ this.props.stationState }
-                   handleDateChange={ this.props.handleDateChange }
-                   handleStateChange={ this.props.handleStateChange }
-                   handleStationChange={ this.props.handleStationChange }/>
+        <SearchBar stateChoices={ stateChoices }
+                   date={ date }
+                   stations={ stations }
+                   stationState={ stationState }
+                   handleDateChange={ handleDateChange }
+                   handleStateChange={ handleStateChange }
+                   handleStationChange={ handleStationChange }/>
 
         <br></br>
-        <StationInfo station={ this.props.station } />
+        <StationInfo station={ station } />
         <br></br>
-        <Map station={ this.props.station }/>
+        <Map station={ station }/>
       </div>
     )
   }

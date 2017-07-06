@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { Grid, Segment } from 'semantic-ui-react'
 
 import { DailiesAdapter } from '../../adapters'
-import { united_states, other_states } from '../helpers/StateChoices'
+// import { united_states, other_states } from '../helpers/StateChoices'
 import { DateParser } from '../helpers/DateParser'
 import { WindDirection } from '../helpers/WindDirection'
-// note, need to fix this double ..
 
 export default class Daily extends Component {
 
@@ -32,6 +31,8 @@ export default class Daily extends Component {
         result_dir, result_speed, snow_fall, sunrise, sunset,
         tavg, tmax, tmin, updated_at, wban, year_month_day } = data[0]
 
+        let unused = [id, created_at, updated_at]
+
       this.setState({ avg_speed: avg_speed, code_sum: code_sum, depart: depart,
         depth: depth, dew_point: dew_point, max2_dir: max2_dir,
         max2_speed: max2_speed, max5_dir: max5_dir, max5_speed: max5_speed,
@@ -50,12 +51,14 @@ export default class Daily extends Component {
       result_dir, result_speed, snow_fall, sunrise, sunset,
       tavg, tmax, tmin, wban, year_month_day } = this.state
 
+      let ununsed = [id, result_dir, result_speed, wban, year_month_day]
+
       let precip_total_1 = `${precip_total}"`
       let snow_fall_1 = `${snow_fall}"`
       let depth_1 = `${depth}"`
 
       let code_sum_1 = code_sum === " " ? "N/A" : code_sum.split(" ").join(" | ")
-      let state_full = united_states.find(x => x.value === "NY").text.toUpperCase()
+      // let state_full = united_states.find(x => x.value === "NY").text.toUpperCase()
 
       let tmax_1 = `${tmax}ºF`
       let tmin_1 = `${tmin}ºF`
@@ -66,12 +69,12 @@ export default class Daily extends Component {
       let sunrise_1 = `${sunrise.slice(0,2)}:${sunrise.slice(2,4)}`
       let sunset_1 = `${sunset.slice(0,2)}:${sunset.slice(2,4)}`
 
-      let avg = typeof avg_speed === "undefined" ? "N/A" : `${avg_speed} MPH`
+      // let avg = typeof avg_speed === "undefined" ? "N/A" : `${avg_speed} MPH`
       let max2 = `${max2_speed} MPH ${WindDirection(max2_dir)}`
       let max5 = `${max5_speed} MPH ${WindDirection(max5_dir)}`
 
       let date = this.props.date
-      let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6))]} ${date.slice(6,8)}, ${date.slice(0,4)}`
+      let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
 
     return (
       <Grid columns={3} divided>
@@ -106,7 +109,7 @@ export default class Daily extends Component {
             </Segment>
             <Segment>
               <div>Winds:</div>
-              <div>Average: { avg } </div>
+              <div>Average: { avg_speed } </div>
               <div>Highest: { max5 } </div>
               <div>Top Gust: { max2 } </div>
             </Segment>

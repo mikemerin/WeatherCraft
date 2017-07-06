@@ -2,23 +2,23 @@ import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 // import { Route, Switch } from 'react-router-dom'
 
-// import moment from 'moment';
-
 import HeaderContainer from '../containers/HeaderContainer'
 import SideBarContainer from '../containers/SideBarContainer'
 import DataContainer from '../containers/DataContainer'
 import VisualContainer from '../containers/VisualContainer'
 
-import { united_states, other_states } from './helpers/StateChoices'
+// other_states will be used in the future
+import { united_states } from './helpers/StateChoices'
 import { StationsAdapter } from '../adapters'
+import moment from 'moment';
 
 export default class App extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       // date: moment(),
-      date: "20160123",
+      date: moment('20160123'),
       station: {callsign: "NYC", created_at: "2017-06-30T17:06:21.492Z", ground_height: "156",
                 id: 4714, latitude: "40.783", location: "NEW YORK", longitude: "-73.967",
                 name: "CENTRAL PARK", station_height: "161",
@@ -54,16 +54,15 @@ export default class App extends Component {
   handleStationChange(event) {
     event.preventDefault()
     // console.log(this.state.stations.find(x => x.name === event.target.innerText).wban)
-    const station =  this.state.stations.find(x => x.name === event.target.innerText)
+    const station = this.state.stations.find(x => x.name === event.target.innerText)
     this.setState({ station: station })
   }
 
-
-  handleDateChange(date) {
-    // disabled for now
-    console.log(date)
-    // this.state.date._d.toString().split(" ")
-    // this.setState({ date: date });
+  handleDateChange(d) {
+    console.log(d)
+    console.log(d._i.replace(/-/g,""))
+    this.setState({ date: d });
+    console.log(this.state.date)
   }
 
   render() {
@@ -86,10 +85,10 @@ export default class App extends Component {
             <HeaderContainer />
           </Grid.Row>
           <Grid.Row>
-            <DataContainer date={ this.state.date } station={ this.state.station }/>
+            <DataContainer date={ this.state.date._i.replace(/-/g,"") } station={ this.state.station }/>
           </Grid.Row>
           <Grid.Row>
-            <VisualContainer date={ this.state.date } station={ this.state.station }/>
+            <VisualContainer date={ this.state.date._i.replace(/-/g,"") } station={ this.state.station }/>
           </Grid.Row>
         </Grid.Column>
 

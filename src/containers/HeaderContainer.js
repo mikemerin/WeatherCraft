@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
+// import { Route, Link } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 
 import UserBar from '../components/header/UserBar'

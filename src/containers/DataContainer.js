@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+// import { Route, Switch } from 'react-router-dom'
 
 import Daily from '../components/data/Daily'
-import Monthly from '../components/data/Monthly'
+// import Monthly from '../components/data/Monthly'
 
 export default class DataContainer extends Component {
 
-  constructor() {
-    super()
-
-    // this.stationInfo = this.stationInfo.bind(this)
-  }
-
-
-
+  // constructor() {
+  //   super()
+  // }
 
   render() {
 
