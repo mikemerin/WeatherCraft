@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Route, Link } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 
 import UserBar from '../components/header/UserBar'
@@ -13,7 +13,11 @@ export default class HeaderContainer extends Component {
         <Grid.Column width={3}>
         </Grid.Column>
         <Grid.Column width={8}>
-          <NavBar />
+          <Switch>
+            <Route path='/station' render={() => {
+              return <NavBar />
+            }} />
+          </Switch>
         </Grid.Column>
         <Grid.Column width={3}>
         </Grid.Column>

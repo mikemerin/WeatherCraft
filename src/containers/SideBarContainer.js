@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import SearchBar from '../components/sidebar/SearchBar'
 import StationInfo from '../components/sidebar/StationInfo'
@@ -22,15 +22,26 @@ export default class SideBarContainer extends Component {
         <SearchBar stateChoices={ stateChoices }
                    date={ date }
                    stations={ stations }
+                   station={ station }
                    stationState={ stationState }
                    handleDateChange={ handleDateChange }
                    handleStateChange={ handleStateChange }
                    handleStationChange={ handleStationChange }/>
 
-        <br></br>
-        <StationInfo station={ station } />
-        <br></br>
-        <Map station={ station }/>
+        <Switch>
+          <Route path='/station/:id' render={(routerProps) => {
+            console.log(routerProps)
+            // console.log(id)
+            return (
+              <div>
+                <br></br>
+                <StationInfo station={ station } />
+                <br></br>
+                <Map station={ station }/>
+              </div>
+            )
+          }} />
+        </Switch>
       </div>
     )
   }
