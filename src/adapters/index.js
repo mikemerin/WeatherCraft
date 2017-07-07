@@ -13,6 +13,7 @@ export class StationsAdapter {
 
 }
 
+// to be changed when multiple hourlies tables are added back in
 // export class HourliesAdapter {
 //
 //   static all() {

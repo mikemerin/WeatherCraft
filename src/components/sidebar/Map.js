@@ -8,7 +8,7 @@ export default function Map({ station }) {
   });
 
   const { latitude, longitude } = station
-  
+
   return (
     <div>
       <Map style="mapbox://styles/mapbox/streets-v9"
@@ -17,7 +17,7 @@ export default function Map({ station }) {
            center={[longitude, latitude]}>
         <Layer type="symbol" id="marker"
            layout={{ "icon-image": "marker-15" }}>
-        <Feature coordinates={[longitude, latitude]}/>
+           <Feature coordinates={[longitude, latitude]}/>
         </Layer>
       </Map>
     </div>

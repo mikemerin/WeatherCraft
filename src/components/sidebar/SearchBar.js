@@ -10,6 +10,9 @@ export default function SearchBar(props) {
   const { stateChoices, stationState, stations, station, date, handleStateChange, handleDateChange, handleStationChange } = props
   const filtered_stations = stations.filter(x => x.state === stationState).map((x, i) => ({key: i, value: x.name, text: x.name}) )
 
+  const selected = props.date.format('YYYYMMDD') === moment().format('YYYYMMDD') ? null : props.date
+
+
   return (
     <Grid className="centered">
       <Grid.Row>
@@ -29,11 +32,11 @@ export default function SearchBar(props) {
       <Grid.Row>
         <Grid.Column>
           <Switch>
-            <Route path='/station' render={() => {
+            <Route path='/station/:callsign' render={() => {
               return (
                 <DatePicker
                     dateFormat="YYYY/MM/DD"
-                    selected={ props.date }
+                    selected={ selected }
                     onSelect={ props.handleDateChange }
                     min={moment('2007-05-01', 'YYYY-MM-DD')}
                     max={moment('2017-06-30', 'YYYY-MM-DD')}
@@ -49,23 +52,3 @@ export default function SearchBar(props) {
   )
 
 }
-
-// selected={ props.date }
-
-// <InfiniteCalendar width={300}
-// height={400}
-//
-// selected={today}
-// disabledDays={[0,6]}
-// min={new Date(2007, 7, 1)}
-// max={new Date(2017, 6, 30)}
-// minDate={new Date(2007, 7, 1)}
-// maxDate={new Date(2017, 6, 30)}
-//
-// />
-
-
-
-
-  // <Calendar format='MM/DD/YYYY' date={ `${props.date.slice(4,6)}-${props.date.slice(6,8)}-${props.date.slice(0,4)}` }
-  // onChange={ props.handleDateChange } />

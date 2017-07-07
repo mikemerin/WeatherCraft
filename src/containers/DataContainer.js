@@ -11,7 +11,8 @@ export default class DataContainer extends Component {
   // }
 
   render() {
-
+    console.log(this.props.date)
+    console.log(this.props.station)
     return (
       <div>
 

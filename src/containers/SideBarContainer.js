@@ -18,7 +18,7 @@ export default class SideBarContainer extends Component {
             handleDateChange, handleStateChange, handleStationChange } = this.props
 
     return (
-      <div className="centered">
+      <div>
         <SearchBar stateChoices={ stateChoices }
                    date={ date }
                    stations={ stations }
@@ -29,8 +29,8 @@ export default class SideBarContainer extends Component {
                    handleStationChange={ handleStationChange }/>
 
         <Switch>
-          <Route path='/station/:id' render={(routerProps) => {
-            console.log(routerProps)
+          <Route path='/station/:id' render={() => {
+
             // console.log(id)
             return (
               <div>

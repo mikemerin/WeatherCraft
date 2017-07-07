@@ -43,21 +43,19 @@ export default class App extends Component {
   // if the station changed, but only if the stationState didn't and it didn't start from ''
     if (prevState.station !== this.state.station &&
         prevState.stationState === this.state.stationState &&
-        prevState.stationState !== '') {
-      this.context.router.history.push(`/station/${this.state.station.callsign}`)
-    }
+        prevState.stationState !== '')
+      { this.context.router.history.push(`/station/${this.state.station.callsign}`) }
   }
 
   handleStateChange(event, result){
     event.preventDefault()
-    window.history.pushState(null, null, '/')
+    this.context.router.history.push('/')
     this.setState({ stationState: result.value, station: '' })
     // console.log(other_states.map(x => x.value).includes(this.state.stationState))
   }
 
   handleStationChange(event, result) {
     event.preventDefault()
-    console.log(event.target)
     // console.log(this.state.stations.find(x => x.name === event.target.innerText).wban)
     const station = this.state.stations.find(x => x.name === result.value)
     this.setState({ station: station })
@@ -66,6 +64,7 @@ export default class App extends Component {
 
   handleDateChange(date) {
     this.setState({ date: date });
+    this.context.router.history.push(`/station/${this.state.station.callsign}/${date.format('YYYYMMDD')}`)
   }
 
   render() {
@@ -73,7 +72,7 @@ export default class App extends Component {
     return (
       <Grid celled className="centered">
 
-        <Grid.Column width={4} textAlign="center">
+        <Grid.Column width={4}>
           <SideBarContainer date={ this.state.date }
                             stationState={ this.state.stationState }
                             stations={ this.state.stations }
@@ -89,18 +88,28 @@ export default class App extends Component {
             <HeaderContainer />
           </Grid.Row>
           <Switch>
-            <Route path="/tbd" render={() => {
+            <Route exact path="/" render={() => {
+                return (
+                  <div textAlign="centered">
+                    <h1>Welcome to WeatherCraft</h1>
+                    <p></p>
+                    <h3>Choose a state to start crating</h3>
+                  </div>
+                )
+            }} />
+          <Route path="/station/:callsign/:date" render={(routerProps) => {
+              const { date, callsign } = routerProps.match.params
               return (
                 <div>
                   <Grid.Row>
-                    <DataContainer date={ this.state.date._i.replace(/-/g,"") } station={ this.state.station }/>
+                    <DataContainer date={ date } station={ this.state.station }/>
                   </Grid.Row>
                   <Grid.Row>
-                    <VisualContainer date={ this.state.date._i.replace(/-/g,"") } station={ this.state.station }/>
+                    <VisualContainer date={ date } station={ this.state.station }/>
                   </Grid.Row>
                 </div>
               )
-            }} />
+            }} />.
           </Switch>
         </Grid.Column>
 
@@ -109,3 +118,7 @@ export default class App extends Component {
 
   }
 }
+
+// <Route exact path="/" render={() => <p>Route tester, this will only show on '/'</p> } />
+// <Route exact path="/station/:wban" render={() => <p>Route tester, this will only show on '/station/:wban'</p> } />
+// <Route exact path="/station/:wban/:date" render={() => <p>Route tester, this will only show on '/station/:wban/:date'</p> } />

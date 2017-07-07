@@ -26,6 +26,7 @@ export default class Daily extends Component {
   componentWillReceiveProps(nextProps) {
     DailiesAdapter.station_date(nextProps.station.wban, nextProps.date)
     .then(data => {
+      debugger
       let { avg_speed, code_sum, created_at, depart, depth, dew_point,
         id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
         result_dir, result_speed, snow_fall, sunrise, sunset,

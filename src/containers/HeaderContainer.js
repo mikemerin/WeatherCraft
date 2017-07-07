@@ -14,9 +14,7 @@ export default class HeaderContainer extends Component {
         </Grid.Column>
         <Grid.Column width={8}>
           <Switch>
-            <Route path='/station' render={() => {
-              return <NavBar />
-            }} />
+            <Route path='/station/:callsign/:date' render={() => <NavBar /> } />
           </Switch>
         </Grid.Column>
         <Grid.Column width={3}>
