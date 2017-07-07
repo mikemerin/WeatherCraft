@@ -7,7 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 export default function SearchBar(props) {
 
-  const { stateChoices, stationState, stations, station, date, handleStateChange, handleDateChange, handleStationChange } = props
+  const { stateChoices, stationState, stations, handleStateChange, handleDateChange, handleStationChange } = props
   const filtered_stations = stations.filter(x => x.state === stationState).map((x, i) => ({key: i, value: x.name, text: x.name}) )
 
   const selected = props.date.format('YYYYMMDD') === moment().format('YYYYMMDD') ? null : props.date
@@ -37,7 +37,7 @@ export default function SearchBar(props) {
                 <DatePicker
                     dateFormat="YYYY/MM/DD"
                     selected={ selected }
-                    onSelect={ props.handleDateChange }
+                    onSelect={ handleDateChange }
                     min={moment('2007-05-01', 'YYYY-MM-DD')}
                     max={moment('2017-06-30', 'YYYY-MM-DD')}
                     minDate={moment('2007-05-01', 'YYYY-MM-DD')}

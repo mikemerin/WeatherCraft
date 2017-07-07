@@ -33,7 +33,9 @@ export default class App extends Component {
     this.handleStationChange = this.handleStationChange.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log("mounting");
+    // debugger
     StationsAdapter.all().then(data => {
       this.setState({ stations: data.slice(0) })
     } )
@@ -90,7 +92,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" render={() => {
                 return (
-                  <div textAlign="centered">
+                  <div>
                     <h1>Welcome to WeatherCraft</h1>
                     <p></p>
                     <h3>Choose a state to start crating</h3>
@@ -98,7 +100,7 @@ export default class App extends Component {
                 )
             }} />
           <Route path="/station/:callsign/:date" render={(routerProps) => {
-              const { date, callsign } = routerProps.match.params
+              const { date } = routerProps.match.params
               return (
                 <div>
                   <Grid.Row>
