@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
-export default function Map({ station }) {
+export default function Map({ station, stations }) {
 
   const Map = ReactMapboxGl({
     accessToken: "pk.eyJ1IjoibWlrZW1lcmluIiwiYSI6ImNqNHFxb2F2aTBpc2EycnA1dGQzemp1M3kifQ.7TzxXmyx53oFWKVPQD3Gsw"
   });
 
   const { latitude, longitude } = station
+
+
 
   return (
     <div>
@@ -24,3 +26,9 @@ export default function Map({ station }) {
   )
 
 }
+
+//
+// <Layer type="symbol" id="marker2"
+//    layout={{ "icon-image": "harbor-15" }}>
+//    <Feature coordinates={[longitude+1, latitude+1]}/>
+//  </Layer>

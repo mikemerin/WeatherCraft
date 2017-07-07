@@ -37,7 +37,7 @@ export default class SideBarContainer extends Component {
                 <br></br>
                 <StationInfo station={ station } />
                 <br></br>
-                <Map station={ station }/>
+                <Map station={ station } stations={ stations }/>
               </div>
             )
           }} />
