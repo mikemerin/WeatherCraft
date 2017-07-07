@@ -8,7 +8,7 @@ export default function Map({ station }) {
   });
 
   const { latitude, longitude } = station
-
+  
   return (
     <div>
       <Map style="mapbox://styles/mapbox/streets-v9"

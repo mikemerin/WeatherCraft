@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router'
+import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react'
 
 import HeaderContainer from '../containers/HeaderContainer'
@@ -15,8 +15,12 @@ import moment from 'moment';
 
 export default class App extends Component {
 
-  constructor(props) {
-    super(props)
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
+  constructor(props, context) {
+    super(props, context)
     this.state = {
       date: moment(),
       station: {},
@@ -40,7 +44,7 @@ export default class App extends Component {
     if (prevState.station !== this.state.station &&
         prevState.stationState === this.state.stationState &&
         prevState.stationState !== '') {
-      window.history.pushState(null, null, `/station/${this.state.station.callsign}`)
+      this.context.router.history.push(`/station/${this.state.station.callsign}`)
     }
   }
 
@@ -57,6 +61,7 @@ export default class App extends Component {
     // console.log(this.state.stations.find(x => x.name === event.target.innerText).wban)
     const station = this.state.stations.find(x => x.name === result.value)
     this.setState({ station: station })
+
   }
 
   handleDateChange(date) {
@@ -82,12 +87,9 @@ export default class App extends Component {
         <Grid.Column width={12}>
           <Grid.Row>
             <HeaderContainer />
-            <Route exact path="/" render={() => {
-          return <p>This is an app all about students</p>
-        }} />
           </Grid.Row>
           <Switch>
-            <Route path="/station" render={() => {
+            <Route path="/tbd" render={() => {
               return (
                 <div>
                   <Grid.Row>

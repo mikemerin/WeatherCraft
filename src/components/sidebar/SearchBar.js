@@ -30,16 +30,17 @@ export default function SearchBar(props) {
         <Grid.Column>
           <Switch>
             <Route path='/station' render={() => {
-              <DatePicker
-                dateFormat="YYYY/MM/DD"
-                selected={ props.date }
-                onSelect={ props.handleDateChange }
-                min={moment('2007-05-01', 'YYYY-MM-DD')}
-                max={moment('2017-06-30', 'YYYY-MM-DD')}
-                minDate={moment('2007-05-01', 'YYYY-MM-DD')}
-                maxDate={moment('2017-06-30', 'YYYY-MM-DD')}
-                placeholderText="Select a date"
-              />
+              return (
+                <DatePicker
+                    dateFormat="YYYY/MM/DD"
+                    selected={ props.date }
+                    onSelect={ props.handleDateChange }
+                    min={moment('2007-05-01', 'YYYY-MM-DD')}
+                    max={moment('2017-06-30', 'YYYY-MM-DD')}
+                    minDate={moment('2007-05-01', 'YYYY-MM-DD')}
+                    maxDate={moment('2017-06-30', 'YYYY-MM-DD')}
+                    placeholderText="Select a date"
+                  /> )
             }} />
           </Switch>
         </Grid.Column>
