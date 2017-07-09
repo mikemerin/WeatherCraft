@@ -1,17 +1,20 @@
+// main react files
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react'
 
+// containers
 import HeaderContainer from '../containers/HeaderContainer'
 import SideBarContainer from '../containers/SideBarContainer'
 import DataContainer from '../containers/DataContainer'
 import VisualContainer from '../containers/VisualContainer'
 
-// other_states will be used in the future
+// constants and more. note: other_states will be imported from StateChoices in the future
 import { united_states } from './helpers/StateChoices'
 import { StationsAdapter } from '../adapters'
 import moment from 'moment';
+
 
 export default class App extends Component {
 
@@ -33,44 +36,55 @@ export default class App extends Component {
     this.handleStationChange = this.handleStationChange.bind(this)
   }
 
+  // lifecycle methods
   componentWillMount() {
     console.log("mounting");
     // debugger
     StationsAdapter.all().then(data => {
       this.setState({ stations: data.slice(0) })
-    } )
+    })
+    const callsign = this.context.router.history.location.pathname.split('/')[2]
+    if (callsign !== undefined)
+      { this.setState({ station: { latitude: 0, longitude: 0 } }) }
   }
-
   componentDidUpdate(prevProps, prevState) {
   // if the station changed, but only if the stationState didn't and it didn't start from ''
     if (prevState.station !== this.state.station &&
         prevState.stationState === this.state.stationState &&
         prevState.stationState !== '')
       { this.context.router.history.push(`/station/${this.state.station.callsign}`) }
+    // debugger
+    // const callsign = this.context.router.history.location.pathname.split('/')[2]
+    // if (callsign !== undefined && )
+    //   { this.setState({ station: { latitude: 0, longitude: 0 } }) }
   }
 
+  // handlers
   handleStateChange(event, result){
     event.preventDefault()
     this.context.router.history.push('/')
     this.setState({ stationState: result.value, station: '' })
     // console.log(other_states.map(x => x.value).includes(this.state.stationState))
   }
-
   handleStationChange(event, result) {
     event.preventDefault()
     // console.log(this.state.stations.find(x => x.name === event.target.innerText).wban)
     const station = this.state.stations.find(x => x.name === result.value)
     this.setState({ station: station })
-
   }
-
   handleDateChange(date) {
     this.setState({ date: date });
     this.context.router.history.push(`/station/${this.state.station.callsign}/${date.format('YYYYMMDD')}`)
   }
 
   render() {
-
+    debugger
+    // while (this.state.station.callsign === undefined) {
+    //   return (
+    //     <div className="ui active inverted dimmer">
+    //       <div className="ui huge text loader">Loading data, please wait</div>
+    //     </div>
+    //   ) }
     return (
       <Grid celled className="centered">
 
@@ -95,19 +109,19 @@ export default class App extends Component {
                   <div>
                     <h1>Welcome to WeatherCraft</h1>
                     <p></p>
-                    <h3>Choose a state to start crating</h3>
+                    <h3>Choose a state to start crafting</h3>
                   </div>
                 )
             }} />
-          <Route path="/station/:callsign/:date" render={(routerProps) => {
-              const { date } = routerProps.match.params
+          <Route path="/station/:callsign/:date" render={routerProps => {
+              const { date, callsign } = routerProps.match.params
               return (
                 <div>
                   <Grid.Row>
-                    <DataContainer date={ date } station={ this.state.station }/>
+                    <DataContainer date={ date } station={ this.state.stations.find(x => x.callsign === callsign) }/>
                   </Grid.Row>
                   <Grid.Row>
-                    <VisualContainer date={ date } station={ this.state.station }/>
+                    <VisualContainer date={ date } station={ this.state.stations.find(x => x.callsign === callsign) }/>
                   </Grid.Row>
                 </div>
               )
@@ -117,7 +131,6 @@ export default class App extends Component {
 
       </Grid>
     )
-
   }
 }
 

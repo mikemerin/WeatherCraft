@@ -18,6 +18,7 @@ export default function SearchBar(props) {
       <Grid.Row>
         <Grid.Column width={8}>
           <Dropdown placeholder='Select a State'
+                    selected="custom"
                     fluid search selection options={ stateChoices }
                     onChange={ handleStateChange } />
         </Grid.Column>
@@ -32,7 +33,7 @@ export default function SearchBar(props) {
       <Grid.Row>
         <Grid.Column>
           <Switch>
-            <Route path='/station/:callsign' render={() => {
+            <Route path='/station/:callsign' render={(routerProps) => {
               return (
                 <DatePicker
                     dateFormat="YYYY/MM/DD"

@@ -14,7 +14,10 @@ export default class HeaderContainer extends Component {
         </Grid.Column>
         <Grid.Column width={8}>
           <Switch>
-            <Route path='/station/:callsign/:date' render={() => <NavBar /> } />
+            <Route path='/station/:callsign/:date' render={routerProps => {
+              const { callsign, date } = routerProps.match.params
+              return <NavBar callsign={callsign} date={date} routerProps={routerProps}/>
+            }} />
           </Switch>
         </Grid.Column>
         <Grid.Column width={3}>
