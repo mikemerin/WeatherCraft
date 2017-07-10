@@ -6,6 +6,7 @@ import { DailiesAdapter } from '../../adapters'
 import { DateParser } from '../helpers/DateParser'
 import { WindDirection } from '../helpers/WindDirection'
 import { WC } from '../helpers/WeatherCodes'
+import { Time24to12 } from '../helpers/Time24to12'
 
 export default class Daily extends Component {
 
@@ -81,8 +82,9 @@ export default class Daily extends Component {
       let dew_point_1 = ` ${dew_point}ºF`
       let depart_1 = ` ${depart}ºF`
 
-      let sunrise_1 = ` ${sunrise.slice(0,2)}:${sunrise.slice(2,4)}`
-      let sunset_1 = ` ${sunset.slice(0,2)}:${sunset.slice(2,4)}`
+      // let sunrise_1 = ` ${sunrise.slice(0,2)}:${sunrise.slice(2,4)}`
+      let sunrise_1 = Time24to12(sunrise)
+      let sunset_1 = Time24to12(sunset)
 
       let avg = ` ${avg_speed} MPH ${WindDirection(max2_dir)}`
       let max2 = `${max2_speed} `

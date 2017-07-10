@@ -4,6 +4,7 @@
   "author": "Mike Merin",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.6.0",
     "mapbox-gl": "^0.38.0",
     "moment-range": "^3.0.3",
     "react": "^15.6.1",
