@@ -120,9 +120,6 @@ export default class App extends Component {
                   <Grid.Row>
                     <DataContainer date={ date } station={ this.state.stations.find(x => x.callsign === callsign) }/>
                   </Grid.Row>
-                  <Grid.Row>
-                    <VisualContainer date={ date } station={ this.state.stations.find(x => x.callsign === callsign) }/>
-                  </Grid.Row>
                 </div>
               )
             }} />.

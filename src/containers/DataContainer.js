@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Daily from '../components/data/Daily'
+import Daily from '../components/data/Daily/Container'
 import Main from '../components/data/Main'
 import Monthly from '../components/data/Monthly'
 
@@ -12,8 +12,6 @@ export default class DataContainer extends Component {
   // }
 
   render() {
-    console.log(this.props.date)
-    console.log(this.props.station)
     return (
       <div>
         <Switch>
@@ -32,7 +30,3 @@ export default class DataContainer extends Component {
   }
 
 }
-
-
-//<Monthly date={ this.props.date } station={ this.props.station }/>
-// <Route exact path='/:wban' render={() =>  <Daily date={ this.props.date } station={ this.props.station } />  } />
