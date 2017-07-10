@@ -1,4 +1,4 @@
-export const WeatherCodes = {
+export const WC = {
 
   "-": "Light",
   "+": "Heavy",
@@ -30,6 +30,7 @@ export const WeatherCodes = {
   "HZ": "Haze",
   "PY": "Spray",
   "DU": "Widespread Dust",
+  "VC": "Vicinity",
 
   "SQ": "Squall",
   "SS": "Sndstorm",

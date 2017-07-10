@@ -10,9 +10,9 @@ export default class HeaderContainer extends Component {
   render() {
     return (
       <Grid>
-        <Grid.Column width={3}>
+        <Grid.Column width={5}>
         </Grid.Column>
-        <Grid.Column width={8}>
+        <Grid.Column width={6}>
           <Switch>
             <Route path='/station/:callsign/:date' render={routerProps => {
               const { callsign, date } = routerProps.match.params

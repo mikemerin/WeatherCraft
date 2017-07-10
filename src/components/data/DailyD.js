@@ -84,31 +84,51 @@ export default class Daily extends Component {
       let sunrise_1 = ` ${sunrise.slice(0,2)}:${sunrise.slice(2,4)}`
       let sunset_1 = ` ${sunset.slice(0,2)}:${sunset.slice(2,4)}`
 
-      let avg = ` ${avg_speed} MPH ${WindDirection(max2_dir)}`
-      let max2 = `${max2_speed} `
-      let max5 = ` ${max5_speed}`
+      let avg_speed_1 = ` ${avg_speed} MPH`
+      let max2 = ` ${max2_speed} MPH ${WindDirection(max2_dir)}`
+      let max5 = ` ${max5_speed} MPH ${WindDirection(max5_dir)}`
 
       let date = this.props.date
       let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
 
     return (
-      <div>
-        <br />
-        <br />
-        <Grid columns={3} relaxed="true" celled='internally' textAlign="center" verticalAlign="middle">
-
-          <Grid.Row>
-
-            <Grid.Column>
+      <Grid columns={3} celled textAlign="center">
+        <Grid.Row stretched>
+          <Grid.Column>
+            <Segment>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='rain' color="blue" />
+                    { precip_total_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Precip</Statistic.Label>
+              </Statistic>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='snowflake outline' />
+                    { snow_fall_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Snowfall</Statistic.Label>
+              </Statistic>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='resize vertical' />
+                    { depth_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Snow Depth</Statistic.Label>
+              </Statistic>
+            </Segment>
+            <Segment>
               <h3>Inclement Weather:</h3>
               <h4> { code_sum_1 } </h4>
-            </Grid.Column>
-
-            <Grid.Column>
-              <h1><strong> { year_month_day_1 } </strong></h1>
-            </Grid.Column>
-
-            <Grid.Column>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>
+              <h4>Weather for:</h4>
+              <h2><strong> { year_month_day_1 } </strong></h2>
+            </Segment>
+            <Segment>
               <Statistic size='mini'>
                 <Statistic.Value>
                   <Icon name='thermometer full' />
@@ -144,42 +164,15 @@ export default class Daily extends Component {
                   </Statistic.Value>
                 <Statistic.Label>Departure</Statistic.Label>
               </Statistic>
-            </Grid.Column>
-
-          </Grid.Row>
-
-          <Grid.Row>
-
-            <Grid.Column>
-              <Statistic size='mini'>
-                <Statistic.Value>
-                  <Icon name='rain' color="blue" />
-                    { precip_total_1 }
-                  </Statistic.Value>
-                <Statistic.Label>Precip</Statistic.Label>
-              </Statistic>
-              <Statistic size='mini'>
-                <Statistic.Value>
-                  <Icon name='snowflake outline' color="blue" />
-                    { snow_fall_1 }
-                  </Statistic.Value>
-                <Statistic.Label>Snowfall</Statistic.Label>
-              </Statistic>
-              <Statistic size='mini'>
-                <Statistic.Value>
-                  <Icon name='resize vertical' color="blue" />
-                    { depth_1 }
-                  </Statistic.Value>
-                <Statistic.Label>Snow Depth</Statistic.Label>
-              </Statistic>
-            </Grid.Column>
-
-            <Grid.Column>
+            </Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>
               <Statistic size='mini'>
                 <Statistic.Value>
                   <Icon.Group>
-                    <Icon name='sun' color="orange" />
-                    <Icon corner name='chevron circle up' color="yellow" />
+                    <Icon name='sun' />
+                    <Icon corner name='chevron circle up' />
                   </Icon.Group>
                     { sunrise_1 }
                   </Statistic.Value>
@@ -188,35 +181,28 @@ export default class Daily extends Component {
               <Statistic size='mini'>
                 <Statistic.Value>
                   <Icon.Group>
-                    <Icon name='sun' color="orange" />
-                    <Icon corner name='chevron circle down' color="red" />
+                    <Icon name='sun' />
+                    <Icon corner name='chevron circle down' />
                   </Icon.Group>
                     { sunset_1 }
                   </Statistic.Value>
                 <Statistic.Label>Sunset</Statistic.Label>
               </Statistic>
-            </Grid.Column>
-
-            <Grid.Column>
+            </Segment>
+            <Segment>
               <Statistic size='mini'>
                 <Statistic.Value>
                   <Icon name='flag outline' />
-                    { avg }
+                    { avg_speed_1 }
                   </Statistic.Value>
                 <Statistic.Label>Average Winds</Statistic.Label>
               </Statistic>
-              <Statistic size='mini'>
-                <Statistic.Value>
-                    { max2 }
-                  <Icon name='flag' color="red" />
-                    { max5 }
-                  </Statistic.Value>
-                <Statistic.Label>Top Wind / Gust</Statistic.Label>
-              </Statistic>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </div>
+              <div><strong>Highest: { max2 } </strong></div>
+              <div><strong>Top Gust: { max5 } </strong></div>
+            </Segment>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

@@ -78,7 +78,7 @@ export default class App extends Component {
   }
 
   render() {
-    debugger
+    // debugger
     // while (this.state.station.callsign === undefined) {
     //   return (
     //     <div className="ui active inverted dimmer">
