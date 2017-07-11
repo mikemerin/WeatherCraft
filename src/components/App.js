@@ -1,14 +1,13 @@
 // main react files
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
 
 // containers
 import HeaderContainer from '../containers/HeaderContainer'
 import SideBarContainer from '../containers/SideBarContainer'
 import DataContainer from '../containers/DataContainer'
-import VisualContainer from '../containers/VisualContainer'
 
 // constants and more. note: other_states will be imported from StateChoices in the future
 import { united_states } from './helpers/StateChoices'
@@ -31,10 +30,8 @@ export default class App extends Component {
       stations: [],
       stateChoices: united_states
     }
-    this.handleDateChange = this.handleDateChange.bind(this)
-    this.handleStateChange = this.handleStateChange.bind(this)
-    this.handleStationChange = this.handleStationChange.bind(this)
   }
+
 
   // lifecycle methods
   componentWillMount() {
@@ -60,19 +57,19 @@ export default class App extends Component {
   }
 
   // handlers
-  handleStateChange(event, result){
+  handleStateChange = (event, result) => {
     event.preventDefault()
     this.context.router.history.push('/')
     this.setState({ stationState: result.value, station: '' })
     // console.log(other_states.map(x => x.value).includes(this.state.stationState))
   }
-  handleStationChange(event, result) {
+  handleStationChange = (event, result) => {
     event.preventDefault()
     // console.log(this.state.stations.find(x => x.name === event.target.innerText).wban)
     const station = this.state.stations.find(x => x.name === result.value)
     this.setState({ station: station })
   }
-  handleDateChange(date) {
+  handleDateChange = (date) => {
     this.setState({ date: date });
     this.context.router.history.push(`/station/${this.state.station.callsign}/${date.format('YYYYMMDD')}`)
   }

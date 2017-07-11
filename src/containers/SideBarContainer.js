@@ -29,9 +29,10 @@ export default class SideBarContainer extends Component {
                    handleStationChange={ handleStationChange }/>
 
         <Switch>
-          <Route path='/station/:id' render={() => {
+          <Route path='/station/:id' render={(routerProps) => {
 
-            // console.log(id)
+            // need to use routerProps for the station
+            // debugger
             return (
               <div>
                 <br></br>

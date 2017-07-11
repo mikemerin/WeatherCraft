@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Statistic, Grid, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import { WC } from '../../helpers/WeatherCodes'
 
@@ -21,8 +21,8 @@ export default function Temperatures(props) {
 
   return (
     <Grid.Column>
-      <h3>Inclement Weather:</h3>
-      <h4> { code_sum_1 } </h4>
+      <h4>Inclement Weather:</h4>
+      <p><strong> { code_sum_1 } </strong></p>
     </Grid.Column>
   )
 }

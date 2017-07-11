@@ -13,7 +13,7 @@ import Precip from './Precip'
 import Sun from './Sun'
 import Winds from './Winds'
 
-import { myChart } from './Graph'
+import Graph from './Graph'
 
 export default class Daily extends Component {
 
@@ -31,7 +31,7 @@ export default class Daily extends Component {
     }
 
   }
-
+  
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
     DailiesAdapter.station_date(nextProps.station.wban, nextProps.date)
@@ -88,6 +88,9 @@ export default class Daily extends Component {
           </Grid.Row>
 
         </Grid>
+
+        <Graph />
+
       </div>
     )
   }
