@@ -4,9 +4,25 @@ import { Line } from 'react-chartjs-2'
 export default class Graph extends Component {
 
   render() {
+
+    let labels = [null, null, null, null, null, null, null]
+
+    if (this.props.data.avg_speed !== "") {
+    const pre3 = `${parseInt(this.props.data.pre3_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.pre3_year_month_day.slice(6,8))}`
+    const pre2 = `${parseInt(this.props.data.pre2_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.pre2_year_month_day.slice(6,8))}`
+    const pre1 = `${parseInt(this.props.data.pre1_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.pre1_year_month_day.slice(6,8))}`
+    const today = `${parseInt(this.props.data.year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.year_month_day.slice(6,8))}`
+    const post1 = `${parseInt(this.props.data.post1_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.post1_year_month_day.slice(6,8))}`
+    const post2 = `${parseInt(this.props.data.post2_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.post2_year_month_day.slice(6,8))}`
+    const post3 = `${parseInt(this.props.data.post3_year_month_day.slice(4,6), 10)}/${parseInt(this.props.data.post3_year_month_day.slice(6,8))}`
+
+    labels = [pre3, pre2, pre1, today, post1, post2, post3]
+    }
+
+
+
     const data = {
-      // labels: ['1/20 High', '1/20 Low', '1/21 High', '1/21 Low', '1/22 High', '1/22 Low', '1/23 High', 'April', 'May', 'June', 'July'],
-      labels: ['1/20', '1/21', '1/22', '1/23', '1/24', '1/25', '1/26'],
+      labels: labels,
       datasets: [
         {
           label: 'High Temps',

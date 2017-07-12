@@ -45,21 +45,20 @@ export default class Daily extends Component {
     .then(data => {
       // debugger
       console.log("daily components will receive props")
-      // let avg_speed = code_sum = created_at = depart = depth = dew_point = id = max2_dir = max2_speed = max5_dir = max5_speed = precip_total = result_dir = result_speed = snow_fall = sunrise = sunset = tavg = tmax = tmin = updated_at = wban = year_month_day = "M"
 
-      if (data[3] !== null || data[3] !== undefined) {
+      if (data[3] !== null && data[3] !== undefined) {
 
         const { avg_speed, code_sum, created_at, depart, depth, dew_point,
         id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
         result_dir, result_speed, snow_fall, sunrise, sunset,
         tavg, tmax, tmin, updated_at, wban, year_month_day } = data[3]
 
-        const pre3_tmax = parseFloat(data[0].tmax), pre3_tmin = parseFloat(data[0].tmin), pre3_tavg = parseFloat(data[0].tavg), pre3_precip_total = parseFloat(data[0].precip_total)
-        const pre2_tmax = parseFloat(data[1].tmax), pre2_tmin = parseFloat(data[1].tmin), pre2_tavg = parseFloat(data[1].tavg), pre2_precip_total = parseFloat(data[1].precip_total)
-        const pre1_tmax = parseFloat(data[2].tmax), pre1_tmin = parseFloat(data[2].tmin), pre1_tavg = parseFloat(data[2].tavg), pre1_precip_total = parseFloat(data[2].precip_total)
-        const post1_tmax = parseFloat(data[4].tmax), post1_tmin = parseFloat(data[4].tmin), post1_tavg = parseFloat(data[4].tavg), post1_precip_total = parseFloat(data[4].precip_total)
-        const post2_tmax = parseFloat(data[5].tmax), post2_tmin = parseFloat(data[5].tmin), post2_tavg = parseFloat(data[5].tavg), post2_precip_total = parseFloat(data[5].precip_total)
-        const post3_tmax = parseFloat(data[6].tmax), post3_tmin = parseFloat(data[6].tmin), post3_tavg = parseFloat(data[6].tavg), post3_precip_total = parseFloat(data[6].precip_total)
+        const pre3_year_month_day = data[0].year_month_day, pre3_tmax = parseFloat(data[0].tmax), pre3_tmin = parseFloat(data[0].tmin), pre3_tavg = parseFloat(data[0].tavg), pre3_precip_total = parseFloat(data[0].precip_total)
+        const pre2_year_month_day = data[1].year_month_day, pre2_tmax = parseFloat(data[1].tmax), pre2_tmin = parseFloat(data[1].tmin), pre2_tavg = parseFloat(data[1].tavg), pre2_precip_total = parseFloat(data[1].precip_total)
+        const pre1_year_month_day = data[2].year_month_day, pre1_tmax = parseFloat(data[2].tmax), pre1_tmin = parseFloat(data[2].tmin), pre1_tavg = parseFloat(data[2].tavg), pre1_precip_total = parseFloat(data[2].precip_total)
+        const post1_year_month_day = data[4].year_month_day, post1_tmax = parseFloat(data[4].tmax), post1_tmin = parseFloat(data[4].tmin), post1_tavg = parseFloat(data[4].tavg), post1_precip_total = parseFloat(data[4].precip_total)
+        const post2_year_month_day = data[5].year_month_day, post2_tmax = parseFloat(data[5].tmax), post2_tmin = parseFloat(data[5].tmin), post2_tavg = parseFloat(data[5].tavg), post2_precip_total = parseFloat(data[5].precip_total)
+        const post3_year_month_day = data[6].year_month_day, post3_tmax = parseFloat(data[6].tmax), post3_tmin = parseFloat(data[6].tmin), post3_tavg = parseFloat(data[6].tavg), post3_precip_total = parseFloat(data[6].precip_total)
 
         const unused = [id, created_at, updated_at]
 
@@ -70,12 +69,12 @@ export default class Daily extends Component {
           result_speed: result_speed, snow_fall: snow_fall, sunrise: sunrise,
           sunset: sunset, tavg: tavg, tmax: tmax, tmin: tmin,
           wban: wban, year_month_day: year_month_day,
-          pre3_tmax: pre3_tmax, pre3_tmin: pre3_tmin, pre3_tavg: pre3_tavg, pre3_precip_total: pre3_precip_total,
-          pre2_tmax: pre2_tmax, pre2_tmin: pre2_tmin, pre2_tavg: pre2_tavg, pre2_precip_total: pre2_precip_total,
-          pre1_tmax: pre1_tmax, pre1_tmin: pre1_tmin, pre1_tavg: pre1_tavg, pre1_precip_total: pre1_precip_total,
-          post1_tmax: post1_tmax, post1_tmin: post1_tmin, post1_tavg: post1_tavg, post1_precip_total: post1_precip_total,
-          post2_tmax: post2_tmax, post2_tmin: post2_tmin, post2_tavg: post2_tavg, post2_precip_total: post2_precip_total,
-          post3_tmax: post3_tmax, post3_tmin: post3_tmin, post3_tavg: post3_tavg, post3_precip_total: post3_precip_total
+          pre3_year_month_day: pre3_year_month_day, pre3_tmax: pre3_tmax, pre3_tmin: pre3_tmin, pre3_tavg: pre3_tavg, pre3_precip_total: pre3_precip_total,
+          pre2_year_month_day: pre2_year_month_day, pre2_tmax: pre2_tmax, pre2_tmin: pre2_tmin, pre2_tavg: pre2_tavg, pre2_precip_total: pre2_precip_total,
+          pre1_year_month_day: pre1_year_month_day, pre1_tmax: pre1_tmax, pre1_tmin: pre1_tmin, pre1_tavg: pre1_tavg, pre1_precip_total: pre1_precip_total,
+          post1_year_month_day: post1_year_month_day, post1_tmax: post1_tmax, post1_tmin: post1_tmin, post1_tavg: post1_tavg, post1_precip_total: post1_precip_total,
+          post2_year_month_day: post2_year_month_day, post2_tmax: post2_tmax, post2_tmin: post2_tmin, post2_tavg: post2_tavg, post2_precip_total: post2_precip_total,
+          post3_year_month_day: post3_year_month_day, post3_tmax: post3_tmax, post3_tmin: post3_tmin, post3_tavg: post3_tavg, post3_precip_total: post3_precip_total
 
         })
       } else {
