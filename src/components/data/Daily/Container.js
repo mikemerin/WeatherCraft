@@ -27,7 +27,14 @@ export default class Daily extends Component {
       tmax: '', tmin: '', tavg: '', dew_point: '', depart: '',
       sunrise: '', sunset: '',
       max2_dir: '', max2_speed: '', max5_dir: '', max5_speed: '',
-      result_dir: '', result_speed: '', avg_speed: ''
+      result_dir: '', result_speed: '', avg_speed: '',
+
+      pre3_tmax: '', pre3_tmin: '', pre3_tavg: '', pre3_precip_total: '',
+      pre2_tmax: '', pre2_tmin: '', pre2_tavg: '', pre2_precip_total: '',
+      pre1_tmax: '', pre1_tmin: '', pre1_tavg: '', pre1_precip_total: '',
+      post1_tmax: '', post1_tmin: '', post1_tavg: '', post1_precip_total: '',
+      post2_tmax: '', post2_tmin: '', post2_tavg: '', post2_precip_total: '',
+      post3_tmax: '', post3_tmin: '', post3_tavg: '', post3_precip_total: ''
     }
 
   }
@@ -42,12 +49,19 @@ export default class Daily extends Component {
 
       if (data[3] !== null || data[3] !== undefined) {
 
-        let { avg_speed, code_sum, created_at, depart, depth, dew_point,
+        const { avg_speed, code_sum, created_at, depart, depth, dew_point,
         id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
         result_dir, result_speed, snow_fall, sunrise, sunset,
         tavg, tmax, tmin, updated_at, wban, year_month_day } = data[3]
 
-        let unused = [id, created_at, updated_at]
+        const pre3_tmax = parseFloat(data[0].tmax), pre3_tmin = parseFloat(data[0].tmin), pre3_tavg = parseFloat(data[0].tavg), pre3_precip_total = parseFloat(data[0].precip_total)
+        const pre2_tmax = parseFloat(data[1].tmax), pre2_tmin = parseFloat(data[1].tmin), pre2_tavg = parseFloat(data[1].tavg), pre2_precip_total = parseFloat(data[1].precip_total)
+        const pre1_tmax = parseFloat(data[2].tmax), pre1_tmin = parseFloat(data[2].tmin), pre1_tavg = parseFloat(data[2].tavg), pre1_precip_total = parseFloat(data[2].precip_total)
+        const post1_tmax = parseFloat(data[4].tmax), post1_tmin = parseFloat(data[4].tmin), post1_tavg = parseFloat(data[4].tavg), post1_precip_total = parseFloat(data[4].precip_total)
+        const post2_tmax = parseFloat(data[5].tmax), post2_tmin = parseFloat(data[5].tmin), post2_tavg = parseFloat(data[5].tavg), post2_precip_total = parseFloat(data[5].precip_total)
+        const post3_tmax = parseFloat(data[6].tmax), post3_tmin = parseFloat(data[6].tmin), post3_tavg = parseFloat(data[6].tavg), post3_precip_total = parseFloat(data[6].precip_total)
+
+        const unused = [id, created_at, updated_at]
 
         this.setState({ avg_speed: avg_speed, code_sum: code_sum, depart: depart,
           depth: depth, dew_point: dew_point, max2_dir: max2_dir,
@@ -55,7 +69,15 @@ export default class Daily extends Component {
           precip_total: precip_total, result_dir: result_dir,
           result_speed: result_speed, snow_fall: snow_fall, sunrise: sunrise,
           sunset: sunset, tavg: tavg, tmax: tmax, tmin: tmin,
-          wban: wban, year_month_day: year_month_day })
+          wban: wban, year_month_day: year_month_day,
+          pre3_tmax: pre3_tmax, pre3_tmin: pre3_tmin, pre3_tavg: pre3_tavg, pre3_precip_total: pre3_precip_total,
+          pre2_tmax: pre2_tmax, pre2_tmin: pre2_tmin, pre2_tavg: pre2_tavg, pre2_precip_total: pre2_precip_total,
+          pre1_tmax: pre1_tmax, pre1_tmin: pre1_tmin, pre1_tavg: pre1_tavg, pre1_precip_total: pre1_precip_total,
+          post1_tmax: post1_tmax, post1_tmin: post1_tmin, post1_tavg: post1_tavg, post1_precip_total: post1_precip_total,
+          post2_tmax: post2_tmax, post2_tmin: post2_tmin, post2_tavg: post2_tavg, post2_precip_total: post2_precip_total,
+          post3_tmax: post3_tmax, post3_tmin: post3_tmin, post3_tavg: post3_tavg, post3_precip_total: post3_precip_total
+
+        })
       } else {
         alert("Sorry, no data was found for this date and location, please try again")
       }
@@ -99,7 +121,7 @@ export default class Daily extends Component {
 
         </Grid>
 
-        <Graph station={this.props.station} />
+        <Graph data={this.state} />
 
       </div>
     )
