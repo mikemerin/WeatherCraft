@@ -19,3 +19,6 @@
 
 
 // document.getElementById
+
+
+// document.getElementsByClassName('tweet js-stream-tweet js-actionable-tweet')

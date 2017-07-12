@@ -31,7 +31,7 @@ export class DailiesAdapter {
   }
 
   static station_date(wban, date) {
-    return fetch(`${dailies_URL}/${wban}/${date}`)
+    return fetch(`${dailies_URL}/${wban}/${date}/adjacent`)
       .then( res => res.json() )
   }
 

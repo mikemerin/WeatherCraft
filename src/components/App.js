@@ -38,6 +38,7 @@ export default class App extends Component {
     console.log("mounting");
     // debugger
     StationsAdapter.all().then(data => {
+      console.log(data)
       this.setState({ stations: data.slice(0) })
     })
     const callsign = this.context.router.history.location.pathname.split('/')[2]

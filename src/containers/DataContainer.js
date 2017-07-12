@@ -19,6 +19,7 @@ export default class DataContainer extends Component {
             return <Main date={ this.props.date } station={ this.props.station } />
           }} />
           <Route exact path="/station/:wban/:date/daily" render={(routerProps) => {
+            // routerProps.match.params.wban = routerProps.match.params.wban.toUpperCase()
             return <Daily date={ this.props.date } station={ this.props.station } />
           }} />
           <Route exact path="/station/:wban/:date/monthly" render={(routerProps) => {
