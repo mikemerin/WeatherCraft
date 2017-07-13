@@ -1,6 +1,6 @@
 export const Time24to12 = (time) => {
 
-  let HH = parseInt(time.slice(0,2))
+  let HH = parseInt(time.slice(0,2), 10)
   let MM = time.slice(2,4)
 
   if (time === "")

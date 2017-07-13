@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Daily from '../components/data/Daily/Container'
-import Main from '../components/data/Main'
+// import Main from '../components/data/Main'
 import Monthly from '../components/data/Monthly/Container'
 
 export default class DataContainer extends Component {

@@ -10,17 +10,17 @@ export const Graph = (props) => {
     // let precip_height = 0
 
     if (props.data.avg_speed !== "") {
-      const pre5 = `${parseInt(props.data.pre5_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre5_year_month_day.slice(6,8))}`
-      const pre4 = `${parseInt(props.data.pre4_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre4_year_month_day.slice(6,8))}`
-      const pre3 = `${parseInt(props.data.pre3_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre3_year_month_day.slice(6,8))}`
-      const pre2 = `${parseInt(props.data.pre2_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre2_year_month_day.slice(6,8))}`
-      const pre1 = `${parseInt(props.data.pre1_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre1_year_month_day.slice(6,8))}`
-      const today = `${parseInt(props.data.year_month_day.slice(4,6), 10)}/${parseInt(props.data.year_month_day.slice(6,8))}`
-      const post1 = `${parseInt(props.data.post1_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post1_year_month_day.slice(6,8))}`
-      const post2 = `${parseInt(props.data.post2_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post2_year_month_day.slice(6,8))}`
-      const post3 = `${parseInt(props.data.post3_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post3_year_month_day.slice(6,8))}`
-      const post4 = `${parseInt(props.data.post4_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post4_year_month_day.slice(6,8))}`
-      const post5 = `${parseInt(props.data.post5_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post5_year_month_day.slice(6,8))}`
+      const pre5 = `${parseInt(props.data.pre5_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre5_year_month_day.slice(6,8), 10)}`
+      const pre4 = `${parseInt(props.data.pre4_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre4_year_month_day.slice(6,8), 10)}`
+      const pre3 = `${parseInt(props.data.pre3_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre3_year_month_day.slice(6,8), 10)}`
+      const pre2 = `${parseInt(props.data.pre2_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre2_year_month_day.slice(6,8), 10)}`
+      const pre1 = `${parseInt(props.data.pre1_year_month_day.slice(4,6), 10)}/${parseInt(props.data.pre1_year_month_day.slice(6,8), 10)}`
+      const today = `${parseInt(props.data.year_month_day.slice(4,6), 10)}/${parseInt(props.data.year_month_day.slice(6,8), 10)}`
+      const post1 = `${parseInt(props.data.post1_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post1_year_month_day.slice(6,8), 10)}`
+      const post2 = `${parseInt(props.data.post2_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post2_year_month_day.slice(6,8), 10)}`
+      const post3 = `${parseInt(props.data.post3_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post3_year_month_day.slice(6,8), 10)}`
+      const post4 = `${parseInt(props.data.post4_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post4_year_month_day.slice(6,8), 10)}`
+      const post5 = `${parseInt(props.data.post5_year_month_day.slice(4,6), 10)}/${parseInt(props.data.post5_year_month_day.slice(6,8), 10)}`
 
       labels = [pre5, pre4, pre3, pre2, pre1, today, post1, post2, post3, post4, post5]
 
