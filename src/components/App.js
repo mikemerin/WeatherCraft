@@ -86,7 +86,7 @@ export default class App extends Component {
     return (
       <Grid celled className="centered">
 
-        <Grid.Column width={4}>
+        <Grid.Column width={4} textAlign="center">
           <SideBarContainer date={ this.state.date }
                             stationState={ this.state.stationState }
                             stations={ this.state.stations }
@@ -97,7 +97,7 @@ export default class App extends Component {
                             handleStationChange={ this.handleStationChange }/>
         </Grid.Column>
 
-        <Grid.Column width={12}>
+        <Grid.Column width={12} textAlign="center">
           <Grid.Row>
             <HeaderContainer />
           </Grid.Row>
@@ -105,9 +105,10 @@ export default class App extends Component {
             <Route exact path="/" render={() => {
                 return (
                   <div>
+                    <p></p>
                     <h1>Welcome to WeatherCraft</h1>
                     <p></p>
-                    <h3>Choose a state to start crafting</h3>
+                    <h3>Choose a state and station to start crafting</h3>
                   </div>
                 )
             }} />

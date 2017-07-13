@@ -14,7 +14,7 @@ export default function SearchBar(props) {
 
 
   return (
-    <Grid className="centered">
+    <Grid className="centered" textAlign="center">
       <Grid.Row>
         <Grid.Column width={8}>
           <Dropdown placeholder='Select a State'
@@ -24,14 +24,14 @@ export default function SearchBar(props) {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column>
+        <Grid.Column textAlign="center">
           <Dropdown placeholder='Select a Station'
                     fluid search selection options={ filtered_stations }
                     onChange={ handleStationChange } />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column>
+        <Grid.Column textAlign="center">
           <Switch>
             <Route path='/station/:callsign' render={(routerProps) => {
               return (

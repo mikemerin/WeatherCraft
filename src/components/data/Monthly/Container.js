@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { MonthliesAdapter } from '../../adapters'
+import { MonthliesAdapter } from '../../../adapters'
 // note, need to fix this double ..
 
 export default class Monthly extends Component {
