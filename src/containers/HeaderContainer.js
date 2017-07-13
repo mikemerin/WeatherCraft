@@ -12,7 +12,7 @@ export default class HeaderContainer extends Component {
       <Grid>
         <Grid.Column width={7}>
         </Grid.Column>
-        <Grid.Column width={3}>
+        <Grid.Column width={2}>
           <Switch>
             <Route path='/station/:callsign/:date' render={routerProps => {
               const { callsign, date } = routerProps.match.params
@@ -20,7 +20,7 @@ export default class HeaderContainer extends Component {
             }} />
           </Switch>
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
         </Grid.Column>
         <Grid.Column width={2}>
           <UserBar />

@@ -35,6 +35,11 @@ export class DailiesAdapter {
       .then( res => res.json() )
   }
 
+  static station_historical(wban, date) {
+    return fetch(`${dailies_URL}/${wban}/${date}/historical`)
+      .then( res => res.json() )
+  }
+
 }
 
 export class MonthliesAdapter {
