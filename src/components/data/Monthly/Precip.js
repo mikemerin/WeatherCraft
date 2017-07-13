@@ -6,8 +6,8 @@ export default function Precip(props) {
   const { precip_total, snow_fall, depth } = props
 
   let precip_total_1 = (precip_total === "M" ? " M" : ` ${precip_total}"`)
-  let snow_fall_1 = (snow_fall === "M" ? " M" : ` ${snow_fall}"` )
-  let depth_1 = (depth === "M" ? " M" : ` ${depth}"` )
+  let snow_fall_1 = ` ${snow_fall}"`
+  let depth_1 = ` ${depth}"`
 
   return (
     <Grid.Column>

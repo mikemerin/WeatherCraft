@@ -47,6 +47,7 @@ export default class App extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
   // if the station changed, but only if the stationState didn't and it didn't start from ''
+  
     if (prevState.station !== this.state.station &&
         prevState.stationState === this.state.stationState &&
         prevState.stationState !== '')

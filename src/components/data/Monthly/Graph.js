@@ -186,7 +186,7 @@ export const Graph = (props) => {
     //     }
     //   ]
     // };
-    // if using precip, make height 50 for data and insert <Bar data={data_precip} height={50} />
+    // if using precip, make height 50 for data and insert <Bar data={precip_temps} height={50} />
     return (
       <div>
         <h2>Weekly Information</h2>

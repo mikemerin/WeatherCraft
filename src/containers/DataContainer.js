@@ -16,9 +16,6 @@ export default class DataContainer extends Component {
       <div>
         <Switch>
           <Route exact path="/station/:wban/:date" render={(routerProps) => {
-            return <Main date={ this.props.date } station={ this.props.station } />
-          }} />
-          <Route exact path="/station/:wban/:date/daily" render={(routerProps) => {
             // routerProps.match.params.wban = routerProps.match.params.wban.toUpperCase()
             return <Daily date={ this.props.date } station={ this.props.station } />
           }} />
@@ -31,3 +28,8 @@ export default class DataContainer extends Component {
   }
 
 }
+
+
+// <Route exact path="/station/:wban/:date" render={(routerProps) => {
+//   return <Main date={ this.props.date } station={ this.props.station } />
+// }} />

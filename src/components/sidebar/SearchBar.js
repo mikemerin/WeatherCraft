@@ -35,16 +35,27 @@ export default function SearchBar(props) {
           <Switch>
             <Route path='/station/:callsign' render={(routerProps) => {
               return (
-                <DatePicker
-                    dateFormat="YYYY/MM/DD"
-                    selected={ selected }
-                    onSelect={ handleDateChange }
-                    min={moment('2007-05-01', 'YYYY-MM-DD')}
-                    max={moment('2017-06-30', 'YYYY-MM-DD')}
-                    minDate={moment('2007-05-01', 'YYYY-MM-DD')}
-                    maxDate={moment('2017-06-30', 'YYYY-MM-DD')}
-                    placeholderText="Select a date"
-                  /> )
+                <div>
+                  <DatePicker
+                      dateFormat="YYYY/MM/DD"
+                      selected={ selected }
+                      onSelect={ handleDateChange }
+                      min={moment('2007-05-01', 'YYYY-MM-DD')}
+                      max={moment('2017-06-30', 'YYYY-MM-DD')}
+                      minDate={moment('2007-05-01', 'YYYY-MM-DD')}
+                      maxDate={moment('2017-06-30', 'YYYY-MM-DD')}
+                      placeholderText="Select a date"
+                    />
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                  </div> )
             }} />
           </Switch>
         </Grid.Column>
