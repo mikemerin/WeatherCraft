@@ -12,7 +12,7 @@ export default function Map({ station, stations }) {
   return (
     <div>
       <Map style="mapbox://styles/mapbox/streets-v9"
-           containerStyle={{ height: "35vh", width: "23vw" }}
+           containerStyle={{ height: "55vh", width: "23vw" }}
            zoom='9'
            center={[longitude, latitude]}>
         <Layer type="symbol" id="marker"

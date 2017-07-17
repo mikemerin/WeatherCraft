@@ -50,11 +50,6 @@ export default function SearchBar(props) {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                   </div> )
             }} />
           </Switch>

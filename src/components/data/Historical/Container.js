@@ -38,10 +38,11 @@ export default class Historical extends Component {
 
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
+    // debugger
     DailiesAdapter.station_historical(nextProps.station.wban, nextProps.date)
     .then(data => {
       console.log("historical componentWillReceiveProps", this.state, this.props)
-
+      // debugger
       if (data[0] !== null && data[0] !== undefined) {
 
         if (data.length === 10 && data[0].year_month_day[3] === "8") {

@@ -5,11 +5,11 @@ export default function Temperatures(props) {
 
   const { tmax, tmin, tavg, dew_point, depart } = props
 
-  let tmax_1 = ` ${tmax}ºF`
-  let tmin_1 = ` ${tmin}ºF`
-  let tavg_1 = ` ${tavg}ºF`
-  let dew_point_1 = ` ${dew_point}ºF`
-  let depart_1 = ` ${depart}ºF`
+  let tmax_1 = tmax === "M" ? " M" : ` ${tmax}ºF`
+  let tmin_1 = tmin === "M" ? " M" : ` ${tmin}ºF`
+  let tavg_1 = tavg === "M" ? " M" : ` ${tavg}ºF`
+  let dew_point_1 = dew_point === "M" ? " M" : ` ${dew_point}ºF`
+  let depart_1 = depart === "M" ? " M" : ` ${depart}ºF`
 
   return (
     <Grid.Column>

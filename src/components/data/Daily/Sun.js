@@ -7,8 +7,8 @@ export default function Sun(props) {
 
   const { sunrise, sunset } = props
 
-  let sunrise_1 = Time24to12(sunrise)
-  let sunset_1 = Time24to12(sunset)
+  let sunrise_1 = sunrise === "-" ? " M" : Time24to12(sunrise)
+  let sunset_1 = sunset === "-" ? " M" : Time24to12(sunset)
 
   return (
     <Grid.Column>
