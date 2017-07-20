@@ -101,7 +101,7 @@ export default class Historical extends Component {
         <br />
         <h1><strong> { month_day_1 } </strong></h1>
 
-        <Graph data={this.state} />
+        <Graph data={this.state} year={this.props.date.slice(0,4)}/>
 
       </div>
     )

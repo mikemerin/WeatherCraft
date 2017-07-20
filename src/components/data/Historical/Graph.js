@@ -2,14 +2,14 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 export const Graph = (props) => {
+  console.log(props)
 
     //note: not using precip height for now, it works but I'll save it for later
     // debugger
-    let labels = ['', '', '', '', '', '', '', '', '', '']
+    const labels = ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
     let data_temps = {}
-    // let temp_height = 0
+    let temp_height = 0
     // let precip_height = 0
-
 
     let { length,
       o07_year, o07_tmax, o07_tmin, o07_tavg,
@@ -36,21 +36,21 @@ export const Graph = (props) => {
     if (isNaN(o16_tavg)) { o16_tavg = (o16_tmax + o16_tmin) / 2 }
     if (isNaN(o17_tavg)) { o17_tavg = (o17_tmax + o17_tmin) / 2 }
 
+    temp_height = Math.ceil(Math.max(o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax,
+      o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax) / 10) * 10
 
-    if (props.data.length !== 0 && props.data.o07 === '') {
-      labels = [o08_year, o09_year, o10_year, o11_year, o12_year, o13_year, o14_year, o15_year, o16_year, o17_year]
-    }
-
-    if (props.data.length !== 0 && props.data.o17 === '') {
-      labels = [o07_year, o08_year, o09_year, o10_year, o11_year, o12_year, o13_year, o14_year, o15_year, o16_year]
-    }
-
-    if (props.data.length !== 0 && props.data.o07 !== '' && props.data.o17 !== '') {
-      labels = [o07_year, o08_year, o09_year, o10_year, o11_year, o12_year, o13_year, o14_year, o15_year, o16_year, o17_year]
-    }
+    const year_bar = labels.map(x => x === props.year ? temp_height : null )
 
     data_temps = {
       labels: labels,
+      scales: {
+       xAxes: [{
+          stacked: true,
+           }],
+       yAxes: [{
+            stacked: true
+           }]
+      },
       options: {
         layout: {
           padding: {
@@ -60,6 +60,26 @@ export const Graph = (props) => {
         }
       },
       datasets: [
+        {
+          label: 'Chosen Year',
+          type: 'bar',
+          backgroundColor: 'rgba(0,0,0,0.2)',
+          borderColor: 'rgba(0,0,0,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(0,0,0,1)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+          pointHoverBorderColor: 'rgba(0,0,0,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: year_bar
+        },
         {
           label: 'High Temps',
           type: 'line',
@@ -80,7 +100,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [o08_tmax, o09_tmax, o10_tmax, o11_tmax, o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax]
+          data: [o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax, o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax]
         },
         {
           label: 'Average Temps',
@@ -102,7 +122,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o16_tavg, o17_tavg]
+          data: [o08_tavg, o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o16_tavg, o17_tavg]
         },
         {
           label: 'Low Temps',
@@ -124,7 +144,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [o08_tmin, o09_tmin, o10_tmin, o11_tmin, o12_tmin, o13_tmin, o14_tmin, o15_tmin, o16_tmin, o17_tmin]
+          data: [o08_tmin, o08_tmin, o09_tmin, o10_tmin, o11_tmin, o12_tmin, o13_tmin, o14_tmin, o15_tmin, o16_tmin, o17_tmin]
         }
       ]
     }
