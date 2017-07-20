@@ -10,8 +10,8 @@ export const Graph = (props) => {
     // let temp_height = 0
     // let precip_height = 0
 
-    
-    const { length,
+
+    let { length,
       o07_year, o07_tmax, o07_tmin, o07_tavg,
       o08_year, o08_tmax, o08_tmin, o08_tavg,
       o09_year, o09_tmax, o09_tmin, o09_tavg,
@@ -23,6 +23,19 @@ export const Graph = (props) => {
       o15_year, o15_tmax, o15_tmin, o15_tavg,
       o16_year, o16_tmax, o16_tmin, o16_tavg,
       o17_year, o17_tmax, o17_tmin, o17_tavg } = props.data
+
+    if (isNaN(o07_tavg)) { o07_tavg = (o07_tmax + o07_tmin) / 2 }
+    if (isNaN(o08_tavg)) { o08_tavg = (o08_tmax + o08_tmin) / 2 }
+    if (isNaN(o09_tavg)) { o09_tavg = (o09_tmax + o09_tmin) / 2 }
+    if (isNaN(o10_tavg)) { o10_tavg = (o10_tmax + o10_tmin) / 2 }
+    if (isNaN(o11_tavg)) { o11_tavg = (o11_tmax + o11_tmin) / 2 }
+    if (isNaN(o12_tavg)) { o12_tavg = (o12_tmax + o12_tmin) / 2 }
+    if (isNaN(o13_tavg)) { o13_tavg = (o13_tmax + o13_tmin) / 2 }
+    if (isNaN(o14_tavg)) { o14_tavg = (o14_tmax + o14_tmin) / 2 }
+    if (isNaN(o15_tavg)) { o15_tavg = (o15_tmax + o15_tmin) / 2 }
+    if (isNaN(o16_tavg)) { o16_tavg = (o16_tmax + o16_tmin) / 2 }
+    if (isNaN(o17_tavg)) { o17_tavg = (o17_tmax + o17_tmin) / 2 }
+
 
     if (props.data.length !== 0 && props.data.o07 === '') {
       labels = [o08_year, o09_year, o10_year, o11_year, o12_year, o13_year, o14_year, o15_year, o16_year, o17_year]
