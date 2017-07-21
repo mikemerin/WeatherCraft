@@ -36,6 +36,9 @@ export const Graph = (props) => {
     if (isNaN(o16_tavg)) { o16_tavg = (o16_tmax + o16_tmin) / 2 }
     if (isNaN(o17_tavg)) { o17_tavg = (o17_tmax + o17_tmin) / 2 }
 
+    if (o07_year === "" ) { o07_tmax = o07_tavg = o07_tmin = null }
+    if (o17_year === "" ) { o17_tmax = o17_tavg = o17_tmin = null }
+
     temp_height = Math.ceil(Math.max(o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax,
       o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax) / 10) * 10
 
@@ -122,7 +125,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [o08_tavg, o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o16_tavg, o17_tavg]
+          data: [o07_tavg, o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o16_tavg, o17_tavg]
         },
         {
           label: 'Low Temps',
@@ -144,7 +147,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [o08_tmin, o08_tmin, o09_tmin, o10_tmin, o11_tmin, o12_tmin, o13_tmin, o14_tmin, o15_tmin, o16_tmin, o17_tmin]
+          data: [o07_tmin, o08_tmin, o09_tmin, o10_tmin, o11_tmin, o12_tmin, o13_tmin, o14_tmin, o15_tmin, o16_tmin, o17_tmin]
         }
       ]
     }
