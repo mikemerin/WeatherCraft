@@ -154,7 +154,6 @@ export const Graph = (props) => {
 
     return (
       <div>
-        <h2>Year after Year</h2>
         <Bar data={data_temps} height={140}/>
       </div>
     );

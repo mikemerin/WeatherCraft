@@ -14,6 +14,7 @@ import { DateParser } from '../../helpers/DateParser'
 // import Winds from './Winds'
 
 import Graph from './Graph'
+import Temperatures from './Temperatures'
 
 export default class Historical extends Component {
 
@@ -96,49 +97,26 @@ export default class Historical extends Component {
     let date = this.props.date
     let month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}`
 
-    let { o07_tmin, o08_tmin, o09_tmin, o10_tmin, o11_tmin,
-          o12_tmin, o13_tmin, o14_tmin, o15_tmin, o16_tmin, o17_tmin,
-          o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax,
-          o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax } = this.state
-
-    Math.max()
-
     return (
       <div>
         <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
 
           <Grid.Row>
-            "Lowest Temperature"
             <Grid.Column>
               <h1><strong> { month_day_1 } </strong></h1>
             </Grid.Column>
-            "Highest Temperature"
+          </Grid.Row>
+          <Temperatures data={this.state} />
+          <Grid.Row>
+            <br />
+            <h2>Year after Year</h2>
           </Grid.Row>
 
         </Grid>
 
-        <Graph data={this.state} year={this.props.date.slice(0,4)}/>
+        <Graph data={this.state} year={date.slice(0,4)}/>
 
       </div>
     )
   }
 }
-
-
-// <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
-//
-//   <Grid.Row>
-//     <Inclement code_sum={code_sum} />
-//     <Grid.Column>
-//       <h1><strong> { month_day_1 } </strong></h1>
-//     </Grid.Column>
-//     <Temperatures tmax={tmax} tmin={tmin} tavg={tavg} dew_point={dew_point} depart={depart} />
-//   </Grid.Row>
-//
-//   <Grid.Row>
-//     <Precip precip_total={precip_total} snow_fall={snow_fall} depth={depth}/>
-//     <Sun sunrise={sunrise} sunset={sunset} />
-//     <Winds avg_speed={avg_speed} max2_speed={max2_speed} max5_speed={max5_speed} max2_dir={max2_dir} />
-//   </Grid.Row>
-//
-// </Grid>
