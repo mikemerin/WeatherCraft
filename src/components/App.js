@@ -38,7 +38,6 @@ export default class App extends Component {
     console.log("mounting");
     // debugger
     StationsAdapter.all().then(data => {
-      console.log(data)
       this.setState({ stations: data.slice(0) })
     })
     const callsign = this.context.router.history.location.pathname.split('/')[2]
@@ -47,7 +46,7 @@ export default class App extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
   // if the station changed, but only if the stationState didn't and it didn't start from ''
-  
+
     if (prevState.station !== this.state.station &&
         prevState.stationState === this.state.stationState &&
         prevState.stationState !== '')

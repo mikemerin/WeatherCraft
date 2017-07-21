@@ -7,6 +7,7 @@ export default function Temperatures(props) {
 
   const { code_sum } = props
 
+  console.log(code_sum)
   let code_sum_1
   if (code_sum === " ")
     { code_sum_1 = "None" }
@@ -16,6 +17,7 @@ export default function Temperatures(props) {
       case 2: return WC[x]
       case 3: return `${WC[x.slice(2,3)]} ${WC[x.slice(0,2)]}`
       case 4: return `${WC[x.slice(0,2)]} ${WC[x.slice(2,4)]}`
+      default: return null
     }
   }).join(", ") }
 

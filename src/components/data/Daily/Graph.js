@@ -18,10 +18,11 @@ export const Graph = (props) => {
             pre1_tmax, pre1_tmin, pre1_tavg, post5_tmax, post5_tmin, post5_tavg,
             post4_tmax, post4_tmin, post4_tavg, post3_tmax, post3_tmin, post3_tavg,
             post2_tmax, post2_tmin, post2_tavg, post1_tmax, post1_tmin, post1_tavg,
-            pre5_precip_total, pre4_precip_total, pre3_precip_total,
-            pre2_precip_total, pre1_precip_total, precip_total,
-            post5_precip_total, post4_precip_total, post3_precip_total,
-            post2_precip_total, post1_precip_total, avg_speed } = props.data
+            // pre5_precip_total, pre4_precip_total, pre3_precip_total,
+            // pre2_precip_total, pre1_precip_total, precip_total,
+            // post5_precip_total, post4_precip_total, post3_precip_total,
+            // post2_precip_total, post1_precip_total,
+            avg_speed } = props.data
 
     if (avg_speed !== "") {
       const pre5 = `${parseInt(pre5_year_month_day.slice(4,6), 10)}/${parseInt(pre5_year_month_day.slice(6,8), 10)}`

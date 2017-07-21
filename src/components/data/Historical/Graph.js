@@ -2,7 +2,6 @@ import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
 export const Graph = (props) => {
-  console.log(props)
 
     //note: not using precip height for now, it works but I'll save it for later
     // debugger
@@ -11,18 +10,18 @@ export const Graph = (props) => {
     let temp_height = 0
     // let precip_height = 0
 
-    let { length,
-      o07_year, o07_tmax, o07_tmin, o07_tavg,
-      o08_year, o08_tmax, o08_tmin, o08_tavg,
-      o09_year, o09_tmax, o09_tmin, o09_tavg,
-      o10_year, o10_tmax, o10_tmin, o10_tavg,
-      o11_year, o11_tmax, o11_tmin, o11_tavg,
-      o12_year, o12_tmax, o12_tmin, o12_tavg,
-      o13_year, o13_tmax, o13_tmin, o13_tavg,
-      o14_year, o14_tmax, o14_tmin, o14_tavg,
-      o15_year, o15_tmax, o15_tmin, o15_tavg,
-      o16_year, o16_tmax, o16_tmin, o16_tavg,
-      o17_year, o17_tmax, o17_tmin, o17_tavg } = props.data
+    let { o07_tmax, o07_tmin, o07_tavg,
+          o08_tmax, o08_tmin, o08_tavg,
+          o09_tmax, o09_tmin, o09_tavg,
+          o10_tmax, o10_tmin, o10_tavg,
+          o11_tmax, o11_tmin, o11_tavg,
+          o12_tmax, o12_tmin, o12_tavg,
+          o13_tmax, o13_tmin, o13_tavg,
+          o14_tmax, o14_tmin, o14_tavg,
+          o15_tmax, o15_tmin, o15_tavg,
+          o16_tmax, o16_tmin, o16_tavg,
+          o17_tmax, o17_tmin, o17_tavg,
+          o07_year, o17_year} = props.data
 
     if (isNaN(o07_tavg)) { o07_tavg = (o07_tmax + o07_tmin) / 2 }
     if (isNaN(o08_tavg)) { o08_tavg = (o08_tmax + o08_tmin) / 2 }
