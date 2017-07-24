@@ -7,7 +7,6 @@ export default function Temperatures(props) {
 
   const { code_sum } = props
 
-  console.log(code_sum)
   let code_sum_1
   if (code_sum === " ")
     { code_sum_1 = "None" }

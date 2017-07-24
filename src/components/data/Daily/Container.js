@@ -44,7 +44,7 @@ export default class Daily extends Component {
     DailiesAdapter.station_date(nextProps.station.wban, nextProps.date)
     .then(data => {
       // debugger
-      console.log("daily componentWillReceiveProps", this.state, this.props)
+      console.log("daily cwrp")
 
       if (data[5] !== null && data[5] !== undefined) {
 

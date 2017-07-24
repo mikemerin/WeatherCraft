@@ -25,6 +25,7 @@ export default class App extends Component {
     super(props, context)
     this.state = {
       date: moment(),
+      state: '',
       station: {},
       stationState: '',
       stations: [],

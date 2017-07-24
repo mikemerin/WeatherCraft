@@ -12,8 +12,6 @@ export default class NavBar extends Component {
     this.handleItemClick = this.handleItemClick.bind(this)
   }
 
-
-
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
@@ -25,6 +23,7 @@ export default class NavBar extends Component {
       <Menu pointing secondary>
         <Menu.Item name='Daily' as={Link} to={`${URL}`} active={activeItem === 'Daily'} onClick={this.handleItemClick} />
         <Menu.Item name='Historical' as={Link} to={`${URL}/historical`} active={activeItem === 'Historical'} onClick={this.handleItemClick} />
+        <Menu.Item name='Monthly' as={Link} to={`${URL}/monthly`} active={activeItem === 'Monthly'} onClick={this.handleItemClick} />
       </Menu>
     )}
 

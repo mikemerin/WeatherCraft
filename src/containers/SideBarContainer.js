@@ -8,11 +8,7 @@ import Map from '../components/sidebar/Map'
 
 export default class SideBarContainer extends Component {
 
-  // constructor() {
-  //   super()
-  // }
-
-  render() {
+    render() {
 
     const { stateChoices, date, stations, station, stationState,
             handleDateChange, handleStateChange, handleStationChange } = this.props

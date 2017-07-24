@@ -42,7 +42,7 @@ export default class Historical extends Component {
     // debugger
     DailiesAdapter.station_historical(nextProps.station.wban, nextProps.date)
     .then(data => {
-      console.log("historical componentWillReceiveProps", this.state, this.props)
+      console.log("historical cwrp")
       // debugger
       if (data[0] !== null && data[0] !== undefined) {
 
