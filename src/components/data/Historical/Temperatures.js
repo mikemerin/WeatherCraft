@@ -23,7 +23,7 @@ export default function Temperatures(props) {
 
   const avg_a = [o07_tavg, o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o16_tavg, o17_tavg].filter(x => x)
   let avg = ' LOADING'
-  if (avg_a.length > 0 ) { avg = ` ${avg_a.reduce((sum,x) => sum+x) / avg_a.length}ºF` }
+  if (avg_a.length > 0 ) { avg = ` ${(avg_a.reduce((sum,x) => sum+x) / avg_a.length).toFixed(2)}ºF` }
 
   const max_a = [o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax, o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax]
   let max = ` LOADING`
