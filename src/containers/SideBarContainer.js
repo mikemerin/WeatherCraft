@@ -29,6 +29,11 @@ export default class SideBarContainer extends Component {
 
             // need to use routerProps for the station
             // debugger
+            // console.log("routerProps", routerProps, stations)
+            let s = ''
+            if (stations !== [])
+              { s = stations.find(x => x.callsign === routerProps.match.params.id) }
+            // console.log(s)
             return (
               <div>
                 <br></br>

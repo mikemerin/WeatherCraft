@@ -25,7 +25,6 @@ export default class App extends Component {
     super(props, context)
     this.state = {
       date: moment(),
-      state: '',
       station: {},
       stationState: '',
       stations: [],
@@ -84,6 +83,7 @@ export default class App extends Component {
     //       <div className="ui huge text loader">Loading data, please wait</div>
     //     </div>
     //   ) }
+    console.log("app state", this.state)
     return (
       <Grid celled className="centered">
 
@@ -115,10 +115,12 @@ export default class App extends Component {
             }} />
           <Route path="/station/:callsign/:date" render={routerProps => {
               const { date, callsign } = routerProps.match.params
+              const station = this.state.stations.find(x => x.callsign === callsign)
+              
               return (
                 <div>
                   <Grid.Row>
-                    <DataContainer date={ date } station={ this.state.stations.find(x => x.callsign === callsign) }/>
+                    <DataContainer date={ date } station={ station }/>
                   </Grid.Row>
                 </div>
               )
