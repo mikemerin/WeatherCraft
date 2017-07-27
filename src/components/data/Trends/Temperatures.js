@@ -22,13 +22,13 @@ export default function Temperatures(props) {
   let min_low_i = ''
   let max_low_i = ''
   if (min_a.filter(x => x).length > 0) {
-    min_low = Math.min(...min_a.filter(x => x))
-    max_low = Math.max(...min_a)
+    let min = min_a.filter(x => x)
+    min_low = Math.min(...min)
+    max_low = Math.max(...min)
     min_low_i = min_a.indexOf(min_low)
     max_low_i = min_a.indexOf(max_low)
     min_low = ` ${min_low}ºF (${years[min_low_i]})`
     max_low = ` ${max_low}ºF (${years[max_low_i]})`
-    let min = min_a.filter(x => x)
     avg_low = ` ${( min.reduce((sum, x) => sum + x ) / min.length ).toFixed(2)}ºF`
   }
 
@@ -43,13 +43,13 @@ export default function Temperatures(props) {
   let min_high_i = ''
   let max_high_i = ''
   if (max_a.filter(x => x).length > 0) {
-    min_high = Math.min(...max_a.filter(x => x))
-    max_high = Math.max(...max_a)
+    let max = max_a.filter(x => x)
+    min_high = Math.min(...max)
+    max_high = Math.max(...max)
     min_high_i = max_a.indexOf(min_high)
     max_high_i = max_a.indexOf(max_high)
     min_high = ` ${min_high}ºF (${years[min_high_i]})`
     max_high = ` ${max_high}ºF (${years[max_high_i]})`
-    let max = max_a.filter(x => x)
     avg_high = ` ${( max.reduce((sum, x) => sum + x ) / max.length ).toFixed(2)}ºF`
   }
 

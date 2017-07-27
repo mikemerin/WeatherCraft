@@ -103,7 +103,7 @@ export default class Trends extends Component {
   }
 
   render() {
-    console.log("trends", this.state)
+
     let date = this.props.date
     let month_1 = `${DateParser[parseInt(date.slice(4,6), 10)]}`
 
