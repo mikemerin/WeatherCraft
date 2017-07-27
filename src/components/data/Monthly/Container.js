@@ -6,115 +6,129 @@ import { MonthliesAdapter } from '../../../adapters'
 // helpers
 import { DateParser } from '../../helpers/DateParser'
 
-import Graph from './Graph'
+// outputs
+import Inclement from './Inclement'
 import Temperatures from './Temperatures'
+import Precip from './Precip'
+import Sun from './Sun'
+import Winds from './Winds'
 
-export default class Historical extends Component {
+import Graph from './Graph'
+
+export default class Monthly extends Component {
 
   constructor() {
     super()
     this.state = {
-      o07_year: '', o07_avg_max_temp: '', o07_avg_min_temp: '', o07_avg_temp: '',
-      o08_year: '', o08_avg_max_temp: '', o08_avg_min_temp: '', o08_avg_temp: '',
-      o09_year: '', o09_avg_max_temp: '', o09_avg_min_temp: '', o09_avg_temp: '',
-      o10_year: '', o10_avg_max_temp: '', o10_avg_min_temp: '', o10_avg_temp: '',
-      o11_year: '', o11_avg_max_temp: '', o11_avg_min_temp: '', o11_avg_temp: '',
-      o12_year: '', o12_avg_max_temp: '', o12_avg_min_temp: '', o12_avg_temp: '',
-      o13_year: '', o13_avg_max_temp: '', o13_avg_min_temp: '', o13_avg_temp: '',
-      o14_year: '', o14_avg_max_temp: '', o14_avg_min_temp: '', o14_avg_temp: '',
-      o15_year: '', o15_avg_max_temp: '', o15_avg_min_temp: '', o15_avg_temp: '',
-      o16_year: '', o16_avg_max_temp: '', o16_avg_min_temp: '', o16_avg_temp: '',
-      o17_year: '', o17_avg_max_temp: '', o17_avg_min_temp: '', o17_avg_temp: ''
+      wban: '',
+      year_month_day: '',
+      precip_total: '', snow_fall: '', depth: '',
+      code_sum: '',
+      tmax: '', tmin: '', tavg: '', dew_point: '', depart: '',
+      sunrise: '', sunset: '',
+      max2_dir: '', max2_speed: '', max5_dir: '', max5_speed: '',
+      result_dir: '', result_speed: '', avg_speed: '',
+
+      pre3_tmax: '', pre3_tmin: '', pre3_tavg: '', pre3_precip_total: '',
+      pre2_tmax: '', pre2_tmin: '', pre2_tavg: '', pre2_precip_total: '',
+      pre1_tmax: '', pre1_tmin: '', pre1_tavg: '', pre1_precip_total: '',
+      post1_tmax: '', post1_tmin: '', post1_tavg: '', post1_precip_total: '',
+      post2_tmax: '', post2_tmin: '', post2_tavg: '', post2_precip_total: '',
+      post3_tmax: '', post3_tmin: '', post3_tavg: '', post3_precip_total: ''
     }
 
   }
 
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
-    // debugger
-    MonthliesAdapter.station_historical(nextProps.station.wban, nextProps.date)
+    MonthliesAdapter.station_date(nextProps.station.wban, nextProps.date)
     .then(data => {
-      console.log("monthly cwrp", this.state, this.props)
       // debugger
-      if (data[0] !== null && data[0] !== undefined) {
+      console.log("daily cwrp")
 
-        let o07_year = "", o07_tmax = "", o07_tmin = "", o07_tavg = "", o17_year = "", o17_tmax = "", o17_tmin = "", o17_tavg = ""
+      if (data[5] !== null && data[5] !== undefined) {
 
-        let x = ( data[0].year_month_day[3] === "7" ? 1 : 0 )
+        const { avg_speed, code_sum, created_at, depart, depth, dew_point,
+        id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
+        result_dir, result_speed, snow_fall, sunrise, sunset,
+        tavg, tmax, tmin, updated_at, wban, year_month_day } = data[5]
 
-        let o08_year = data[0+x].year_month_day.slice(0,4), o08_tmax = parseInt(data[0+x].tmax, 10), o08_tmin = parseInt(data[0+x].tmin, 10), o08_tavg = parseInt(data[0+x].tavg, 10)
-        let o09_year = data[1+x].year_month_day.slice(0,4), o09_tmax = parseInt(data[1+x].tmax, 10), o09_tmin = parseInt(data[1+x].tmin, 10), o09_tavg = parseInt(data[1+x].tavg, 10)
-        let o10_year = data[2+x].year_month_day.slice(0,4), o10_tmax = parseInt(data[2+x].tmax, 10), o10_tmin = parseInt(data[2+x].tmin, 10), o10_tavg = parseInt(data[2+x].tavg, 10)
-        let o11_year = data[3+x].year_month_day.slice(0,4), o11_tmax = parseInt(data[3+x].tmax, 10), o11_tmin = parseInt(data[3+x].tmin, 10), o11_tavg = parseInt(data[3+x].tavg, 10)
-        let o12_year = data[4+x].year_month_day.slice(0,4), o12_tmax = parseInt(data[4+x].tmax, 10), o12_tmin = parseInt(data[4+x].tmin, 10), o12_tavg = parseInt(data[4+x].tavg, 10)
-        let o13_year = data[5+x].year_month_day.slice(0,4), o13_tmax = parseInt(data[5+x].tmax, 10), o13_tmin = parseInt(data[5+x].tmin, 10), o13_tavg = parseInt(data[5+x].tavg, 10)
-        let o14_year = data[6+x].year_month_day.slice(0,4), o14_tmax = parseInt(data[6+x].tmax, 10), o14_tmin = parseInt(data[6+x].tmin, 10), o14_tavg = parseInt(data[6+x].tavg, 10)
-        let o15_year = data[7+x].year_month_day.slice(0,4), o15_tmax = parseInt(data[7+x].tmax, 10), o15_tmin = parseInt(data[7+x].tmin, 10), o15_tavg = parseInt(data[7+x].tavg, 10)
-        let o16_year = data[8+x].year_month_day.slice(0,4), o16_tmax = parseInt(data[8+x].tmax, 10), o16_tmin = parseInt(data[8+x].tmin, 10), o16_tavg = parseInt(data[8+x].tavg, 10)
+        const pre5_year_month_day = data[0].year_month_day, pre5_tmax = parseFloat(data[0].tmax), pre5_tmin = parseFloat(data[0].tmin), pre5_tavg = parseFloat(data[0].tavg), pre5_precip_total = parseFloat(data[0].precip_total)
+        const pre4_year_month_day = data[1].year_month_day, pre4_tmax = parseFloat(data[1].tmax), pre4_tmin = parseFloat(data[1].tmin), pre4_tavg = parseFloat(data[1].tavg), pre4_precip_total = parseFloat(data[1].precip_total)
+        const pre3_year_month_day = data[2].year_month_day, pre3_tmax = parseFloat(data[2].tmax), pre3_tmin = parseFloat(data[2].tmin), pre3_tavg = parseFloat(data[2].tavg), pre3_precip_total = parseFloat(data[2].precip_total)
+        const pre2_year_month_day = data[3].year_month_day, pre2_tmax = parseFloat(data[3].tmax), pre2_tmin = parseFloat(data[3].tmin), pre2_tavg = parseFloat(data[3].tavg), pre2_precip_total = parseFloat(data[3].precip_total)
+        const pre1_year_month_day = data[4].year_month_day, pre1_tmax = parseFloat(data[4].tmax), pre1_tmin = parseFloat(data[4].tmin), pre1_tavg = parseFloat(data[4].tavg), pre1_precip_total = parseFloat(data[4].precip_total)
+        const post1_year_month_day = data[6].year_month_day, post1_tmax = parseFloat(data[6].tmax), post1_tmin = parseFloat(data[6].tmin), post1_tavg = parseFloat(data[6].tavg), post1_precip_total = parseFloat(data[6].precip_total)
+        const post2_year_month_day = data[7].year_month_day, post2_tmax = parseFloat(data[7].tmax), post2_tmin = parseFloat(data[7].tmin), post2_tavg = parseFloat(data[7].tavg), post2_precip_total = parseFloat(data[7].precip_total)
+        const post3_year_month_day = data[8].year_month_day, post3_tmax = parseFloat(data[8].tmax), post3_tmin = parseFloat(data[8].tmin), post3_tavg = parseFloat(data[8].tavg), post3_precip_total = parseFloat(data[8].precip_total)
+        const post4_year_month_day = data[9].year_month_day, post4_tmax = parseFloat(data[9].tmax), post4_tmin = parseFloat(data[9].tmin), post4_tavg = parseFloat(data[9].tavg), post4_precip_total = parseFloat(data[9].precip_total)
+        const post5_year_month_day = data[10].year_month_day, post5_tmax = parseFloat(data[10].tmax), post5_tmin = parseFloat(data[10].tmin), post5_tavg = parseFloat(data[10].tavg), post5_precip_total = parseFloat(data[10].precip_total)
 
-        if (x === 1) {
-          o07_year = data[0].year_month_day.slice(0,4)
-          o07_tmax = parseInt(data[0].tmax, 10)
-          o07_tmin = parseInt(data[0].tmin, 10)
-          o07_tavg = parseInt(data[0].tavg, 10)
+        const unused = [id, created_at, updated_at]
 
-          if (data.length === 11) {
-            o17_year = data[10].year_month_day.slice(0,4)
-            o17_tmax = parseInt(data[10].tmax, 10)
-            o17_tmin = parseInt(data[10].tmin, 10)
-            o17_tavg = parseInt(data[10].tavg, 10)
-          }
+        this.setState({ avg_speed: avg_speed, code_sum: code_sum, depart: depart,
+          depth: depth, dew_point: dew_point, max2_dir: max2_dir,
+          max2_speed: max2_speed, max5_dir: max5_dir, max5_speed: max5_speed,
+          precip_total: precip_total, result_dir: result_dir,
+          result_speed: result_speed, snow_fall: snow_fall, sunrise: sunrise,
+          sunset: sunset, tavg: tavg, tmax: tmax, tmin: tmin,
+          wban: wban, year_month_day: year_month_day,
+          pre5_year_month_day: pre5_year_month_day, pre5_tmax: pre5_tmax, pre5_tmin: pre5_tmin, pre5_tavg: pre5_tavg, pre5_precip_total: pre5_precip_total,
+          pre4_year_month_day: pre4_year_month_day, pre4_tmax: pre4_tmax, pre4_tmin: pre4_tmin, pre4_tavg: pre4_tavg, pre4_precip_total: pre4_precip_total,
+          pre3_year_month_day: pre3_year_month_day, pre3_tmax: pre3_tmax, pre3_tmin: pre3_tmin, pre3_tavg: pre3_tavg, pre3_precip_total: pre3_precip_total,
+          pre2_year_month_day: pre2_year_month_day, pre2_tmax: pre2_tmax, pre2_tmin: pre2_tmin, pre2_tavg: pre2_tavg, pre2_precip_total: pre2_precip_total,
+          pre1_year_month_day: pre1_year_month_day, pre1_tmax: pre1_tmax, pre1_tmin: pre1_tmin, pre1_tavg: pre1_tavg, pre1_precip_total: pre1_precip_total,
+          post1_year_month_day: post1_year_month_day, post1_tmax: post1_tmax, post1_tmin: post1_tmin, post1_tavg: post1_tavg, post1_precip_total: post1_precip_total,
+          post2_year_month_day: post2_year_month_day, post2_tmax: post2_tmax, post2_tmin: post2_tmin, post2_tavg: post2_tavg, post2_precip_total: post2_precip_total,
+          post3_year_month_day: post3_year_month_day, post3_tmax: post3_tmax, post3_tmin: post3_tmin, post3_tavg: post3_tavg, post3_precip_total: post3_precip_total,
+          post4_year_month_day: post4_year_month_day, post4_tmax: post4_tmax, post4_tmin: post4_tmin, post4_tavg: post4_tavg, post4_precip_total: post4_precip_total,
+          post5_year_month_day: post5_year_month_day, post5_tmax: post5_tmax, post5_tmin: post5_tmin, post5_tavg: post5_tavg, post5_precip_total: post5_precip_total
 
-        } else {
-          o17_year = data[9].year_month_day.slice(0,4)
-          o17_tmax = parseInt(data[9].tmax, 10)
-          o17_tmin = parseInt(data[9].tmin, 10)
-          o17_tavg = parseInt(data[9].tavg, 10)
-        }
-
-        this.setState({
-          o07_year: o07_year, o07_tmax: o07_tmax, o07_tmin: o07_tmin, o07_tavg: o07_tavg,
-          o08_year: o08_year, o08_tmax: o08_tmax, o08_tmin: o08_tmin, o08_tavg: o08_tavg,
-          o09_year: o09_year, o09_tmax: o09_tmax, o09_tmin: o09_tmin, o09_tavg: o09_tavg,
-          o10_year: o10_year, o10_tmax: o10_tmax, o10_tmin: o10_tmin, o10_tavg: o10_tavg,
-          o11_year: o11_year, o11_tmax: o11_tmax, o11_tmin: o11_tmin, o11_tavg: o11_tavg,
-          o12_year: o12_year, o12_tmax: o12_tmax, o12_tmin: o12_tmin, o12_tavg: o12_tavg,
-          o13_year: o13_year, o13_tmax: o13_tmax, o13_tmin: o13_tmin, o13_tavg: o13_tavg,
-          o14_year: o14_year, o14_tmax: o14_tmax, o14_tmin: o14_tmin, o14_tavg: o14_tavg,
-          o15_year: o15_year, o15_tmax: o15_tmax, o15_tmin: o15_tmin, o15_tavg: o15_tavg,
-          o16_year: o16_year, o16_tmax: o16_tmax, o16_tmin: o16_tmin, o16_tavg: o16_tavg,
-          o17_year: o17_year, o17_tmax: o17_tmax, o17_tmin: o17_tmin, o17_tavg: o17_tavg
         })
-
+      } else {
+        alert("Sorry, no data was found for this date and location, please try again")
       }
-    else
-      { alert("Sorry, no data was found for this date and location, please try again") }
+
+
+
     })
   }
 
   render() {
 
-    let date = this.props.date
-    let month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}`
+    const { avg_speed, code_sum, depart, depth, dew_point,
+      id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
+      result_dir, result_speed, snow_fall, sunrise, sunset,
+      tavg, tmax, tmin, wban, year_month_day } = this.state
+
+      let ununsed = [id, result_dir, result_speed, wban, year_month_day, max5_dir]
+
+      let date = this.props.date
+      let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
 
     return (
       <div>
+        <br />
+        <br />
         <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
 
           <Grid.Row>
+            <Inclement code_sum={code_sum} />
             <Grid.Column>
-              <h1><strong> { month_day_1 } </strong></h1>
+              <h1><strong> { year_month_day_1 } </strong></h1>
             </Grid.Column>
+            <Temperatures tmax={tmax} tmin={tmin} tavg={tavg} dew_point={dew_point} depart={depart} />
           </Grid.Row>
-          <Temperatures data={this.state} />
+
           <Grid.Row>
-            <br />
-            <h2>Year after Year</h2>
+            <Precip precip_total={precip_total} snow_fall={snow_fall} depth={depth}/>
+            <Sun sunrise={sunrise} sunset={sunset} />
+            <Winds avg_speed={avg_speed} max2_speed={max2_speed} max5_speed={max5_speed} max2_dir={max2_dir} />
           </Grid.Row>
 
         </Grid>
 
-        <Graph data={this.state} year={date.slice(0,4)}/>
+        <Graph data={this.state} />
 
       </div>
     )
