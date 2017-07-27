@@ -99,23 +99,8 @@ export default class Historical extends Component {
 
     return (
       <div>
-        <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
-
-          <Grid.Row>
-            <Grid.Column>
-              <h1><strong> { month_day_1 } </strong></h1>
-            </Grid.Column>
-          </Grid.Row>
-          <Temperatures data={this.state} />
-          <Grid.Row>
-            <br />
-            <h2>Year after Year</h2>
-          </Grid.Row>
-
-        </Grid>
-
+        <Temperatures data={this.state} month_day_1={month_day_1}/>
         <Graph data={this.state} year={date.slice(0,4)}/>
-
       </div>
     )
   }
