@@ -36,6 +36,7 @@ export class DailiesAdapter {
   }
 
   static station_historical(wban, date) {
+    console.log("Fetching Historical", new Date())
     return fetch(`${dailies_URL}/${wban}/${date}/historical`)
       .then( res => res.json() )
   }

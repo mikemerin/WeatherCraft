@@ -43,15 +43,18 @@ export default class Monthly extends Component {
   componentWillReceiveProps(nextProps) {
     MonthliesAdapter.station_date(nextProps.station.wban, nextProps.date)
     .then(data => {
-      // debugger
-      console.log("daily cwrp")
+      debugger
+      console.log("monthly cwrp")
 
-      if (data[5] !== null && data[5] !== undefined) {
+      if (data[0] !== null && data[0] !== undefined) {
 
-        const { avg_speed, code_sum, created_at, depart, depth, dew_point,
-        id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
-        result_dir, result_speed, snow_fall, sunrise, sunset,
-        tavg, tmax, tmin, updated_at, wban, year_month_day } = data[5]
+        const { avg_max_temp, avg_min_temp, avg_temp,
+          date_max24_hr_precip, date_max24_hr_snowfall,
+          days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
+          days_with_snowfall_ge_1p0inch, departure_from_normal,
+          departure_from_normal_precip, departure_max_temp, departure_min_temp,
+          max24_hr_precip, max24_hr_snowfall, wban, year_month,
+          total_monthly_precip, total_snowfall created_at, updated_at } = data[0]
 
         const pre5_year_month_day = data[0].year_month_day, pre5_tmax = parseFloat(data[0].tmax), pre5_tmin = parseFloat(data[0].tmin), pre5_tavg = parseFloat(data[0].tavg), pre5_precip_total = parseFloat(data[0].precip_total)
         const pre4_year_month_day = data[1].year_month_day, pre4_tmax = parseFloat(data[1].tmax), pre4_tmin = parseFloat(data[1].tmin), pre4_tavg = parseFloat(data[1].tavg), pre4_precip_total = parseFloat(data[1].precip_total)
