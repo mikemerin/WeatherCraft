@@ -7,11 +7,11 @@ import { MonthliesAdapter } from '../../../adapters'
 import { DateParser } from '../../helpers/DateParser'
 
 // outputs
-import Inclement from './Inclement'
-import Temperatures from './Temperatures'
-import Precip from './Precip'
-import Sun from './Sun'
-import Winds from './Winds'
+// import Inclement from './Inclement'
+// import Temperatures from './Temperatures'
+// import Precip from './Precip'
+// import Sun from './Sun'
+// import Winds from './Winds'
 
 import Graph from './Graph'
 
@@ -33,9 +33,9 @@ export default class Monthly extends Component {
 
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
-    MonthliesAdapter.station_adjacent(nextProps.station.wban, nextProps.date)
+    MonthliesAdapter.station_date(nextProps.station.wban, nextProps.date)
     .then(data => {
-      debugger
+      // debugger
       console.log("monthly cwrp")
 
       if (data[5] !== null && data[5] !== undefined) {
@@ -78,63 +78,81 @@ export default class Monthly extends Component {
           days_with_snowfall_ge_1p0inch: days_with_snowfall_ge_1p0inch, departure_from_normal: departure_from_normal,
           departure_from_normal_precip: departure_from_normal_precip, departure_max_temp: departure_max_temp, departure_min_temp: departure_min_temp,
           max24_hr_precip: max24_hr_precip, max24_hr_snowfall: max24_hr_snowfall, total_monthly_precip: total_monthly_precip, total_snowfall: total_snowfall,
-          pre5_year_month: pre5_year_month, pre5_avg_max_temp: pre5_avg_max_temp, pre5_avg_min_temp: pre5_avg_min_temp, pre5_avg_temp: pre5_avg_temp, pre5_total_monthly_precip: pre5_total_monthly_precip, pre5_total_snowfall: pre5_total_snowfall,
-          pre4_year_month: pre4_year_month, pre4_avg_max_temp: pre4_avg_max_temp, pre4_avg_min_temp: pre4_avg_min_temp, pre4_avg_temp: pre4_avg_temp, pre4_total_monthly_precip: pre4_total_monthly_precip, pre4_total_snowfall: pre4_total_snowfall,
-          pre3_year_month: pre3_year_month, pre3_avg_max_temp: pre3_avg_max_temp, pre3_avg_min_temp: pre3_avg_min_temp, pre3_avg_temp: pre3_avg_temp, pre3_total_monthly_precip: pre3_total_monthly_precip, pre3_total_snowfall: pre3_total_snowfall,
-          pre2_year_month: pre2_year_month, pre2_avg_max_temp: pre2_avg_max_temp, pre2_avg_min_temp: pre2_avg_min_temp, pre2_avg_temp: pre2_avg_temp, pre2_total_monthly_precip: pre2_total_monthly_precip, pre2_total_snowfall: pre2_total_snowfall,
-          pre1_year_month: pre1_year_month, pre1_avg_max_temp: pre1_avg_max_temp, pre1_avg_min_temp: pre1_avg_min_temp, pre1_avg_temp: pre1_avg_temp, pre1_total_monthly_precip: pre1_total_monthly_precip, pre1_total_snowfall: pre1_total_snowfall,
-          post1_year_month: post1_year_month, post1_avg_max_temp: post1_avg_max_temp, post1_avg_min_temp: post1_avg_min_temp, post1_avg_temp: post1_avg_temp, post1_total_monthly_precip: post1_total_monthly_precip, post1_total_snowfall: post1_total_snowfall,
-          post2_year_month: post2_year_month, post2_avg_max_temp: post2_avg_max_temp, post2_avg_min_temp: post2_avg_min_temp, post2_avg_temp: post2_avg_temp, post2_total_monthly_precip: post2_total_monthly_precip, post2_total_snowfall: post2_total_snowfall,
-          post3_year_month: post3_year_month, post3_avg_max_temp: post3_avg_max_temp, post3_avg_min_temp: post3_avg_min_temp, post3_avg_temp: post3_avg_temp, post3_total_monthly_precip: post3_total_monthly_precip, post3_total_snowfall: post3_total_snowfall,
-          post4_year_month: post4_year_month, post4_avg_max_temp: post4_avg_max_temp, post4_avg_min_temp: post4_avg_min_temp, post4_avg_temp: post4_avg_temp, post4_total_monthly_precip: post4_total_monthly_precip, post4_total_snowfall: post4_total_snowfall,
-          post5_year_month: post5_year_month, post5_avg_max_temp: post5_avg_max_temp, post5_avg_min_temp: post5_avg_min_temp, post5_avg_temp: post5_avg_temp, post5_total_monthly_precip: post5_total_monthly_precip, post5_total_snowfall: post5_total_snowfall
+          pre5_year_month: pre5_year_month, pre5_avg_max_temp: pre5_avg_max_temp, pre5_avg_min_temp: pre5_avg_min_temp, pre5_avg_temp: pre5_avg_temp,
+            pre5_total_monthly_precip: pre5_total_monthly_precip, pre5_total_snowfall: pre5_total_snowfall,
+          pre4_year_month: pre4_year_month, pre4_avg_max_temp: pre4_avg_max_temp, pre4_avg_min_temp: pre4_avg_min_temp, pre4_avg_temp: pre4_avg_temp,
+            pre4_total_monthly_precip: pre4_total_monthly_precip, pre4_total_snowfall: pre4_total_snowfall,
+          pre3_year_month: pre3_year_month, pre3_avg_max_temp: pre3_avg_max_temp, pre3_avg_min_temp: pre3_avg_min_temp, pre3_avg_temp: pre3_avg_temp,
+            pre3_total_monthly_precip: pre3_total_monthly_precip, pre3_total_snowfall: pre3_total_snowfall,
+          pre2_year_month: pre2_year_month, pre2_avg_max_temp: pre2_avg_max_temp, pre2_avg_min_temp: pre2_avg_min_temp, pre2_avg_temp: pre2_avg_temp,
+            pre2_total_monthly_precip: pre2_total_monthly_precip, pre2_total_snowfall: pre2_total_snowfall,
+          pre1_year_month: pre1_year_month, pre1_avg_max_temp: pre1_avg_max_temp, pre1_avg_min_temp: pre1_avg_min_temp, pre1_avg_temp: pre1_avg_temp,
+            pre1_total_monthly_precip: pre1_total_monthly_precip, pre1_total_snowfall: pre1_total_snowfall,
+          post1_year_month: post1_year_month, post1_avg_max_temp: post1_avg_max_temp, post1_avg_min_temp: post1_avg_min_temp, post1_avg_temp: post1_avg_temp,
+            post1_total_monthly_precip: post1_total_monthly_precip, post1_total_snowfall: post1_total_snowfall,
+          post2_year_month: post2_year_month, post2_avg_max_temp: post2_avg_max_temp, post2_avg_min_temp: post2_avg_min_temp, post2_avg_temp: post2_avg_temp,
+            post2_total_monthly_precip: post2_total_monthly_precip, post2_total_snowfall: post2_total_snowfall,
+          post3_year_month: post3_year_month, post3_avg_max_temp: post3_avg_max_temp, post3_avg_min_temp: post3_avg_min_temp, post3_avg_temp: post3_avg_temp,
+            post3_total_monthly_precip: post3_total_monthly_precip, post3_total_snowfall: post3_total_snowfall,
+          post4_year_month: post4_year_month, post4_avg_max_temp: post4_avg_max_temp, post4_avg_min_temp: post4_avg_min_temp, post4_avg_temp: post4_avg_temp,
+            post4_total_monthly_precip: post4_total_monthly_precip, post4_total_snowfall: post4_total_snowfall,
+          post5_year_month: post5_year_month, post5_avg_max_temp: post5_avg_max_temp, post5_avg_min_temp: post5_avg_min_temp, post5_avg_temp: post5_avg_temp,
+            post5_total_monthly_precip: post5_total_monthly_precip, post5_total_snowfall: post5_total_snowfall
         })
       } else {
         alert("Sorry, no data was found for this date and location, please try again")
       }
-
-
-
     })
   }
 
   render() {
 
-    const { avg_speed, code_sum, depart, depth, dew_point,
-      id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
-      result_dir, result_speed, snow_fall, sunrise, sunset,
-      tavg, tmax, tmin, wban, year_month_day } = this.state
+    debugger
 
-      let ununsed = [id, result_dir, result_speed, wban, year_month_day, max5_dir]
+    const { wban, year_month, created_at, updated_at,
+      avg_max_temp, avg_min_temp, avg_temp,
+      date_max24_hr_precip, date_max24_hr_snowfall,
+      days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
+      days_with_snowfall_ge_1p0inch, departure_from_normal,
+      departure_from_normal_precip, departure_max_temp, departure_min_temp,
+      max24_hr_precip, max24_hr_snowfall, total_monthly_precip, total_snowfall } = this.state
 
-      let date = this.props.date
-      let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
+
+      // let date = this.props.date
+      // let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
 
     return (
       <div>
         <br />
         <br />
         <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
-
-          <Grid.Row>
-            <Inclement code_sum={code_sum} />
-            <Grid.Column>
-              <h1><strong> { year_month_day_1 } </strong></h1>
-            </Grid.Column>
-            <Temperatures tmax={tmax} tmin={tmin} tavg={tavg} dew_point={dew_point} depart={depart} />
-          </Grid.Row>
-
-          <Grid.Row>
-            <Precip precip_total={precip_total} snow_fall={snow_fall} depth={depth}/>
-            <Sun sunrise={sunrise} sunset={sunset} />
-            <Winds avg_speed={avg_speed} max2_speed={max2_speed} max5_speed={max5_speed} max2_dir={max2_dir} />
-          </Grid.Row>
-
         </Grid>
-
-        <Graph data={this.state} />
-
       </div>
     )
   }
 }
+
+// <div>
+//   <br />
+//   <br />
+//   <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
+//
+//     <Grid.Row>
+//       <Inclement code_sum={code_sum} />
+//       <Grid.Column>
+//         <h1><strong> { year_month_day_1 } </strong></h1>
+//       </Grid.Column>
+//       <Temperatures tmax={tmax} tmin={tmin} tavg={tavg} dew_point={dew_point} depart={depart} />
+//     </Grid.Row>
+//
+//     <Grid.Row>
+//       <Precip precip_total={precip_total} snow_fall={snow_fall} depth={depth}/>
+//       <Sun sunrise={sunrise} sunset={sunset} />
+//       <Winds avg_speed={avg_speed} max2_speed={max2_speed} max5_speed={max5_speed} max2_dir={max2_dir} />
+//     </Grid.Row>
+//
+//   </Grid>
+//
+//   <Graph data={this.state} />
+//
+// </div>

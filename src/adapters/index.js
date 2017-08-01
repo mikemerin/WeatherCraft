@@ -52,7 +52,7 @@ export class MonthliesAdapter {
 
   static station_date(wban, date) {
     const year_month = date.slice(0, -2)
-    return fetch(`${monthlies_URL}/${wban}/${year_month}`)
+    return fetch(`${monthlies_URL}/${wban}/${year_month}/adjacent`)
       .then( res => res.json() )
   }
 
