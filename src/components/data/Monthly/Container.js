@@ -26,7 +26,18 @@ export default class Monthly extends Component {
       days_with_precip_ge_p01inch: '', days_with_precip_ge_p10inch: '',
       days_with_snowfall_ge_1p0inch: '', departure_from_normal: '',
       departure_from_normal_precip: '', departure_max_temp: '', departure_min_temp: '',
-      max24_hr_precip: '', max24_hr_snowfall: '', total_monthly_precip: '', total_snowfall: ''
+      max24_hr_precip: '', max24_hr_snowfall: '', total_monthly_precip: '', total_snowfall: '',
+
+      pre5_year_month: '', pre5_avg_max_temp: '', pre5_avg_min_temp: '', pre5_avg_temp: '', pre5_total_monthly_precip: '', pre5_total_snowfall: '',
+      pre4_year_month: '', pre4_avg_max_temp: '', pre4_avg_min_temp: '', pre4_avg_temp: '', pre4_total_monthly_precip: '', pre4_total_snowfall: '',
+      pre3_year_month: '', pre3_avg_max_temp: '', pre3_avg_min_temp: '', pre3_avg_temp: '', pre3_total_monthly_precip: '', pre3_total_snowfall: '',
+      pre2_year_month: '', pre2_avg_max_temp: '', pre2_avg_min_temp: '', pre2_avg_temp: '', pre2_total_monthly_precip: '', pre2_total_snowfall: '',
+      pre1_year_month: '', pre1_avg_max_temp: '', pre1_avg_min_temp: '', pre1_avg_temp: '', pre1_total_monthly_precip: '', pre1_total_snowfall: '',
+      post1_year_month: '', post1_avg_max_temp: '', post1_avg_min_temp: '', post1_avg_temp: '', post1_total_monthly_precip: '', post1_total_snowfall: '',
+      post2_year_month: '', post2_avg_max_temp: '', post2_avg_min_temp: '', post2_avg_temp: '', post2_total_monthly_precip: '', post2_total_snowfall: '',
+      post3_year_month: '', post3_avg_max_temp: '', post3_avg_min_temp: '', post3_avg_temp: '', post3_total_monthly_precip: '', post3_total_snowfall: '',
+      post4_year_month: '', post4_avg_max_temp: '', post4_avg_min_temp: '', post4_avg_temp: '', post4_total_monthly_precip: '', post4_total_snowfall: '',
+      post5_year_month: '', post5_avg_max_temp: '', post5_avg_min_temp: '', post5_avg_temp: '', post5_total_monthly_precip: '', post5_total_snowfall: ''
     }
 
   }
