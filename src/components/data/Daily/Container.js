@@ -48,10 +48,10 @@ export default class Daily extends Component {
 
       if (data[5] !== null && data[5] !== undefined) {
 
-        const { avg_speed, code_sum, created_at, depart, depth, dew_point,
-        id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
+        const { avg_speed, code_sum, depart, depth, dew_point,
+        max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
         result_dir, result_speed, snow_fall, sunrise, sunset,
-        tavg, tmax, tmin, updated_at, wban, year_month_day } = data[5]
+        tavg, tmax, tmin, wban, year_month_day } = data[5]
 
         const pre5_year_month_day = data[0].year_month_day, pre5_tmax = parseFloat(data[0].tmax), pre5_tmin = parseFloat(data[0].tmin), pre5_tavg = parseFloat(data[0].tavg), pre5_precip_total = parseFloat(data[0].precip_total)
         const pre4_year_month_day = data[1].year_month_day, pre4_tmax = parseFloat(data[1].tmax), pre4_tmin = parseFloat(data[1].tmin), pre4_tavg = parseFloat(data[1].tavg), pre4_precip_total = parseFloat(data[1].precip_total)
@@ -63,8 +63,6 @@ export default class Daily extends Component {
         const post3_year_month_day = data[8].year_month_day, post3_tmax = parseFloat(data[8].tmax), post3_tmin = parseFloat(data[8].tmin), post3_tavg = parseFloat(data[8].tavg), post3_precip_total = parseFloat(data[8].precip_total)
         const post4_year_month_day = data[9].year_month_day, post4_tmax = parseFloat(data[9].tmax), post4_tmin = parseFloat(data[9].tmin), post4_tavg = parseFloat(data[9].tavg), post4_precip_total = parseFloat(data[9].precip_total)
         const post5_year_month_day = data[10].year_month_day, post5_tmax = parseFloat(data[10].tmax), post5_tmin = parseFloat(data[10].tmin), post5_tavg = parseFloat(data[10].tavg), post5_precip_total = parseFloat(data[10].precip_total)
-
-        const unused = [id, created_at, updated_at]
 
         this.setState({ avg_speed: avg_speed, code_sum: code_sum, depart: depart,
           depth: depth, dew_point: dew_point, max2_dir: max2_dir,
@@ -97,11 +95,8 @@ export default class Daily extends Component {
   render() {
 
     const { avg_speed, code_sum, depart, depth, dew_point,
-      id, max2_dir, max2_speed, max5_dir, max5_speed, precip_total,
-      result_dir, result_speed, snow_fall, sunrise, sunset,
-      tavg, tmax, tmin, wban, year_month_day } = this.state
-
-      let ununsed = [id, result_dir, result_speed, wban, year_month_day, max5_dir]
+      max2_dir, max2_speed,max5_speed, precip_total, snow_fall,
+      sunrise, sunset, tavg, tmax, tmin } = this.state
 
       let date = this.props.date
       let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
