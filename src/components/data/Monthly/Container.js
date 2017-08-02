@@ -47,7 +47,7 @@ export default class Monthly extends Component {
 
       if (data[5] !== null && data[5] !== undefined) {
 
-        const { wban, year_month, created_at, updated_at,
+        const { wban, year_month,
           avg_max_temp, avg_min_temp, avg_temp,
           date_max24_hr_precip, date_max24_hr_snowfall,
           days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
@@ -75,8 +75,6 @@ export default class Monthly extends Component {
             post4_avg_temp = parseFloat(data[9].avg_temp), post4_total_monthly_precip = parseFloat(data[9].total_monthly_precip), post4_total_snowfall = parseFloat(data[9].total_snowfall)
         const post5_year_month = data[10].year_month, post5_avg_max_temp = parseFloat(data[10].avg_max_temp), post5_avg_min_temp = parseFloat(data[10].avg_min_temp),
             post5_avg_temp = parseFloat(data[10].avg_temp), post5_total_monthly_precip = parseFloat(data[10].total_monthly_precip), post5_total_snowfall = parseFloat(data[10].total_snowfall)
-
-        const unused = [created_at, updated_at]
 
         this.setState({ wban: wban, year_month: year_month,
           avg_max_temp: avg_max_temp, avg_min_temp: avg_min_temp, avg_temp: avg_temp,
@@ -207,11 +205,8 @@ export default class Monthly extends Component {
               </Statistic>
             </Grid.Column>
           </Grid.Row>
-
         </Grid>
-
-        Graph
-
+        <Graph data={this.state} />
       </div>
     )
   }

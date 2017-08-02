@@ -1,6 +1,8 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
+import { DateParser } from '../../helpers/DateParser'
+
 export const Graph = (props) => {
 
     //note: not using precip height for now, it works but I'll save it for later
@@ -9,51 +11,55 @@ export const Graph = (props) => {
     let temp_height = 0
     // let precip_height = 0
 
-    let { pre5_year_month_day, pre4_year_month_day, pre3_year_month_day,
-            pre2_year_month_day, pre1_year_month_day, year_month_day,
-            post5_year_month_day, post4_year_month_day, post3_year_month_day,
-            post2_year_month_day, post1_year_month_day, tmax, tmin, tavg,
-            pre5_tmax, pre5_tmin, pre5_tavg, pre4_tmax, pre4_tmin, pre4_tavg,
-            pre3_tmax, pre3_tmin, pre3_tavg, pre2_tmax, pre2_tmin, pre2_tavg,
-            pre1_tmax, pre1_tmin, pre1_tavg, post5_tmax, post5_tmin, post5_tavg,
-            post4_tmax, post4_tmin, post4_tavg, post3_tmax, post3_tmin, post3_tavg,
-            post2_tmax, post2_tmin, post2_tavg, post1_tmax, post1_tmin, post1_tavg,
-            // pre5_precip_total, pre4_precip_total, pre3_precip_total,
-            // pre2_precip_total, pre1_precip_total, precip_total,
-            // post5_precip_total, post4_precip_total, post3_precip_total,
-            // post2_precip_total, post1_precip_total,
-            avg_speed } = props.data
+    let { pre5_year_month, pre4_year_month, pre3_year_month,
+            pre2_year_month, pre1_year_month, year_month,
+            post5_year_month, post4_year_month, post3_year_month,
+            post2_year_month, post1_year_month, avg_max_temp, avg_min_temp, avg_temp,
+            pre5_avg_max_temp, pre5_avg_min_temp, pre5_avg_temp, pre4_avg_max_temp, pre4_avg_min_temp, pre4_avg_temp,
+            pre3_avg_max_temp, pre3_avg_min_temp, pre3_avg_temp, pre2_avg_max_temp, pre2_avg_min_temp, pre2_avg_temp,
+            pre1_avg_max_temp, pre1_avg_min_temp, pre1_avg_temp, post5_avg_max_temp, post5_avg_min_temp, post5_avg_temp,
+            post4_avg_max_temp, post4_avg_min_temp, post4_avg_temp, post3_avg_max_temp, post3_avg_min_temp, post3_avg_temp,
+            post2_avg_max_temp, post2_avg_min_temp, post2_avg_temp, post1_avg_max_temp, post1_avg_min_temp, post1_avg_temp,
+            // pre5_total_monthly_precip, pre4_total_monthly_precip, pre3_total_monthly_precip,
+            // pre2_total_monthly_precip, pre1_total_monthly_precip, total_monthly_precip,
+            // post5_total_monthly_precip, post4_total_monthly_precip, post3_total_monthly_precip,
+            // post2_total_monthly_precip, post1_total_monthly_precip,
+            // pre5_total_total_snowfall, pre4_total_total_snowfall, pre3_total_total_snowfall,
+            // pre2_total_total_snowfall, pre1_total_total_snowfall, total_total_snowfall,
+            // post5_total_total_snowfall, post4_total_total_snowfall, post3_total_total_snowfall,
+            // post2_total_total_snowfall, post1_total_total_snowfall,
+             } = props.data
 
-    if (avg_speed !== "") {
-      const pre5 = `${parseInt(pre5_year_month_day.slice(4,6), 10)}/${parseInt(pre5_year_month_day.slice(6,8), 10)}`
-      const pre4 = `${parseInt(pre4_year_month_day.slice(4,6), 10)}/${parseInt(pre4_year_month_day.slice(6,8), 10)}`
-      const pre3 = `${parseInt(pre3_year_month_day.slice(4,6), 10)}/${parseInt(pre3_year_month_day.slice(6,8), 10)}`
-      const pre2 = `${parseInt(pre2_year_month_day.slice(4,6), 10)}/${parseInt(pre2_year_month_day.slice(6,8), 10)}`
-      const pre1 = `${parseInt(pre1_year_month_day.slice(4,6), 10)}/${parseInt(pre1_year_month_day.slice(6,8), 10)}`
-      const today = `${parseInt(year_month_day.slice(4,6), 10)}/${parseInt(year_month_day.slice(6,8), 10)}`
-      const post1 = `${parseInt(post1_year_month_day.slice(4,6), 10)}/${parseInt(post1_year_month_day.slice(6,8), 10)}`
-      const post2 = `${parseInt(post2_year_month_day.slice(4,6), 10)}/${parseInt(post2_year_month_day.slice(6,8), 10)}`
-      const post3 = `${parseInt(post3_year_month_day.slice(4,6), 10)}/${parseInt(post3_year_month_day.slice(6,8), 10)}`
-      const post4 = `${parseInt(post4_year_month_day.slice(4,6), 10)}/${parseInt(post4_year_month_day.slice(6,8), 10)}`
-      const post5 = `${parseInt(post5_year_month_day.slice(4,6), 10)}/${parseInt(post5_year_month_day.slice(6,8), 10)}`
+    if (avg_temp !== "") {
+      const pre5 = `${DateParser[parseInt(pre5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre5_year_month.slice(2,4), 10)}`
+      const pre4 = `${DateParser[parseInt(pre4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre4_year_month.slice(2,4), 10)}`
+      const pre3 = `${DateParser[parseInt(pre3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre3_year_month.slice(2,4), 10)}`
+      const pre2 = `${DateParser[parseInt(pre2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre2_year_month.slice(2,4), 10)}`
+      const pre1 = `${DateParser[parseInt(pre1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre1_year_month.slice(2,4), 10)}`
+      const today = `${DateParser[parseInt(year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(year_month.slice(2,4), 10)}`
+      const post1 = `${DateParser[parseInt(post1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post1_year_month.slice(2,4), 10)}`
+      const post2 = `${DateParser[parseInt(post2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post2_year_month.slice(2,4), 10)}`
+      const post3 = `${DateParser[parseInt(post3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post3_year_month.slice(2,4), 10)}`
+      const post4 = `${DateParser[parseInt(post4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post4_year_month.slice(2,4), 10)}`
+      const post5 = `${DateParser[parseInt(post5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post5_year_month.slice(2,4), 10)}`
 
 
-      if (isNaN(pre5_tavg)) { pre5_tavg = (pre5_tmax + pre5_tmin) / 2 }
-      if (isNaN(pre4_tavg)) { pre4_tavg = (pre4_tmax + pre4_tmin) / 2 }
-      if (isNaN(pre3_tavg)) { pre3_tavg = (pre3_tmax + pre3_tmin) / 2 }
-      if (isNaN(pre2_tavg)) { pre2_tavg = (pre2_tmax + pre2_tmin) / 2 }
-      if (isNaN(pre1_tavg)) { pre1_tavg = (pre1_tmax + pre1_tmin) / 2 }
-      if (tavg === "M") { tavg = (parseInt(tmax, 10) + parseInt(tmin, 10)) / 2 }
-      if (isNaN(post1_tavg)) { post1_tavg = (post1_tmax + post1_tmin) / 2 }
-      if (isNaN(post2_tavg)) { post2_tavg = (post2_tmax + post2_tmin) / 2 }
-      if (isNaN(post3_tavg)) { post3_tavg = (post3_tmax + post3_tmin) / 2 }
-      if (isNaN(post4_tavg)) { post4_tavg = (post4_tmax + post4_tmin) / 2 }
-      if (isNaN(post5_tavg)) { post5_tavg = (post5_tmax + post5_tmin) / 2 }
+      if (isNaN(pre5_avg_temp)) { pre5_avg_temp = (pre5_avg_max_temp + pre5_avg_min_temp) / 2 }
+      if (isNaN(pre4_avg_temp)) { pre4_avg_temp = (pre4_avg_max_temp + pre4_avg_min_temp) / 2 }
+      if (isNaN(pre3_avg_temp)) { pre3_avg_temp = (pre3_avg_max_temp + pre3_avg_min_temp) / 2 }
+      if (isNaN(pre2_avg_temp)) { pre2_avg_temp = (pre2_avg_max_temp + pre2_avg_min_temp) / 2 }
+      if (isNaN(pre1_avg_temp)) { pre1_avg_temp = (pre1_avg_max_temp + pre1_avg_min_temp) / 2 }
+      if (avg_temp === "M") { avg_temp = (parseInt(avg_max_temp, 10) + parseInt(avg_min_temp, 10)) / 2 }
+      if (isNaN(post1_avg_temp)) { post1_avg_temp = (post1_avg_max_temp + post1_avg_min_temp) / 2 }
+      if (isNaN(post2_avg_temp)) { post2_avg_temp = (post2_avg_max_temp + post2_avg_min_temp) / 2 }
+      if (isNaN(post3_avg_temp)) { post3_avg_temp = (post3_avg_max_temp + post3_avg_min_temp) / 2 }
+      if (isNaN(post4_avg_temp)) { post4_avg_temp = (post4_avg_max_temp + post4_avg_min_temp) / 2 }
+      if (isNaN(post5_avg_temp)) { post5_avg_temp = (post5_avg_max_temp + post5_avg_min_temp) / 2 }
 
       labels = [pre5, pre4, pre3, pre2, pre1, today, post1, post2, post3, post4, post5]
 
-      temp_height = Math.ceil(Math.max(pre5_tmax, pre4_tmax, pre3_tmax, pre2_tmax, pre1_tmax,
-        parseInt(tmax, 10), post1_tmax, post2_tmax, post3_tmax, post4_tmax, post5_tmax) / 10) * 10
+      temp_height = Math.ceil(Math.max(pre5_avg_max_temp, pre4_avg_max_temp, pre3_avg_max_temp, pre2_avg_max_temp, pre1_avg_max_temp,
+        parseInt(avg_max_temp, 10), post1_avg_max_temp, post2_avg_max_temp, post3_avg_max_temp, post4_avg_max_temp, post5_avg_max_temp) / 10) * 10
 
       // precip_height = Math.ceil(Math.max(pre5_precip_total, pre4_precip_total, pre3_precip_total, pre2_precip_total, pre1_precip_total,
       //   parseInt(precip_total, 10), post1_precip_total, post2_precip_total, post3_precip_total, post4_precip_total, post5_precip_total) / 10) * 10
@@ -116,7 +122,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [pre5_tmax, pre4_tmax, pre3_tmax, pre2_tmax, pre1_tmax, tmax, post1_tmax, post2_tmax, post3_tmax, post4_tmax, post5_tmax]
+          data: [pre5_avg_max_temp, pre4_avg_max_temp, pre3_avg_max_temp, pre2_avg_max_temp, pre1_avg_max_temp, avg_max_temp, post1_avg_max_temp, post2_avg_max_temp, post3_avg_max_temp, post4_avg_max_temp, post5_avg_max_temp]
         },
         {
           label: 'Average Temps',
@@ -138,7 +144,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [pre5_tavg, pre4_tavg, pre3_tavg, pre2_tavg, pre1_tavg, tavg, post1_tavg, post2_tavg, post3_tavg, post4_tavg, post5_tavg]
+          data: [pre5_avg_temp, pre4_avg_temp, pre3_avg_temp, pre2_avg_temp, pre1_avg_temp, avg_temp, post1_avg_temp, post2_avg_temp, post3_avg_temp, post4_avg_temp, post5_avg_temp]
         },
         {
           label: 'Low Temps',
@@ -160,7 +166,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [pre5_tmin, pre4_tmin, pre3_tmin, pre2_tmin, pre1_tmin, tmin, post1_tmin, post2_tmin, post3_tmin, post4_tmin, post5_tmin]
+          data: [pre5_avg_min_temp, pre4_avg_min_temp, pre3_avg_min_temp, pre2_avg_min_temp, pre1_avg_min_temp, avg_min_temp, post1_avg_min_temp, post2_avg_min_temp, post3_avg_min_temp, post4_avg_min_temp, post5_avg_min_temp]
         }
       ]
     };
@@ -223,7 +229,7 @@ export const Graph = (props) => {
     // if using precip, make height 50 for data and insert <Bar data={data_precip} height={50} />
     return (
       <div>
-        <h2>Weekly Information</h2>
+        <h2>Monthly Information</h2>
         <Bar data={data_temps} height={120}/>
       </div>
     );
