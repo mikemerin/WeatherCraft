@@ -104,7 +104,6 @@ export default class Daily extends Component {
     return (
       <div>
         <br />
-        <br />
         <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
 
           <Grid.Row>
