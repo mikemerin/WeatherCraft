@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid } from 'semantic-ui-react'
+import { Icon, Statistic, Grid } from 'semantic-ui-react'
 
 import { MonthliesAdapter } from '../../../adapters'
 
@@ -7,11 +7,7 @@ import { MonthliesAdapter } from '../../../adapters'
 import { DateParser } from '../../helpers/DateParser'
 
 // outputs
-// import Inclement from './Inclement'
-// import Temperatures from './Temperatures'
-// import Precip from './Precip'
-// import Sun from './Sun'
-// import Winds from './Winds'
+import Temperatures from './Temperatures'
 
 import Graph from './Graph'
 
@@ -118,52 +114,105 @@ export default class Monthly extends Component {
 
   render() {
 
-    debugger
+    // precip: max24_hr_precip, date_max24_hr_precip
+    // precip: days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
 
-    const { wban, year_month, created_at, updated_at,
+    // snow: max24_hr_snowfall, date_max24_hr_snowfall
+    // snow: days_with_snowfall_ge_1p0inch
+
+    const { wban, year_month,
       avg_max_temp, avg_min_temp, avg_temp,
-      date_max24_hr_precip, date_max24_hr_snowfall,
+
       days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
       days_with_snowfall_ge_1p0inch, departure_from_normal,
       departure_from_normal_precip, departure_max_temp, departure_min_temp,
+      date_max24_hr_precip, date_max24_hr_snowfall,
       max24_hr_precip, max24_hr_snowfall, total_monthly_precip, total_snowfall } = this.state
 
+      let date = this.props.date
+      let year_month_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(0,4)}`
+      let month_1 = `${DateParser[parseInt(date.slice(4,6), 10)].slice(0,3)}`
 
-      // let date = this.props.date
-      // let year_month_day_1 = `${DateParser[parseInt(date.slice(4,6), 10)]} ${date.slice(6,8)}, ${date.slice(0,4)}`
+      let total_monthly_precip_1 = total_monthly_precip === "" ? " LOADING" : ( total_monthly_precip === "M" ? " M" : ` ${total_monthly_precip}"` )
+      let departure_from_normal_precip_1 = ( departure_from_normal_precip === "M" || departure_from_normal_precip === "" ) ? "" : ( departure_from_normal_precip > 0 ? ` (+${departure_from_normal_precip}")` : ` (${departure_from_normal_precip}")` )
+
+      let total_snowfall_1 = total_snowfall === "" ? " LOADING" : ( total_snowfall === "M" ? " M" : ` ${total_snowfall}"` )
+
+      let max24_hr_precip_1 = max24_hr_precip === "" ? " LOADING" : ( max24_hr_precip === "M" ? " M" : ` ${max24_hr_precip}" (${month_1} ${date_max24_hr_precip})` )
+      let days_with_precip_ge_p01inch_1 = days_with_precip_ge_p01inch === "" ? " LOADING" : ( days_with_precip_ge_p01inch === "M" ? " M" : ` ${days_with_precip_ge_p01inch}` )
+      let days_with_precip_ge_p10inch_1 = days_with_precip_ge_p10inch === "" ? " LOADING" : ( days_with_precip_ge_p10inch === "M" ? " M" : ` ${days_with_precip_ge_p10inch}` )
+
+      let max24_hr_snowfall_1 = max24_hr_snowfall === "" ? " LOADING" : ( max24_hr_snowfall === "M" ? " M" : ` ${max24_hr_snowfall}" (${month_1} ${date_max24_hr_snowfall})` )
+      let days_with_snowfall_ge_1p0inch_1 = days_with_snowfall_ge_1p0inch === "" ? " LOADING" : ( days_with_snowfall_ge_1p0inch === "M" ? " M" : ` ${days_with_snowfall_ge_1p0inch}` )
 
     return (
       <div>
         <br />
-        <br />
         <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
+
+          <Grid.Row>
+            <Grid.Column>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='rain' color="blue" />
+                    { ` ${total_monthly_precip_1}${departure_from_normal_precip_1}` }
+                  </Statistic.Value>
+                <Statistic.Label>Total Monthly Precip</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+            <Grid.Column>
+              <h1><strong> { year_month_1 } </strong></h1>
+            </Grid.Column>
+            <Grid.Column>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='snowflake outline' color="blue" />
+                    { total_snowfall_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Total Monthly Snowfall</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+          </Grid.Row>
+
+          <Grid.Row>
+            <Grid.Column>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='resize vertical'/>
+                    { max24_hr_precip_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Max 24 Hour Precip</Statistic.Label>
+                <br />
+                <Statistic.Value>
+                  <Icon name='calendar' />
+                  { days_with_precip_ge_p01inch_1 } / { days_with_precip_ge_p10inch_1 }
+                </Statistic.Value>
+                <Statistic.Label>Days >= 0.01" / 0.10"</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+            <Temperatures avg_max_temp={avg_max_temp} avg_min_temp={avg_min_temp} avg_temp={avg_temp} departure_max_temp={departure_max_temp} departure_min_temp={departure_min_temp} departure_from_normal={departure_from_normal} />
+            <Grid.Column>
+              <Statistic size='mini'>
+                <Statistic.Value>
+                  <Icon name='resize vertical'/>
+                    { max24_hr_snowfall_1 }
+                  </Statistic.Value>
+                <Statistic.Label>Max 24 Hour Snowfall</Statistic.Label>
+                <br />
+                <Statistic.Value>
+                  <Icon name='calendar' />
+                  { days_with_snowfall_ge_1p0inch_1 }
+                </Statistic.Value>
+                <Statistic.Label>Days >= 1"</Statistic.Label>
+              </Statistic>
+            </Grid.Column>
+          </Grid.Row>
+
         </Grid>
+
+        Graph
+
       </div>
     )
   }
 }
-
-// <div>
-//   <br />
-//   <br />
-//   <Grid columns={3} celled='internally' textAlign="center" verticalAlign="middle">
-//
-//     <Grid.Row>
-//       <Inclement code_sum={code_sum} />
-//       <Grid.Column>
-//         <h1><strong> { year_month_day_1 } </strong></h1>
-//       </Grid.Column>
-//       <Temperatures tmax={tmax} tmin={tmin} tavg={tavg} dew_point={dew_point} depart={depart} />
-//     </Grid.Row>
-//
-//     <Grid.Row>
-//       <Precip precip_total={precip_total} snow_fall={snow_fall} depth={depth}/>
-//       <Sun sunrise={sunrise} sunset={sunset} />
-//       <Winds avg_speed={avg_speed} max2_speed={max2_speed} max5_speed={max5_speed} max2_dir={max2_dir} />
-//     </Grid.Row>
-//
-//   </Grid>
-//
-//   <Graph data={this.state} />
-//
-// </div>
