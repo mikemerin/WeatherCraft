@@ -33,7 +33,7 @@ export default class Trends extends Component {
     // debugger
     MonthliesAdapter.entry_historical(nextProps.station.wban, nextProps.date)
     .then(data => {
-      console.log("monthly cwrp", this.state, this.props)
+      console.log("trends cwrp", this.state, this.props)
       // debugger
 
       if (data[0] !== null && data[0] !== undefined) {

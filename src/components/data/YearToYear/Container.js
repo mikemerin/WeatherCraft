@@ -33,7 +33,7 @@ export default class YearToYear extends Component {
     // debugger
     DailiesAdapter.entry_historical(nextProps.station.wban, nextProps.date)
     .then(data => {
-      console.log("historical cwrp")
+      console.log("year to year cwrp")
       // debugger
       if (data[0] !== null && data[0] !== undefined) {
 
