@@ -12,6 +12,8 @@ export const DateParser = [ 'Months',
   'November',
   'December',
 ]
+
+export const DateLetterParser = [ 'Months', 'J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D' ]
 //
 // export function DateParser(date, type) {
 //
