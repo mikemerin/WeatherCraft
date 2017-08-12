@@ -42,7 +42,7 @@ export default class Monthly extends Component {
 
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
-    MonthliesAdapter.station_date(nextProps.station.wban, nextProps.date)
+    MonthliesAdapter.entry_date(nextProps.station.wban, nextProps.date)
     .then(data => {
       // debugger
       console.log("monthly cwrp")

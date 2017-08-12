@@ -30,12 +30,18 @@ export class DailiesAdapter {
       .then( res => res.json() )
   }
 
-  static station_date(wban, date) {
+  static entry_date(wban, date) {
     return fetch(`${dailies_URL}/${wban}/${date}/adjacent`)
       .then( res => res.json() )
   }
 
-  static station_historical(wban, date) {
+  static entry_yeartoyear(wban, date) {
+    console.log("Fetching Year To Year", new Date())
+    return fetch(`${dailies_URL}/${wban}/${date}/yeartoyear`)
+      .then( res => res.json() )
+  }
+
+  static entry_historical(wban, date) {
     console.log("Fetching Historical", new Date())
     return fetch(`${dailies_URL}/${wban}/${date}/historical`)
       .then( res => res.json() )
@@ -50,15 +56,21 @@ export class MonthliesAdapter {
       .then( res => res.json() )
   }
 
-  static station_date(wban, date) {
+  static entry_date(wban, date) {
     const year_month = date.slice(0, -2)
     return fetch(`${monthlies_URL}/${wban}/${year_month}/adjacent`)
       .then( res => res.json() )
   }
 
-  static station_historical(wban, date) {
+  static entry_yeartoyear(wban, date) {
     const year_month = date.slice(0, -2)
-    return fetch(`${monthlies_URL}/${wban}/${year_month}/historical`)
+    return fetch(`${monthlies_URL}/${wban}/${year_month}/yeartoyear`)
+      .then( res => res.json() )
+  }
+
+  static entry_historical(wban, date) {
+    const year_month = date.slice(0, -2)
+    return fetch(`${monthlies_URL}/${wban}/${year_month}/yeartoyear`)
       .then( res => res.json() )
   }
 

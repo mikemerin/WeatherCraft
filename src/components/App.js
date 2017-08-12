@@ -116,7 +116,7 @@ export default class App extends Component {
           <Route path="/station/:callsign/:date" render={routerProps => {
               const { date, callsign } = routerProps.match.params
               const station = this.state.stations.find(x => x.callsign === callsign)
-              
+
               return (
                 <div>
                   <Grid.Row>

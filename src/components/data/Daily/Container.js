@@ -41,7 +41,7 @@ export default class Daily extends Component {
 
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
-    DailiesAdapter.station_date(nextProps.station.wban, nextProps.date)
+    DailiesAdapter.entry_date(nextProps.station.wban, nextProps.date)
     .then(data => {
       // debugger
       console.log("daily cwrp")
