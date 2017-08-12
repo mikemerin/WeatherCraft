@@ -70,7 +70,7 @@ export class MonthliesAdapter {
 
   static entry_historical(wban, date) {
     const year_month = date.slice(0, -2)
-    return fetch(`${monthlies_URL}/${wban}/${year_month}/yeartoyear`)
+    return fetch(`${monthlies_URL}/${wban}/${year_month}/historical`)
       .then( res => res.json() )
   }
 
