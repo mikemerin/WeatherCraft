@@ -16,6 +16,7 @@ export default class Monthly extends Component {
   constructor() {
     super()
     this.state = {
+
             o0705_avg_max_temp: '', o0706_avg_max_temp: '', o0705_avg_min_temp: '', o0706_avg_min_temp: '', o0705_avg_temp: '', o0706_avg_temp: '',
             o0707_avg_max_temp: '', o0708_avg_max_temp: '', o0709_avg_max_temp: '', o0710_avg_max_temp: '', o0711_avg_max_temp: '', o0712_avg_max_temp: '',
             o0801_avg_max_temp: '', o0802_avg_max_temp: '', o0803_avg_max_temp: '', o0804_avg_max_temp: '', o0805_avg_max_temp: '', o0806_avg_max_temp: '',
