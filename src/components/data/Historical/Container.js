@@ -38,6 +38,7 @@ export default class Monthly extends Component {
             o1601_avg_max_temp: '', o1602_avg_max_temp: '', o1603_avg_max_temp: '', o1604_avg_max_temp: '', o1605_avg_max_temp: '', o1606_avg_max_temp: '',
             o1607_avg_max_temp: '', o1608_avg_max_temp: '', o1609_avg_max_temp: '', o1610_avg_max_temp: '', o1611_avg_max_temp: '', o1612_avg_max_temp: '',
             o1701_avg_max_temp: '', o1702_avg_max_temp: '', o1703_avg_max_temp: '', o1704_avg_max_temp: '', o1705_avg_max_temp: '', o1706_avg_max_temp: '',
+            o1707_avg_max_temp: '', o1708_avg_max_temp: '',
 
             o0707_avg_min_temp: '', o0708_avg_min_temp: '', o0709_avg_min_temp: '', o0710_avg_min_temp: '', o0711_avg_min_temp: '', o0712_avg_min_temp: '',
             o0801_avg_min_temp: '', o0802_avg_min_temp: '', o0803_avg_min_temp: '', o0804_avg_min_temp: '', o0805_avg_min_temp: '', o0806_avg_min_temp: '',
@@ -59,6 +60,7 @@ export default class Monthly extends Component {
             o1601_avg_min_temp: '', o1602_avg_min_temp: '', o1603_avg_min_temp: '', o1604_avg_min_temp: '', o1605_avg_min_temp: '', o1606_avg_min_temp: '',
             o1607_avg_min_temp: '', o1608_avg_min_temp: '', o1609_avg_min_temp: '', o1610_avg_min_temp: '', o1611_avg_min_temp: '', o1612_avg_min_temp: '',
             o1701_avg_min_temp: '', o1702_avg_min_temp: '', o1703_avg_min_temp: '', o1704_avg_min_temp: '', o1705_avg_min_temp: '', o1706_avg_min_temp: '',
+            o1707_avg_min_temp: '', o1708_avg_min_temp: '',
 
             o0707_avg_temp: '', o0708_avg_temp: '', o0709_avg_temp: '', o0710_avg_temp: '', o0711_avg_temp: '', o0712_avg_temp: '',
             o0801_avg_temp: '', o0802_avg_temp: '', o0803_avg_temp: '', o0804_avg_temp: '', o0805_avg_temp: '', o0806_avg_temp: '',
@@ -79,7 +81,8 @@ export default class Monthly extends Component {
             o1507_avg_temp: '', o1508_avg_temp: '', o1509_avg_temp: '', o1510_avg_temp: '', o1511_avg_temp: '', o1512_avg_temp: '',
             o1601_avg_temp: '', o1602_avg_temp: '', o1603_avg_temp: '', o1604_avg_temp: '', o1605_avg_temp: '', o1606_avg_temp: '',
             o1607_avg_temp: '', o1608_avg_temp: '', o1609_avg_temp: '', o1610_avg_temp: '', o1611_avg_temp: '', o1612_avg_temp: '',
-            o1701_avg_temp: '', o1702_avg_temp: '', o1703_avg_temp: '', o1704_avg_temp: '', o1705_avg_temp: '', o1706_avg_temp: ''
+            o1701_avg_temp: '', o1702_avg_temp: '', o1703_avg_temp: '', o1704_avg_temp: '', o1705_avg_temp: '', o1706_avg_temp: '',
+            o1707_avg_temp: '', o1708_avg_temp: ''
     }
 
   }
@@ -224,6 +227,8 @@ export default class Monthly extends Component {
         const o1704_avg_max_temp = parseFloat(data[119].avg_max_temp), o1704_avg_min_temp = parseFloat(data[119].avg_min_temp), o1704_avg_temp = parseFloat(data[119].avg_temp)
         const o1705_avg_max_temp = parseFloat(data[120].avg_max_temp), o1705_avg_min_temp = parseFloat(data[120].avg_min_temp), o1705_avg_temp = parseFloat(data[120].avg_temp)
         const o1706_avg_max_temp = parseFloat(data[121].avg_max_temp), o1706_avg_min_temp = parseFloat(data[121].avg_min_temp), o1706_avg_temp = parseFloat(data[121].avg_temp)
+        const o1707_avg_max_temp = parseFloat(data[122].avg_max_temp), o1707_avg_min_temp = parseFloat(data[122].avg_min_temp), o1707_avg_temp = parseFloat(data[122].avg_temp)
+        const o1708_avg_max_temp = parseFloat(data[123].avg_max_temp), o1708_avg_min_temp = parseFloat(data[123].avg_min_temp), o1708_avg_temp = parseFloat(data[123].avg_temp)
 
 
         this.setState({
@@ -320,6 +325,7 @@ export default class Monthly extends Component {
           o1610_avg_min_temp: o1610_avg_min_temp, o1611_avg_min_temp: o1611_avg_min_temp, o1612_avg_min_temp: o1612_avg_min_temp,
           o1701_avg_min_temp: o1701_avg_min_temp, o1702_avg_min_temp: o1702_avg_min_temp, o1703_avg_min_temp: o1703_avg_min_temp,
           o1704_avg_min_temp: o1704_avg_min_temp, o1705_avg_min_temp: o1705_avg_min_temp, o1706_avg_min_temp: o1706_avg_min_temp,
+          o1707_avg_min_temp: o1707_avg_min_temp, o1708_avg_min_temp: o1708_avg_min_temp,
 
           o0705_avg_temp: o0705_avg_temp, o0706_avg_temp: o0706_avg_temp,
           o0707_avg_temp: o0707_avg_temp, o0708_avg_temp: o0708_avg_temp, o0709_avg_temp: o0709_avg_temp,
@@ -367,6 +373,7 @@ export default class Monthly extends Component {
           o1610_avg_temp: o1610_avg_temp, o1611_avg_temp: o1611_avg_temp, o1612_avg_temp: o1612_avg_temp,
           o1701_avg_temp: o1701_avg_temp, o1702_avg_temp: o1702_avg_temp, o1703_avg_temp: o1703_avg_temp,
           o1704_avg_temp: o1704_avg_temp, o1705_avg_temp: o1705_avg_temp, o1706_avg_temp: o1706_avg_temp,
+          o1707_avg_temp: o1707_avg_temp, o1708_avg_temp: o1708_avg_temp
 
 
         })
