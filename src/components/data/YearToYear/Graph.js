@@ -41,6 +41,10 @@ export const Graph = (props) => {
     temp_height = Math.ceil(Math.max(o07_tmax, o08_tmax, o09_tmax, o10_tmax, o11_tmax,
       o12_tmax, o13_tmax, o14_tmax, o15_tmax, o16_tmax, o17_tmax) / 10) * 10
 
+    // prep for tend lines
+    const trends = [o07_tavg, o08_tavg, o09_tavg, o10_tavg, o11_tavg, o12_tavg, o13_tavg, o14_tavg, o15_tavg, o15_tavg, o16_tavg, o17_tavg].filter(x => x)
+    console.log(trends)
+
     const year_bar = labels.map(x => x === props.year ? temp_height : null )
 
     data_temps = {

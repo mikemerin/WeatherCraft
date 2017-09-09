@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Icon, Statistic, Grid } from 'semantic-ui-react'
+// import { Icon, Statistic, Grid } from 'semantic-ui-react'
 
 import { MonthliesAdapter } from '../../../adapters'
 
 // helpers
-import { DateParser } from '../../helpers/DateParser'
+// import { DateParser } from '../../helpers/DateParser'
 
 // outputs
-import Temperatures from './Temperatures'
+// import Temperatures from './Temperatures'
 
 import Graph from './Graph'
 
@@ -278,6 +278,7 @@ export default class Monthly extends Component {
           o1610_avg_max_temp: o1610_avg_max_temp, o1611_avg_max_temp: o1611_avg_max_temp, o1612_avg_max_temp: o1612_avg_max_temp,
           o1701_avg_max_temp: o1701_avg_max_temp, o1702_avg_max_temp: o1702_avg_max_temp, o1703_avg_max_temp: o1703_avg_max_temp,
           o1704_avg_max_temp: o1704_avg_max_temp, o1705_avg_max_temp: o1705_avg_max_temp, o1706_avg_max_temp: o1706_avg_max_temp,
+          o1707_avg_max_temp: o1707_avg_max_temp, o1708_avg_max_temp: o1708_avg_max_temp,
 
           o0705_avg_min_temp: o0705_avg_min_temp, o0706_avg_min_temp: o0706_avg_min_temp,
           o0707_avg_min_temp: o0707_avg_min_temp, o0708_avg_min_temp: o0708_avg_min_temp, o0709_avg_min_temp: o0709_avg_min_temp,
