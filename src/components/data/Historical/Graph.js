@@ -246,6 +246,75 @@ export const Graph = (props) => {
 
     }
 
+    const max_temps = [ o0705_avg_max_temp, o0706_avg_max_temp,
+        o0707_avg_max_temp, o0708_avg_max_temp, o0709_avg_max_temp, o0710_avg_max_temp, o0711_avg_max_temp, o0712_avg_max_temp,
+        o0801_avg_max_temp, o0802_avg_max_temp, o0803_avg_max_temp, o0804_avg_max_temp, o0805_avg_max_temp, o0806_avg_max_temp,
+        o0807_avg_max_temp, o0808_avg_max_temp, o0809_avg_max_temp, o0810_avg_max_temp, o0811_avg_max_temp, o0812_avg_max_temp,
+        o0901_avg_max_temp, o0902_avg_max_temp, o0903_avg_max_temp, o0904_avg_max_temp, o0905_avg_max_temp, o0906_avg_max_temp,
+        o0907_avg_max_temp, o0908_avg_max_temp, o0909_avg_max_temp, o0910_avg_max_temp, o0911_avg_max_temp, o0912_avg_max_temp,
+        o1001_avg_max_temp, o1002_avg_max_temp, o1003_avg_max_temp, o1004_avg_max_temp, o1005_avg_max_temp, o1006_avg_max_temp,
+        o1007_avg_max_temp, o1008_avg_max_temp, o1009_avg_max_temp, o1010_avg_max_temp, o1011_avg_max_temp, o1012_avg_max_temp,
+        o1101_avg_max_temp, o1102_avg_max_temp, o1103_avg_max_temp, o1104_avg_max_temp, o1105_avg_max_temp, o1106_avg_max_temp,
+        o1107_avg_max_temp, o1108_avg_max_temp, o1109_avg_max_temp, o1110_avg_max_temp, o1111_avg_max_temp, o1112_avg_max_temp,
+        o1201_avg_max_temp, o1202_avg_max_temp, o1203_avg_max_temp, o1204_avg_max_temp, o1205_avg_max_temp, o1206_avg_max_temp,
+        o1207_avg_max_temp, o1208_avg_max_temp, o1209_avg_max_temp, o1210_avg_max_temp, o1211_avg_max_temp, o1212_avg_max_temp,
+        o1301_avg_max_temp, o1302_avg_max_temp, o1303_avg_max_temp, o1304_avg_max_temp, o1305_avg_max_temp, o1306_avg_max_temp,
+        o1307_avg_max_temp, o1308_avg_max_temp, o1309_avg_max_temp, o1310_avg_max_temp, o1311_avg_max_temp, o1312_avg_max_temp,
+        o1401_avg_max_temp, o1402_avg_max_temp, o1403_avg_max_temp, o1404_avg_max_temp, o1405_avg_max_temp, o1406_avg_max_temp,
+        o1407_avg_max_temp, o1408_avg_max_temp, o1409_avg_max_temp, o1410_avg_max_temp, o1411_avg_max_temp, o1412_avg_max_temp,
+        o1501_avg_max_temp, o1502_avg_max_temp, o1503_avg_max_temp, o1504_avg_max_temp, o1505_avg_max_temp, o1506_avg_max_temp,
+        o1507_avg_max_temp, o1508_avg_max_temp, o1509_avg_max_temp, o1510_avg_max_temp, o1511_avg_max_temp, o1512_avg_max_temp,
+        o1601_avg_max_temp, o1602_avg_max_temp, o1603_avg_max_temp, o1604_avg_max_temp, o1605_avg_max_temp, o1606_avg_max_temp,
+        o1607_avg_max_temp, o1608_avg_max_temp, o1609_avg_max_temp, o1610_avg_max_temp, o1611_avg_max_temp, o1612_avg_max_temp,
+        o1701_avg_max_temp, o1702_avg_max_temp, o1703_avg_max_temp, o1704_avg_max_temp, o1705_avg_max_temp, o1706_avg_max_temp,
+        o1707_avg_max_temp, o1708_avg_max_temp ]
+
+    const avg_temps = [ o0705_avg_temp, o0706_avg_temp,
+        o0707_avg_temp, o0708_avg_temp, o0709_avg_temp, o0710_avg_temp, o0711_avg_temp, o0712_avg_temp,
+        o0801_avg_temp, o0802_avg_temp, o0803_avg_temp, o0804_avg_temp, o0805_avg_temp, o0806_avg_temp,
+        o0807_avg_temp, o0808_avg_temp, o0809_avg_temp, o0810_avg_temp, o0811_avg_temp, o0812_avg_temp,
+        o0901_avg_temp, o0902_avg_temp, o0903_avg_temp, o0904_avg_temp, o0905_avg_temp, o0906_avg_temp,
+        o0907_avg_temp, o0908_avg_temp, o0909_avg_temp, o0910_avg_temp, o0911_avg_temp, o0912_avg_temp,
+        o1001_avg_temp, o1002_avg_temp, o1003_avg_temp, o1004_avg_temp, o1005_avg_temp, o1006_avg_temp,
+        o1007_avg_temp, o1008_avg_temp, o1009_avg_temp, o1010_avg_temp, o1011_avg_temp, o1012_avg_temp,
+        o1101_avg_temp, o1102_avg_temp, o1103_avg_temp, o1104_avg_temp, o1105_avg_temp, o1106_avg_temp,
+        o1107_avg_temp, o1108_avg_temp, o1109_avg_temp, o1110_avg_temp, o1111_avg_temp, o1112_avg_temp,
+        o1201_avg_temp, o1202_avg_temp, o1203_avg_temp, o1204_avg_temp, o1205_avg_temp, o1206_avg_temp,
+        o1207_avg_temp, o1208_avg_temp, o1209_avg_temp, o1210_avg_temp, o1211_avg_temp, o1212_avg_temp,
+        o1301_avg_temp, o1302_avg_temp, o1303_avg_temp, o1304_avg_temp, o1305_avg_temp, o1306_avg_temp,
+        o1307_avg_temp, o1308_avg_temp, o1309_avg_temp, o1310_avg_temp, o1311_avg_temp, o1312_avg_temp,
+        o1401_avg_temp, o1402_avg_temp, o1403_avg_temp, o1404_avg_temp, o1405_avg_temp, o1406_avg_temp,
+        o1407_avg_temp, o1408_avg_temp, o1409_avg_temp, o1410_avg_temp, o1411_avg_temp, o1412_avg_temp,
+        o1501_avg_temp, o1502_avg_temp, o1503_avg_temp, o1504_avg_temp, o1505_avg_temp, o1506_avg_temp,
+        o1507_avg_temp, o1508_avg_temp, o1509_avg_temp, o1510_avg_temp, o1511_avg_temp, o1512_avg_temp,
+        o1601_avg_temp, o1602_avg_temp, o1603_avg_temp, o1604_avg_temp, o1605_avg_temp, o1606_avg_temp,
+        o1607_avg_temp, o1608_avg_temp, o1609_avg_temp, o1610_avg_temp, o1611_avg_temp, o1612_avg_temp,
+        o1701_avg_temp, o1702_avg_temp, o1703_avg_temp, o1704_avg_temp, o1705_avg_temp, o1706_avg_temp,
+        o1707_avg_temp, o1708_avg_temp ]
+
+    const min_temps = [ o0705_avg_min_temp, o0706_avg_min_temp,
+        o0707_avg_min_temp, o0708_avg_min_temp, o0709_avg_min_temp, o0710_avg_min_temp, o0711_avg_min_temp, o0712_avg_min_temp,
+        o0801_avg_min_temp, o0802_avg_min_temp, o0803_avg_min_temp, o0804_avg_min_temp, o0805_avg_min_temp, o0806_avg_min_temp,
+        o0807_avg_min_temp, o0808_avg_min_temp, o0809_avg_min_temp, o0810_avg_min_temp, o0811_avg_min_temp, o0812_avg_min_temp,
+        o0901_avg_min_temp, o0902_avg_min_temp, o0903_avg_min_temp, o0904_avg_min_temp, o0905_avg_min_temp, o0906_avg_min_temp,
+        o0907_avg_min_temp, o0908_avg_min_temp, o0909_avg_min_temp, o0910_avg_min_temp, o0911_avg_min_temp, o0912_avg_min_temp,
+        o1001_avg_min_temp, o1002_avg_min_temp, o1003_avg_min_temp, o1004_avg_min_temp, o1005_avg_min_temp, o1006_avg_min_temp,
+        o1007_avg_min_temp, o1008_avg_min_temp, o1009_avg_min_temp, o1010_avg_min_temp, o1011_avg_min_temp, o1012_avg_min_temp,
+        o1101_avg_min_temp, o1102_avg_min_temp, o1103_avg_min_temp, o1104_avg_min_temp, o1105_avg_min_temp, o1106_avg_min_temp,
+        o1107_avg_min_temp, o1108_avg_min_temp, o1109_avg_min_temp, o1110_avg_min_temp, o1111_avg_min_temp, o1112_avg_min_temp,
+        o1201_avg_min_temp, o1202_avg_min_temp, o1203_avg_min_temp, o1204_avg_min_temp, o1205_avg_min_temp, o1206_avg_min_temp,
+        o1207_avg_min_temp, o1208_avg_min_temp, o1209_avg_min_temp, o1210_avg_min_temp, o1211_avg_min_temp, o1212_avg_min_temp,
+        o1301_avg_min_temp, o1302_avg_min_temp, o1303_avg_min_temp, o1304_avg_min_temp, o1305_avg_min_temp, o1306_avg_min_temp,
+        o1307_avg_min_temp, o1308_avg_min_temp, o1309_avg_min_temp, o1310_avg_min_temp, o1311_avg_min_temp, o1312_avg_min_temp,
+        o1401_avg_min_temp, o1402_avg_min_temp, o1403_avg_min_temp, o1404_avg_min_temp, o1405_avg_min_temp, o1406_avg_min_temp,
+        o1407_avg_min_temp, o1408_avg_min_temp, o1409_avg_min_temp, o1410_avg_min_temp, o1411_avg_min_temp, o1412_avg_min_temp,
+        o1501_avg_min_temp, o1502_avg_min_temp, o1503_avg_min_temp, o1504_avg_min_temp, o1505_avg_min_temp, o1506_avg_min_temp,
+        o1507_avg_min_temp, o1508_avg_min_temp, o1509_avg_min_temp, o1510_avg_min_temp, o1511_avg_min_temp, o1512_avg_min_temp,
+        o1601_avg_min_temp, o1602_avg_min_temp, o1603_avg_min_temp, o1604_avg_min_temp, o1605_avg_min_temp, o1606_avg_min_temp,
+        o1607_avg_min_temp, o1608_avg_min_temp, o1609_avg_min_temp, o1610_avg_min_temp, o1611_avg_min_temp, o1612_avg_min_temp,
+        o1701_avg_min_temp, o1702_avg_min_temp, o1703_avg_min_temp, o1704_avg_min_temp, o1705_avg_min_temp, o1706_avg_min_temp,
+        o1707_avg_min_temp, o1708_avg_min_temp ]
+
     const year_bar = labels.map(x => x === props.year ? temp_height : null )
 
     const data_temps = {
@@ -307,28 +376,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [ o0705_avg_max_temp, o0706_avg_max_temp,
-              o0707_avg_max_temp, o0708_avg_max_temp, o0709_avg_max_temp, o0710_avg_max_temp, o0711_avg_max_temp, o0712_avg_max_temp,
-              o0801_avg_max_temp, o0802_avg_max_temp, o0803_avg_max_temp, o0804_avg_max_temp, o0805_avg_max_temp, o0806_avg_max_temp,
-              o0807_avg_max_temp, o0808_avg_max_temp, o0809_avg_max_temp, o0810_avg_max_temp, o0811_avg_max_temp, o0812_avg_max_temp,
-              o0901_avg_max_temp, o0902_avg_max_temp, o0903_avg_max_temp, o0904_avg_max_temp, o0905_avg_max_temp, o0906_avg_max_temp,
-              o0907_avg_max_temp, o0908_avg_max_temp, o0909_avg_max_temp, o0910_avg_max_temp, o0911_avg_max_temp, o0912_avg_max_temp,
-              o1001_avg_max_temp, o1002_avg_max_temp, o1003_avg_max_temp, o1004_avg_max_temp, o1005_avg_max_temp, o1006_avg_max_temp,
-              o1007_avg_max_temp, o1008_avg_max_temp, o1009_avg_max_temp, o1010_avg_max_temp, o1011_avg_max_temp, o1012_avg_max_temp,
-              o1101_avg_max_temp, o1102_avg_max_temp, o1103_avg_max_temp, o1104_avg_max_temp, o1105_avg_max_temp, o1106_avg_max_temp,
-              o1107_avg_max_temp, o1108_avg_max_temp, o1109_avg_max_temp, o1110_avg_max_temp, o1111_avg_max_temp, o1112_avg_max_temp,
-              o1201_avg_max_temp, o1202_avg_max_temp, o1203_avg_max_temp, o1204_avg_max_temp, o1205_avg_max_temp, o1206_avg_max_temp,
-              o1207_avg_max_temp, o1208_avg_max_temp, o1209_avg_max_temp, o1210_avg_max_temp, o1211_avg_max_temp, o1212_avg_max_temp,
-              o1301_avg_max_temp, o1302_avg_max_temp, o1303_avg_max_temp, o1304_avg_max_temp, o1305_avg_max_temp, o1306_avg_max_temp,
-              o1307_avg_max_temp, o1308_avg_max_temp, o1309_avg_max_temp, o1310_avg_max_temp, o1311_avg_max_temp, o1312_avg_max_temp,
-              o1401_avg_max_temp, o1402_avg_max_temp, o1403_avg_max_temp, o1404_avg_max_temp, o1405_avg_max_temp, o1406_avg_max_temp,
-              o1407_avg_max_temp, o1408_avg_max_temp, o1409_avg_max_temp, o1410_avg_max_temp, o1411_avg_max_temp, o1412_avg_max_temp,
-              o1501_avg_max_temp, o1502_avg_max_temp, o1503_avg_max_temp, o1504_avg_max_temp, o1505_avg_max_temp, o1506_avg_max_temp,
-              o1507_avg_max_temp, o1508_avg_max_temp, o1509_avg_max_temp, o1510_avg_max_temp, o1511_avg_max_temp, o1512_avg_max_temp,
-              o1601_avg_max_temp, o1602_avg_max_temp, o1603_avg_max_temp, o1604_avg_max_temp, o1605_avg_max_temp, o1606_avg_max_temp,
-              o1607_avg_max_temp, o1608_avg_max_temp, o1609_avg_max_temp, o1610_avg_max_temp, o1611_avg_max_temp, o1612_avg_max_temp,
-              o1701_avg_max_temp, o1702_avg_max_temp, o1703_avg_max_temp, o1704_avg_max_temp, o1705_avg_max_temp, o1706_avg_max_temp,
-              o1707_avg_max_temp, o1708_avg_max_temp  ]
+          data: max_temps
         },
         {
           label: 'Average Temps',
@@ -350,28 +398,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [ o0705_avg_temp, o0706_avg_temp,
-              o0707_avg_temp, o0708_avg_temp, o0709_avg_temp, o0710_avg_temp, o0711_avg_temp, o0712_avg_temp,
-              o0801_avg_temp, o0802_avg_temp, o0803_avg_temp, o0804_avg_temp, o0805_avg_temp, o0806_avg_temp,
-              o0807_avg_temp, o0808_avg_temp, o0809_avg_temp, o0810_avg_temp, o0811_avg_temp, o0812_avg_temp,
-              o0901_avg_temp, o0902_avg_temp, o0903_avg_temp, o0904_avg_temp, o0905_avg_temp, o0906_avg_temp,
-              o0907_avg_temp, o0908_avg_temp, o0909_avg_temp, o0910_avg_temp, o0911_avg_temp, o0912_avg_temp,
-              o1001_avg_temp, o1002_avg_temp, o1003_avg_temp, o1004_avg_temp, o1005_avg_temp, o1006_avg_temp,
-              o1007_avg_temp, o1008_avg_temp, o1009_avg_temp, o1010_avg_temp, o1011_avg_temp, o1012_avg_temp,
-              o1101_avg_temp, o1102_avg_temp, o1103_avg_temp, o1104_avg_temp, o1105_avg_temp, o1106_avg_temp,
-              o1107_avg_temp, o1108_avg_temp, o1109_avg_temp, o1110_avg_temp, o1111_avg_temp, o1112_avg_temp,
-              o1201_avg_temp, o1202_avg_temp, o1203_avg_temp, o1204_avg_temp, o1205_avg_temp, o1206_avg_temp,
-              o1207_avg_temp, o1208_avg_temp, o1209_avg_temp, o1210_avg_temp, o1211_avg_temp, o1212_avg_temp,
-              o1301_avg_temp, o1302_avg_temp, o1303_avg_temp, o1304_avg_temp, o1305_avg_temp, o1306_avg_temp,
-              o1307_avg_temp, o1308_avg_temp, o1309_avg_temp, o1310_avg_temp, o1311_avg_temp, o1312_avg_temp,
-              o1401_avg_temp, o1402_avg_temp, o1403_avg_temp, o1404_avg_temp, o1405_avg_temp, o1406_avg_temp,
-              o1407_avg_temp, o1408_avg_temp, o1409_avg_temp, o1410_avg_temp, o1411_avg_temp, o1412_avg_temp,
-              o1501_avg_temp, o1502_avg_temp, o1503_avg_temp, o1504_avg_temp, o1505_avg_temp, o1506_avg_temp,
-              o1507_avg_temp, o1508_avg_temp, o1509_avg_temp, o1510_avg_temp, o1511_avg_temp, o1512_avg_temp,
-              o1601_avg_temp, o1602_avg_temp, o1603_avg_temp, o1604_avg_temp, o1605_avg_temp, o1606_avg_temp,
-              o1607_avg_temp, o1608_avg_temp, o1609_avg_temp, o1610_avg_temp, o1611_avg_temp, o1612_avg_temp,
-              o1701_avg_temp, o1702_avg_temp, o1703_avg_temp, o1704_avg_temp, o1705_avg_temp, o1706_avg_temp,
-              o1707_avg_temp, o1708_avg_temp ]
+          data: avg_temps
         },
         {
           label: 'Low Temps',
@@ -393,33 +420,39 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: [ o0705_avg_min_temp, o0706_avg_min_temp,
-              o0707_avg_min_temp, o0708_avg_min_temp, o0709_avg_min_temp, o0710_avg_min_temp, o0711_avg_min_temp, o0712_avg_min_temp,
-              o0801_avg_min_temp, o0802_avg_min_temp, o0803_avg_min_temp, o0804_avg_min_temp, o0805_avg_min_temp, o0806_avg_min_temp,
-              o0807_avg_min_temp, o0808_avg_min_temp, o0809_avg_min_temp, o0810_avg_min_temp, o0811_avg_min_temp, o0812_avg_min_temp,
-              o0901_avg_min_temp, o0902_avg_min_temp, o0903_avg_min_temp, o0904_avg_min_temp, o0905_avg_min_temp, o0906_avg_min_temp,
-              o0907_avg_min_temp, o0908_avg_min_temp, o0909_avg_min_temp, o0910_avg_min_temp, o0911_avg_min_temp, o0912_avg_min_temp,
-              o1001_avg_min_temp, o1002_avg_min_temp, o1003_avg_min_temp, o1004_avg_min_temp, o1005_avg_min_temp, o1006_avg_min_temp,
-              o1007_avg_min_temp, o1008_avg_min_temp, o1009_avg_min_temp, o1010_avg_min_temp, o1011_avg_min_temp, o1012_avg_min_temp,
-              o1101_avg_min_temp, o1102_avg_min_temp, o1103_avg_min_temp, o1104_avg_min_temp, o1105_avg_min_temp, o1106_avg_min_temp,
-              o1107_avg_min_temp, o1108_avg_min_temp, o1109_avg_min_temp, o1110_avg_min_temp, o1111_avg_min_temp, o1112_avg_min_temp,
-              o1201_avg_min_temp, o1202_avg_min_temp, o1203_avg_min_temp, o1204_avg_min_temp, o1205_avg_min_temp, o1206_avg_min_temp,
-              o1207_avg_min_temp, o1208_avg_min_temp, o1209_avg_min_temp, o1210_avg_min_temp, o1211_avg_min_temp, o1212_avg_min_temp,
-              o1301_avg_min_temp, o1302_avg_min_temp, o1303_avg_min_temp, o1304_avg_min_temp, o1305_avg_min_temp, o1306_avg_min_temp,
-              o1307_avg_min_temp, o1308_avg_min_temp, o1309_avg_min_temp, o1310_avg_min_temp, o1311_avg_min_temp, o1312_avg_min_temp,
-              o1401_avg_min_temp, o1402_avg_min_temp, o1403_avg_min_temp, o1404_avg_min_temp, o1405_avg_min_temp, o1406_avg_min_temp,
-              o1407_avg_min_temp, o1408_avg_min_temp, o1409_avg_min_temp, o1410_avg_min_temp, o1411_avg_min_temp, o1412_avg_min_temp,
-              o1501_avg_min_temp, o1502_avg_min_temp, o1503_avg_min_temp, o1504_avg_min_temp, o1505_avg_min_temp, o1506_avg_min_temp,
-              o1507_avg_min_temp, o1508_avg_min_temp, o1509_avg_min_temp, o1510_avg_min_temp, o1511_avg_min_temp, o1512_avg_min_temp,
-              o1601_avg_min_temp, o1602_avg_min_temp, o1603_avg_min_temp, o1604_avg_min_temp, o1605_avg_min_temp, o1606_avg_min_temp,
-              o1607_avg_min_temp, o1608_avg_min_temp, o1609_avg_min_temp, o1610_avg_min_temp, o1611_avg_min_temp, o1612_avg_min_temp,
-              o1701_avg_min_temp, o1702_avg_min_temp, o1703_avg_min_temp, o1704_avg_min_temp, o1705_avg_min_temp, o1706_avg_min_temp,
-              o1707_avg_min_temp, o1708_avg_min_temp ]
+          data: min_temps
         }
       ]
     };
 
-    debugger
+    console.log(avg_temps)
+    // trends
+    let avg = avg_temps.filter(x => x)
+    let length = avg.length
+    let x_axis = avg.map((x,i) => {
+
+        return i+1
+    })
+
+    /*
+    temps = monthlies.map { |x| x.avg_temp }
+    temps.delete("M")
+    temps = temps.map(&:to_f)
+    size = temps.size
+    x_axis = (1..size).to_a
+
+    # sums
+    sum_temps = temps.reduce(:+)
+    sum_x_axis = x_axis.reduce(:+)
+    linear, x_squared = 0, 0
+    temps.zip(x_axis).each { |t,x| linear, x_squared = linear += t*x, x_squared += x*x }
+
+    # slope
+    slope = 1.0 * ((size * linear) - (sum_x_axis * sum_temps)) / ((size * x_squared) - (sum_x_axis ** 2))
+    intercept = 1.0 * (sum_temps - (slope * sum_x_axis)) / size
+
+    trend = x_axis.map { |x| (slope * x) + intercept }
+    */
 
     return (
       <div>
