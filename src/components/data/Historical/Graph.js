@@ -319,6 +319,7 @@ export const Graph = (props) => {
 
     // trend line
     let trend = []
+    let slope = 0
 
     if (avg_temps.filter(x=>x).length !== 0) {
       // numbers to work off of
@@ -348,7 +349,7 @@ export const Graph = (props) => {
       linear = Math.round(linear * 10) / 10
 
       // get slope and intercept for line start point and angle, then create the trend line
-      let slope = 1.0 * ((length * linear) - (sum_x_axis * sum_temps)) / ((length * x_squared) - (sum_x_axis ** 2))
+      slope = 1.0 * ((length * linear) - (sum_x_axis * sum_temps)) / ((length * x_squared) - (sum_x_axis ** 2))
       let intercept = 1.0 * (sum_temps - (slope * sum_x_axis)) / length
       trend = x_axis.map(x => (slope * x) + intercept )
     }
@@ -393,7 +394,7 @@ export const Graph = (props) => {
         //   data: year_bar
         // },
         {
-          label: 'Avg Temps Trend',
+          label: `Trend: ${Math.round(slope*12 * 10000) / 10000}ºF / year`,
           fill: false,
           type: 'line',
           backgroundColor: 'rgba(0,0,0,0.2)',

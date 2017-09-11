@@ -75,7 +75,7 @@ export const Graph = (props) => {
 
       // work off those prior numbers to set up the trend equation
       avg_temps.forEach((t, i) => {
-          // x_squared += i**2
+          x_squared += (i+1)**2
           if (!isNaN(t) || t !== null) {
             linear += t * i
           }
@@ -83,6 +83,13 @@ export const Graph = (props) => {
 
       // round linear
       linear = Math.round(linear * 10) / 10
+
+      // debugger
+
+      // if (missing === 1) {
+      //   avg_temps.push(null)
+      // }
+
 
       // get slope and intercept for line start point and angle, then create the trend line
       let slope = 1.0 * ((length * linear) - (sum_x_axis * sum_temps)) / ((length * x_squared) - (sum_x_axis ** 2))
@@ -104,7 +111,9 @@ export const Graph = (props) => {
             stacked: true
            }]
       },
+      showTooltips: true,
       options: {
+        spanGaps: true,
         layout: {
           padding: {
             left: 100,
@@ -133,27 +142,27 @@ export const Graph = (props) => {
           pointHitRadius: 10,
           data: year_bar
         },
-        {
-          label: 'Avg Temps Trend',
-          fill: false,
-          type: 'line',
-          backgroundColor: 'rgba(0,0,0,0.2)',
-          borderColor: 'rgba(0,0,0,1)',
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(0,0,0,1)',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(0,0,0,1)',
-          pointHoverBorderColor: 'rgba(0,0,0,1)',
-          pointHoverBorderWidth: 2,
-          pointRadius: 1,
-          pointHitRadius: 10,
-          data: trend
-        },
+        // {
+        //   label: 'Avg Temps Trend',
+        //   fill: false,
+        //   type: 'line',
+        //   backgroundColor: 'rgba(0,0,0,0.2)',
+        //   borderColor: 'rgba(0,0,0,1)',
+        //   borderCapStyle: 'butt',
+        //   borderDash: [],
+        //   borderDashOffset: 0.0,
+        //   borderJoinStyle: 'miter',
+        //   pointBorderColor: 'rgba(0,0,0,1)',
+        //   pointBackgroundColor: '#fff',
+        //   pointBorderWidth: 1,
+        //   pointHoverRadius: 5,
+        //   pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+        //   pointHoverBorderColor: 'rgba(0,0,0,1)',
+        //   pointHoverBorderWidth: 2,
+        //   pointRadius: 1,
+        //   pointHitRadius: 10,
+        //   data: trend
+        // },
         {
           label: 'High Temps',
           type: 'line',

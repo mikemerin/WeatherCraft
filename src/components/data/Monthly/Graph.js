@@ -73,7 +73,9 @@ export const Graph = (props) => {
 
     const data_temps = {
       labels: labels,
+      showTooltips: true,
       options: {
+        spanGaps: true,
         layout: {
           padding: {
             left: 100,
