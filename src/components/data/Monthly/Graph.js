@@ -32,20 +32,19 @@ export const Graph = (props) => {
              } = props.data
 
     if (avg_temp !== "") {
-      const pre6 = `${DateParser[parseInt(pre6_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre6_year_month.slice(2,4), 10)}`
-      const pre5 = `${DateParser[parseInt(pre5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre5_year_month.slice(2,4), 10)}`
-      const pre4 = `${DateParser[parseInt(pre4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre4_year_month.slice(2,4), 10)}`
-      const pre3 = `${DateParser[parseInt(pre3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre3_year_month.slice(2,4), 10)}`
-      const pre2 = `${DateParser[parseInt(pre2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre2_year_month.slice(2,4), 10)}`
-      const pre1 = `${DateParser[parseInt(pre1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre1_year_month.slice(2,4), 10)}`
+      const pre6 = pre6_year_month === "M" ? "" : `${DateParser[parseInt(pre6_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre6_year_month.slice(2,4), 10)}`
+      const pre5 = pre5_year_month === "M" ? "" : `${DateParser[parseInt(pre5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre5_year_month.slice(2,4), 10)}`
+      const pre4 = pre4_year_month === "M" ? "" : `${DateParser[parseInt(pre4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre4_year_month.slice(2,4), 10)}`
+      const pre3 = pre3_year_month === "M" ? "" : `${DateParser[parseInt(pre3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre3_year_month.slice(2,4), 10)}`
+      const pre2 = pre2_year_month === "M" ? "" : `${DateParser[parseInt(pre2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre2_year_month.slice(2,4), 10)}`
+      const pre1 = pre1_year_month === "M" ? "" : `${DateParser[parseInt(pre1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(pre1_year_month.slice(2,4), 10)}`
       const today = `${DateParser[parseInt(year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(year_month.slice(2,4), 10)}`
-      const post1 = `${DateParser[parseInt(post1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post1_year_month.slice(2,4), 10)}`
-      const post2 = `${DateParser[parseInt(post2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post2_year_month.slice(2,4), 10)}`
-      const post3 = `${DateParser[parseInt(post3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post3_year_month.slice(2,4), 10)}`
-      const post4 = `${DateParser[parseInt(post4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post4_year_month.slice(2,4), 10)}`
-      const post5 = `${DateParser[parseInt(post5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post5_year_month.slice(2,4), 10)}`
-      const post6 = `${DateParser[parseInt(post6_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post6_year_month.slice(2,4), 10)}`
-
+      const post1 = post1_year_month === "M" ? "" : `${DateParser[parseInt(post1_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post1_year_month.slice(2,4), 10)}`
+      const post2 = post2_year_month === "M" ? "" : `${DateParser[parseInt(post2_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post2_year_month.slice(2,4), 10)}`
+      const post3 = post3_year_month === "M" ? "" : `${DateParser[parseInt(post3_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post3_year_month.slice(2,4), 10)}`
+      const post4 = post4_year_month === "M" ? "" : `${DateParser[parseInt(post4_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post4_year_month.slice(2,4), 10)}`
+      const post5 = post5_year_month === "M" ? "" : `${DateParser[parseInt(post5_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post5_year_month.slice(2,4), 10)}`
+      const post6 = post6_year_month === "M" ? "" : `${DateParser[parseInt(post6_year_month.slice(4,6), 10)].slice(0,3)} '${parseInt(post6_year_month.slice(2,4), 10)}`
 
       if (isNaN(pre6_avg_temp)) { pre6_avg_temp = (pre6_avg_max_temp + pre6_avg_min_temp) / 2 }
       if (isNaN(pre5_avg_temp)) { pre5_avg_temp = (pre5_avg_max_temp + pre5_avg_min_temp) / 2 }

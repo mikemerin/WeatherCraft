@@ -27,17 +27,17 @@ export const Graph = (props) => {
             avg_speed } = props.data
 
     if (avg_speed !== "") {
-      const pre5 = `${DateParser[parseInt(pre5_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre5_year_month_day.slice(6,8), 10)}`
-      const pre4 = `${DateParser[parseInt(pre4_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre4_year_month_day.slice(6,8), 10)}`
-      const pre3 = `${DateParser[parseInt(pre3_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre3_year_month_day.slice(6,8), 10)}`
-      const pre2 = `${DateParser[parseInt(pre2_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre2_year_month_day.slice(6,8), 10)}`
-      const pre1 = `${DateParser[parseInt(pre1_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre1_year_month_day.slice(6,8), 10)}`
+      const pre5 = pre5_year_month_day === "M" ? "" : `${DateParser[parseInt(pre5_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre5_year_month_day.slice(6,8), 10)}`
+      const pre4 = pre4_year_month_day === "M" ? "" : `${DateParser[parseInt(pre4_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre4_year_month_day.slice(6,8), 10)}`
+      const pre3 = pre3_year_month_day === "M" ? "" : `${DateParser[parseInt(pre3_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre3_year_month_day.slice(6,8), 10)}`
+      const pre2 = pre2_year_month_day === "M" ? "" : `${DateParser[parseInt(pre2_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre2_year_month_day.slice(6,8), 10)}`
+      const pre1 = pre1_year_month_day === "M" ? "" : `${DateParser[parseInt(pre1_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(pre1_year_month_day.slice(6,8), 10)}`
       const today = `${DateParser[parseInt(year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(year_month_day.slice(6,8), 10)}`
-      const post1 = `${DateParser[parseInt(post1_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post1_year_month_day.slice(6,8), 10)}`
-      const post2 = `${DateParser[parseInt(post2_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post2_year_month_day.slice(6,8), 10)}`
-      const post3 = `${DateParser[parseInt(post3_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post3_year_month_day.slice(6,8), 10)}`
-      const post4 = `${DateParser[parseInt(post4_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post4_year_month_day.slice(6,8), 10)}`
-      const post5 = `${DateParser[parseInt(post5_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post5_year_month_day.slice(6,8), 10)}`
+      const post1 = post1_year_month_day === "M" ? "" : `${DateParser[parseInt(post1_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post1_year_month_day.slice(6,8), 10)}`
+      const post2 = post2_year_month_day === "M" ? "" : `${DateParser[parseInt(post2_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post2_year_month_day.slice(6,8), 10)}`
+      const post3 = post3_year_month_day === "M" ? "" : `${DateParser[parseInt(post3_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post3_year_month_day.slice(6,8), 10)}`
+      const post4 = post4_year_month_day === "M" ? "" : `${DateParser[parseInt(post4_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post4_year_month_day.slice(6,8), 10)}`
+      const post5 = post5_year_month_day === "M" ? "" : `${DateParser[parseInt(post5_year_month_day.slice(4,6), 10)].slice(0,3)} ${parseInt(post5_year_month_day.slice(6,8), 10)}`
 
 
       if (isNaN(pre5_tavg)) { pre5_tavg = (pre5_tmax + pre5_tmin) / 2 }

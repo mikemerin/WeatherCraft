@@ -54,16 +54,27 @@ export default class Daily extends Component {
           result_dir, result_speed, snow_fall, sunrise, sunset,
           tavg, tmax, tmin, wban, year_month_day } = data[5]
 
-          const pre5_year_month_day = data[0].year_month_day, pre5_tmax = parseFloat(data[0].tmax), pre5_tmin = parseFloat(data[0].tmin), pre5_tavg = parseFloat(data[0].tavg), pre5_precip_total = parseFloat(data[0].precip_total)
-          const pre4_year_month_day = data[1].year_month_day, pre4_tmax = parseFloat(data[1].tmax), pre4_tmin = parseFloat(data[1].tmin), pre4_tavg = parseFloat(data[1].tavg), pre4_precip_total = parseFloat(data[1].precip_total)
-          const pre3_year_month_day = data[2].year_month_day, pre3_tmax = parseFloat(data[2].tmax), pre3_tmin = parseFloat(data[2].tmin), pre3_tavg = parseFloat(data[2].tavg), pre3_precip_total = parseFloat(data[2].precip_total)
-          const pre2_year_month_day = data[3].year_month_day, pre2_tmax = parseFloat(data[3].tmax), pre2_tmin = parseFloat(data[3].tmin), pre2_tavg = parseFloat(data[3].tavg), pre2_precip_total = parseFloat(data[3].precip_total)
-          const pre1_year_month_day = data[4].year_month_day, pre1_tmax = parseFloat(data[4].tmax), pre1_tmin = parseFloat(data[4].tmin), pre1_tavg = parseFloat(data[4].tavg), pre1_precip_total = parseFloat(data[4].precip_total)
-          const post1_year_month_day = data[6].year_month_day, post1_tmax = parseFloat(data[6].tmax), post1_tmin = parseFloat(data[6].tmin), post1_tavg = parseFloat(data[6].tavg), post1_precip_total = parseFloat(data[6].precip_total)
-          const post2_year_month_day = data[7].year_month_day, post2_tmax = parseFloat(data[7].tmax), post2_tmin = parseFloat(data[7].tmin), post2_tavg = parseFloat(data[7].tavg), post2_precip_total = parseFloat(data[7].precip_total)
-          const post3_year_month_day = data[8].year_month_day, post3_tmax = parseFloat(data[8].tmax), post3_tmin = parseFloat(data[8].tmin), post3_tavg = parseFloat(data[8].tavg), post3_precip_total = parseFloat(data[8].precip_total)
-          const post4_year_month_day = data[9].year_month_day, post4_tmax = parseFloat(data[9].tmax), post4_tmin = parseFloat(data[9].tmin), post4_tavg = parseFloat(data[9].tavg), post4_precip_total = parseFloat(data[9].precip_total)
-          const post5_year_month_day = data[10].year_month_day, post5_tmax = parseFloat(data[10].tmax), post5_tmin = parseFloat(data[10].tmin), post5_tavg = parseFloat(data[10].tavg), post5_precip_total = parseFloat(data[10].precip_total)
+          var pre5_year_month_day = "M", pre5_tmax = "M", pre5_tmin = "M", pre5_tavg = "M", pre5_precip_total = "M"
+          var pre4_year_month_day = "M", pre4_tmax = "M", pre4_tmin = "M", pre4_tavg = "M", pre4_precip_total = "M"
+          var pre3_year_month_day = "M", pre3_tmax = "M", pre3_tmin = "M", pre3_tavg = "M", pre3_precip_total = "M"
+          var pre2_year_month_day = "M", pre2_tmax = "M", pre2_tmin = "M", pre2_tavg = "M", pre2_precip_total = "M"
+          var pre1_year_month_day = "M", pre1_tmax = "M", pre1_tmin = "M", pre1_tavg = "M", pre1_precip_total = "M"
+          var post1_year_month_day = "M", post1_tmax = "M", post1_tmin = "M", post1_tavg = "M", post1_precip_total = "M"
+          var post2_year_month_day = "M", post2_tmax = "M", post2_tmin = "M", post2_tavg = "M", post2_precip_total = "M"
+          var post3_year_month_day = "M", post3_tmax = "M", post3_tmin = "M", post3_tavg = "M", post3_precip_total = "M"
+          var post4_year_month_day = "M", post4_tmax = "M", post4_tmin = "M", post4_tavg = "M", post4_precip_total = "M"
+          var post5_year_month_day = "M", post5_tmax = "M", post5_tmin = "M", post5_tavg = "M", post5_precip_total = "M"
+
+          if (data[0] !== undefined) { pre5_year_month_day = data[0].year_month_day, pre5_tmax = parseFloat(data[0].tmax), pre5_tmin = parseFloat(data[0].tmin), pre5_tavg = parseFloat(data[0].tavg), pre5_precip_total = parseFloat(data[0].precip_total) }
+          if (data[1] !== undefined) { pre4_year_month_day = data[1].year_month_day, pre4_tmax = parseFloat(data[1].tmax), pre4_tmin = parseFloat(data[1].tmin), pre4_tavg = parseFloat(data[1].tavg), pre4_precip_total = parseFloat(data[1].precip_total) }
+          if (data[2] !== undefined) { pre3_year_month_day = data[2].year_month_day, pre3_tmax = parseFloat(data[2].tmax), pre3_tmin = parseFloat(data[2].tmin), pre3_tavg = parseFloat(data[2].tavg), pre3_precip_total = parseFloat(data[2].precip_total) }
+          if (data[3] !== undefined) { pre2_year_month_day = data[3].year_month_day, pre2_tmax = parseFloat(data[3].tmax), pre2_tmin = parseFloat(data[3].tmin), pre2_tavg = parseFloat(data[3].tavg), pre2_precip_total = parseFloat(data[3].precip_total) }
+          if (data[4] !== undefined) { pre1_year_month_day = data[4].year_month_day, pre1_tmax = parseFloat(data[4].tmax), pre1_tmin = parseFloat(data[4].tmin), pre1_tavg = parseFloat(data[4].tavg), pre1_precip_total = parseFloat(data[4].precip_total) }
+          if (data[6] !== undefined) { post1_year_month_day = data[6].year_month_day, post1_tmax = parseFloat(data[6].tmax), post1_tmin = parseFloat(data[6].tmin), post1_tavg = parseFloat(data[6].tavg), post1_precip_total = parseFloat(data[6].precip_total) }
+          if (data[7] !== undefined) { post2_year_month_day = data[7].year_month_day, post2_tmax = parseFloat(data[7].tmax), post2_tmin = parseFloat(data[7].tmin), post2_tavg = parseFloat(data[7].tavg), post2_precip_total = parseFloat(data[7].precip_total) }
+          if (data[8] !== undefined) { post3_year_month_day = data[8].year_month_day, post3_tmax = parseFloat(data[8].tmax), post3_tmin = parseFloat(data[8].tmin), post3_tavg = parseFloat(data[8].tavg), post3_precip_total = parseFloat(data[8].precip_total) }
+          if (data[9] !== undefined) { post4_year_month_day = data[9].year_month_day, post4_tmax = parseFloat(data[9].tmax), post4_tmin = parseFloat(data[9].tmin), post4_tavg = parseFloat(data[9].tavg), post4_precip_total = parseFloat(data[9].precip_total) }
+          if (data[10] !== undefined) { post5_year_month_day = data[10].year_month_day, post5_tmax = parseFloat(data[10].tmax), post5_tmin = parseFloat(data[10].tmin), post5_tavg = parseFloat(data[10].tavg), post5_precip_total = parseFloat(data[10].precip_total) }
 
           this.setState({ avg_speed: avg_speed, code_sum: code_sum, depart: depart,
             depth: depth, dew_point: dew_point, max2_dir: max2_dir,

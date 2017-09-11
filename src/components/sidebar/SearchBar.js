@@ -41,9 +41,9 @@ export default function SearchBar(props) {
                       selected={ selected }
                       onSelect={ handleDateChange }
                       min={moment('2007-05-01', 'YYYY-MM-DD')}
-                      max={moment('2017-08-30', 'YYYY-MM-DD')}
+                      max={moment('2017-08-31', 'YYYY-MM-DD')}
                       minDate={moment('2007-05-01', 'YYYY-MM-DD')}
-                      maxDate={moment('2017-08-30', 'YYYY-MM-DD')}
+                      maxDate={moment('2017-08-31', 'YYYY-MM-DD')}
                       placeholderText="Select a date"
                     />
                     <br></br>
