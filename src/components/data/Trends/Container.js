@@ -31,7 +31,7 @@ export default class Trends extends Component {
   // bug: this is only triggered the second time not the first
   componentWillReceiveProps(nextProps) {
     // debugger
-    MonthliesAdapter.entry_historical(nextProps.station.wban, nextProps.date)
+    MonthliesAdapter.entry_yeartoyear(nextProps.station.wban, nextProps.date)
     .then(data => {
       console.log("trends cwrp", this.state, this.props)
       // debugger

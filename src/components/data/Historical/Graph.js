@@ -317,6 +317,42 @@ export const Graph = (props) => {
 
     const year_bar = labels.map(x => x === props.year ? temp_height : null )
 
+    // trend line
+    let trend = []
+
+    if (avg_temps.filter(x=>x).length !== 0) {
+      // numbers to work off of
+      let sum_temps = 0
+      let sum_x_axis = 0
+      let linear = 0
+      let x_squared = 0
+
+      let avg = avg_temps.filter(x => x)
+      let length = avg_temps.length
+      let x_axis = avg_temps.map((x,i) => {
+          sum_temps = Math.round(avg.reduce((sum, x) => sum + x) * 10) / 10
+          return i+1
+      })
+
+      sum_x_axis = x_axis.reduce((sum, x) => sum + x)
+
+      // work off those prior numbers to set up the trend equation
+      avg_temps.forEach((t, i) => {
+          // x_squared += i**2
+          if (!isNaN(t)) {
+            linear += t * i
+          }
+      })
+
+      // round linear
+      linear = Math.round(linear * 10) / 10
+
+      // get slope and intercept for line start point and angle, then create the trend line
+      let slope = 1.0 * ((length * linear) - (sum_x_axis * sum_temps)) / ((length * x_squared) - (sum_x_axis ** 2))
+      let intercept = 1.0 * (sum_temps - (slope * sum_x_axis)) / length
+      trend = x_axis.map(x => (slope * x) + intercept )
+    }
+
     const data_temps = {
       labels: labels,
       config: {
@@ -336,9 +372,30 @@ export const Graph = (props) => {
         }
       },
       datasets: [
+        // {
+        //   label: 'Chosen Date',
+        //   type: 'bar',
+        //   backgroundColor: 'rgba(0,0,0,0.2)',
+        //   borderColor: 'rgba(0,0,0,1)',
+        //   borderCapStyle: 'butt',
+        //   borderDash: [],
+        //   borderDashOffset: 0.0,
+        //   borderJoinStyle: 'miter',
+        //   pointBorderColor: 'rgba(0,0,0,1)',
+        //   pointBackgroundColor: '#fff',
+        //   pointBorderWidth: 1,
+        //   pointHoverRadius: 5,
+        //   pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+        //   pointHoverBorderColor: 'rgba(0,0,0,1)',
+        //   pointHoverBorderWidth: 2,
+        //   pointRadius: 1,
+        //   pointHitRadius: 10,
+        //   data: year_bar
+        // },
         {
-          label: 'Chosen Date',
-          type: 'bar',
+          label: 'Avg Temps Trend',
+          fill: false,
+          type: 'line',
           backgroundColor: 'rgba(0,0,0,0.2)',
           borderColor: 'rgba(0,0,0,1)',
           borderCapStyle: 'butt',
@@ -354,7 +411,7 @@ export const Graph = (props) => {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: year_bar
+          data: trend
         },
         {
           label: 'High Temps',
@@ -424,35 +481,6 @@ export const Graph = (props) => {
         }
       ]
     };
-
-    console.log(avg_temps)
-    // trends
-    let avg = avg_temps.filter(x => x)
-    let length = avg.length
-    let x_axis = avg.map((x,i) => {
-
-        return i+1
-    })
-
-    /*
-    temps = monthlies.map { |x| x.avg_temp }
-    temps.delete("M")
-    temps = temps.map(&:to_f)
-    size = temps.size
-    x_axis = (1..size).to_a
-
-    # sums
-    sum_temps = temps.reduce(:+)
-    sum_x_axis = x_axis.reduce(:+)
-    linear, x_squared = 0, 0
-    temps.zip(x_axis).each { |t,x| linear, x_squared = linear += t*x, x_squared += x*x }
-
-    # slope
-    slope = 1.0 * ((size * linear) - (sum_x_axis * sum_temps)) / ((size * x_squared) - (sum_x_axis ** 2))
-    intercept = 1.0 * (sum_temps - (slope * sum_x_axis)) / size
-
-    trend = x_axis.map { |x| (slope * x) + intercept }
-    */
 
     return (
       <div>
