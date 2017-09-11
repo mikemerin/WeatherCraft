@@ -66,7 +66,7 @@ export default function Temperatures(props) {
           </Statistic>
         </Grid.Column>
         <Grid.Column>
-          <h1><strong> { props.month_1 } </strong></h1>
+          <h1><strong> { props.month_1 } Trends </strong></h1>
         </Grid.Column>
         <Grid.Column>
           <Statistic size='mini'>

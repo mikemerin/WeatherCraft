@@ -21,9 +21,9 @@ export const Graph = (props) => {
     let yymm = labels.map(x => x.slice(2))
     let length = yymm.length
 
-    // map years to each January
+    // map years to each May, the first month with data
     labels = labels.map(date => {
-      return `${DateParser[parseInt(date.slice(4,6))].slice(0,3)}` + (date.slice(4,6) === "01" ? ` '${date.slice(2,4)}` : '')
+      return `${DateParser[parseInt(date.slice(4,6))].slice(0,3)}` + (date.slice(4,6) === "05" ? ` '${date.slice(2,4)}` : '')
     } )
     console.log(labels)
     let temp_height = 0
@@ -354,6 +354,9 @@ export const Graph = (props) => {
       trend = x_axis.map(x => (slope * x) + intercept )
     }
 
+    let trend_year = Math.round(slope*12 * 1000) / 1000
+    let trend_total = Math.round((trend[trend.length-1]-trend[0]) * 1000) / 1000
+
     const data_temps = {
       labels: labels,
       config: {
@@ -373,28 +376,8 @@ export const Graph = (props) => {
         }
       },
       datasets: [
-        // {
-        //   label: 'Chosen Date',
-        //   type: 'bar',
-        //   backgroundColor: 'rgba(0,0,0,0.2)',
-        //   borderColor: 'rgba(0,0,0,1)',
-        //   borderCapStyle: 'butt',
-        //   borderDash: [],
-        //   borderDashOffset: 0.0,
-        //   borderJoinStyle: 'miter',
-        //   pointBorderColor: 'rgba(0,0,0,1)',
-        //   pointBackgroundColor: '#fff',
-        //   pointBorderWidth: 1,
-        //   pointHoverRadius: 5,
-        //   pointHoverBackgroundColor: 'rgba(0,0,0,1)',
-        //   pointHoverBorderColor: 'rgba(0,0,0,1)',
-        //   pointHoverBorderWidth: 2,
-        //   pointRadius: 1,
-        //   pointHitRadius: 10,
-        //   data: year_bar
-        // },
         {
-          label: `Trend: ${Math.round(slope*12 * 10000) / 10000}ºF / year`,
+          label: `Trend: ${trend_year}ºF / year, ${trend_total}ºF total`,
           fill: false,
           type: 'line',
           backgroundColor: 'rgba(0,0,0,0.2)',

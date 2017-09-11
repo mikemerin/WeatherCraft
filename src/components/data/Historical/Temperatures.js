@@ -3,6 +3,8 @@ import { Icon, Statistic, Grid } from 'semantic-ui-react'
 
 export default function Temperatures(props) {
 
+  console.log("hist temp", props)
+
   const { avg_max_temp, avg_min_temp, avg_temp,
           departure_max_temp, departure_min_temp,
           departure_from_normal } = props

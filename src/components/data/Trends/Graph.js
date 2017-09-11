@@ -93,9 +93,7 @@ export const Graph = (props) => {
 
       // get slope and intercept for line start point and angle, then create the trend line
       let slope = 1.0 * ((length * linear) - (sum_x_axis * sum_temps)) / ((length * x_squared) - (sum_x_axis ** 2))
-      console.log(slope)
       let intercept = 1.0 * (sum_temps - (slope * sum_x_axis)) / length
-      console.log(intercept)
       trend = x_axis.map(x => (slope * x) + intercept )
     }
 
