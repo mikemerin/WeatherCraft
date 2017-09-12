@@ -71,30 +71,90 @@ export default class Monthly extends Component {
           var post5_year_month = "M", post5_avg_max_temp = "M", post5_avg_min_temp = "M", post5_avg_temp = "M", post5_total_monthly_precip = "M", post5_total_snowfall = "M"
           var post6_year_month = "M", post6_avg_max_temp = "M", post6_avg_min_temp = "M", post6_avg_temp = "M", post6_total_monthly_precip = "M", post6_total_snowfall = "M"
 
-          if (data[0] !== undefined) { pre6_year_month = data[0].year_month, pre6_avg_max_temp = parseFloat(data[0].avg_max_temp), pre6_avg_min_temp = parseFloat(data[0].avg_min_temp),
-              pre6_avg_temp = parseFloat(data[0].avg_temp), pre6_total_monthly_precip = parseFloat(data[0].total_monthly_precip), pre6_total_snowfall = parseFloat(data[0].total_snowfall) }
-          if (data[1] !== undefined) { pre5_year_month = data[1].year_month, pre5_avg_max_temp = parseFloat(data[1].avg_max_temp), pre5_avg_min_temp = parseFloat(data[1].avg_min_temp),
-              pre5_avg_temp = parseFloat(data[1].avg_temp), pre5_total_monthly_precip = parseFloat(data[1].total_monthly_precip), pre5_total_snowfall = parseFloat(data[1].total_snowfall) }
-          if (data[2] !== undefined) { pre4_year_month = data[2].year_month, pre4_avg_max_temp = parseFloat(data[2].avg_max_temp), pre4_avg_min_temp = parseFloat(data[2].avg_min_temp),
-              pre4_avg_temp = parseFloat(data[2].avg_temp), pre4_total_monthly_precip = parseFloat(data[2].total_monthly_precip), pre4_total_snowfall = parseFloat(data[2].total_snowfall) }
-          if (data[3] !== undefined) { pre3_year_month = data[3].year_month, pre3_avg_max_temp = parseFloat(data[3].avg_max_temp), pre3_avg_min_temp = parseFloat(data[3].avg_min_temp),
-              pre3_avg_temp = parseFloat(data[3].avg_temp), pre3_total_monthly_precip = parseFloat(data[3].total_monthly_precip), pre3_total_snowfall = parseFloat(data[3].total_snowfall) }
-          if (data[4] !== undefined) { pre2_year_month = data[4].year_month, pre2_avg_max_temp = parseFloat(data[4].avg_max_temp), pre2_avg_min_temp = parseFloat(data[4].avg_min_temp),
-              pre2_avg_temp = parseFloat(data[4].avg_temp), pre2_total_monthly_precip = parseFloat(data[4].total_monthly_precip), pre2_total_snowfall = parseFloat(data[4].total_snowfall) }
-          if (data[5] !== undefined) { pre1_year_month = data[5].year_month, pre1_avg_max_temp = parseFloat(data[5].avg_max_temp), pre1_avg_min_temp = parseFloat(data[5].avg_min_temp),
-              pre1_avg_temp = parseFloat(data[5].avg_temp), pre1_total_monthly_precip = parseFloat(data[5].total_monthly_precip), pre1_total_snowfall = parseFloat(data[5].total_snowfall) }
-          if (data[7] !== undefined) { post1_year_month = data[7].year_month, post1_avg_max_temp = parseFloat(data[7].avg_max_temp), post1_avg_min_temp = parseFloat(data[7].avg_min_temp),
-            post1_avg_temp = parseFloat(data[7].avg_temp), post1_total_monthly_precip = parseFloat(data[7].total_monthly_precip), post1_total_snowfall = parseFloat(data[7].total_snowfall) }
-          if (data[8] !== undefined) { post2_year_month = data[8].year_month, post2_avg_max_temp = parseFloat(data[8].avg_max_temp), post2_avg_min_temp = parseFloat(data[8].avg_min_temp),
-              post2_avg_temp = parseFloat(data[8].avg_temp), post2_total_monthly_precip = parseFloat(data[8].total_monthly_precip), post2_total_snowfall = parseFloat(data[8].total_snowfall) }
-          if (data[9] !== undefined) { post3_year_month = data[9].year_month, post3_avg_max_temp = parseFloat(data[9].avg_max_temp), post3_avg_min_temp = parseFloat(data[9].avg_min_temp),
-              post3_avg_temp = parseFloat(data[9].avg_temp), post3_total_monthly_precip = parseFloat(data[9].total_monthly_precip), post3_total_snowfall = parseFloat(data[9].total_snowfall) }
-          if (data[10] !== undefined) { post4_year_month = data[10].year_month, post4_avg_max_temp = parseFloat(data[10].avg_max_temp), post4_avg_min_temp = parseFloat(data[10].avg_min_temp),
-              post4_avg_temp = parseFloat(data[10].avg_temp), post4_total_monthly_precip = parseFloat(data[10].total_monthly_precip), post4_total_snowfall = parseFloat(data[10].total_snowfall) }
-          if (data[11] !== undefined) { post5_year_month = data[11].year_month, post5_avg_max_temp = parseFloat(data[11].avg_max_temp), post5_avg_min_temp = parseFloat(data[11].avg_min_temp),
-              post5_avg_temp = parseFloat(data[11].avg_temp), post5_total_monthly_precip = parseFloat(data[11].total_monthly_precip), post5_total_snowfall = parseFloat(data[11].total_snowfall) }
-          if (data[12] !== undefined) { post6_year_month = data[12].year_month, post6_avg_max_temp = parseFloat(data[12].avg_max_temp), post6_avg_min_temp = parseFloat(data[12].avg_min_temp),
-              post6_avg_temp = parseFloat(data[12].avg_temp), post6_total_monthly_precip = parseFloat(data[12].total_monthly_precip), post6_total_snowfall = parseFloat(data[12].total_snowfall) }
+          if (data[0] !== undefined) {
+            pre6_year_month = data[0].year_month
+            pre6_avg_max_temp = parseFloat(data[0].avg_max_temp)
+            pre6_avg_min_temp = parseFloat(data[0].avg_min_temp)
+            pre6_avg_temp = parseFloat(data[0].avg_temp)
+            pre6_total_monthly_precip = parseFloat(data[0].total_monthly_precip)
+            pre6_total_snowfall = parseFloat(data[0].total_snowfall) }
+          if (data[1] !== undefined) {
+            pre5_year_month = data[1].year_month
+            pre5_avg_max_temp = parseFloat(data[1].avg_max_temp)
+            pre5_avg_min_temp = parseFloat(data[1].avg_min_temp)
+            pre5_avg_temp = parseFloat(data[1].avg_temp)
+            pre5_total_monthly_precip = parseFloat(data[1].total_monthly_precip)
+            pre5_total_snowfall = parseFloat(data[1].total_snowfall) }
+          if (data[2] !== undefined) {
+            pre4_year_month = data[2].year_month
+            pre4_avg_max_temp = parseFloat(data[2].avg_max_temp)
+            pre4_avg_min_temp = parseFloat(data[2].avg_min_temp)
+            pre4_avg_temp = parseFloat(data[2].avg_temp)
+            pre4_total_monthly_precip = parseFloat(data[2].total_monthly_precip)
+            pre4_total_snowfall = parseFloat(data[2].total_snowfall) }
+          if (data[3] !== undefined) {
+            pre3_year_month = data[3].year_month
+            pre3_avg_max_temp = parseFloat(data[3].avg_max_temp)
+            pre3_avg_min_temp = parseFloat(data[3].avg_min_temp)
+            pre3_avg_temp = parseFloat(data[3].avg_temp)
+            pre3_total_monthly_precip = parseFloat(data[3].total_monthly_precip)
+            pre3_total_snowfall = parseFloat(data[3].total_snowfall) }
+          if (data[4] !== undefined) {
+            pre2_year_month = data[4].year_month
+            pre2_avg_max_temp = parseFloat(data[4].avg_max_temp)
+            pre2_avg_min_temp = parseFloat(data[4].avg_min_temp)
+            pre2_avg_temp = parseFloat(data[4].avg_temp)
+            pre2_total_monthly_precip = parseFloat(data[4].total_monthly_precip)
+            pre2_total_snowfall = parseFloat(data[4].total_snowfall) }
+          if (data[5] !== undefined) {
+            pre1_year_month = data[5].year_month
+            pre1_avg_max_temp = parseFloat(data[5].avg_max_temp)
+            pre1_avg_min_temp = parseFloat(data[5].avg_min_temp)
+            pre1_avg_temp = parseFloat(data[5].avg_temp)
+            pre1_total_monthly_precip = parseFloat(data[5].total_monthly_precip)
+            pre1_total_snowfall = parseFloat(data[5].total_snowfall) }
+          if (data[7] !== undefined) {
+            post1_year_month = data[7].year_month
+            post1_avg_max_temp = parseFloat(data[7].avg_max_temp)
+            post1_avg_min_temp = parseFloat(data[7].avg_min_temp)
+            post1_avg_temp = parseFloat(data[7].avg_temp)
+            post1_total_monthly_precip = parseFloat(data[7].total_monthly_precip)
+            post1_total_snowfall = parseFloat(data[7].total_snowfall) }
+          if (data[8] !== undefined) {
+            post2_year_month = data[8].year_month
+            post2_avg_max_temp = parseFloat(data[8].avg_max_temp)
+            post2_avg_min_temp = parseFloat(data[8].avg_min_temp)
+            post2_avg_temp = parseFloat(data[8].avg_temp)
+            post2_total_monthly_precip = parseFloat(data[8].total_monthly_precip)
+            post2_total_snowfall = parseFloat(data[8].total_snowfall) }
+          if (data[9] !== undefined) {
+            post3_year_month = data[9].year_month
+            post3_avg_max_temp = parseFloat(data[9].avg_max_temp)
+            post3_avg_min_temp = parseFloat(data[9].avg_min_temp)
+            post3_avg_temp = parseFloat(data[9].avg_temp)
+            post3_total_monthly_precip = parseFloat(data[9].total_monthly_precip)
+            post3_total_snowfall = parseFloat(data[9].total_snowfall) }
+          if (data[10] !== undefined) {
+            post4_year_month = data[10].year_month
+            post4_avg_max_temp = parseFloat(data[10].avg_max_temp)
+            post4_avg_min_temp = parseFloat(data[10].avg_min_temp)
+            post4_avg_temp = parseFloat(data[10].avg_temp)
+            post4_total_monthly_precip = parseFloat(data[10].total_monthly_precip)
+            post4_total_snowfall = parseFloat(data[10].total_snowfall) }
+          if (data[11] !== undefined) {
+            post5_year_month = data[11].year_month
+            post5_avg_max_temp = parseFloat(data[11].avg_max_temp)
+            post5_avg_min_temp = parseFloat(data[11].avg_min_temp)
+            post5_avg_temp = parseFloat(data[11].avg_temp)
+            post5_total_monthly_precip = parseFloat(data[11].total_monthly_precip)
+            post5_total_snowfall = parseFloat(data[11].total_snowfall) }
+          if (data[12] !== undefined) {
+            post6_year_month = data[12].year_month
+            post6_avg_max_temp = parseFloat(data[12].avg_max_temp)
+            post6_avg_min_temp = parseFloat(data[12].avg_min_temp)
+            post6_avg_temp = parseFloat(data[12].avg_temp)
+            post6_total_monthly_precip = parseFloat(data[12].total_monthly_precip)
+            post6_total_snowfall = parseFloat(data[12].total_snowfall) }
 
           this.setState({ wban: wban, year_month: year_month,
             avg_max_temp: avg_max_temp, avg_min_temp: avg_min_temp, avg_temp: avg_temp,
@@ -146,9 +206,7 @@ export default class Monthly extends Component {
     // snow: max24_hr_snowfall, date_max24_hr_snowfall
     // snow: days_with_snowfall_ge_1p0inch
 
-    const { wban, year_month,
-      avg_max_temp, avg_min_temp, avg_temp,
-
+    const { avg_max_temp, avg_min_temp, avg_temp,
       days_with_precip_ge_p01inch, days_with_precip_ge_p10inch,
       days_with_snowfall_ge_1p0inch, departure_from_normal,
       departure_from_normal_precip, departure_max_temp, departure_min_temp,

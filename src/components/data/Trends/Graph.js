@@ -47,7 +47,7 @@ export const Graph = (props) => {
 
     // trend line
     let trend = []
-    let missing = 0
+    // let missing = 0
 
     if (avg_temps.filter(x=>x).length !== 0) {
 
@@ -84,8 +84,7 @@ export const Graph = (props) => {
       // round linear
       linear = Math.round(linear * 10) / 10
 
-      // debugger
-
+      // for when trend line is added
       // if (missing === 1) {
       //   avg_temps.push(null)
       // }
@@ -140,6 +139,7 @@ export const Graph = (props) => {
           pointHitRadius: 10,
           data: year_bar
         },
+        // to be fixed, right now the slope isn't accurate with null values
         // {
         //   label: 'Avg Temps Trend',
         //   fill: false,

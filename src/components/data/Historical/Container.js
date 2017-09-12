@@ -7,7 +7,7 @@ import { MonthliesAdapter } from '../../../adapters'
 // import { DateParser } from '../../helpers/DateParser'
 
 // outputs
-import Temperatures from './Temperatures'
+// import Temperatures from './Temperatures'
 
 import Graph from './Graph'
 

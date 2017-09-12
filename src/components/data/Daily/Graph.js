@@ -6,7 +6,7 @@ import { DateParser } from '../../helpers/DateParser'
 export const Graph = (props) => {
 
     //note: not using precip height for now, it works but I'll save it for later
-
+    
     let labels = ['', '', '', '', '', '', '', '', '', '', '']
     let temp_height = 0
     // let precip_height = 0

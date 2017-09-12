@@ -1,7 +1,7 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
-import { DateParser, DateLetterParser } from '../../helpers/DateParser'
+import { DateParser } from '../../helpers/DateParser'
 
 export const Graph = (props) => {
 
@@ -18,12 +18,12 @@ export const Graph = (props) => {
     }
 
     labels = labels.filter(x => x >= "200705" && x <= "201708" )
-    let yymm = labels.map(x => x.slice(2))
-    let length = yymm.length
+    // let yymm = labels.map(x => x.slice(2))
+    // let length = yymm.length
 
     // map years to each May, the first month with data
     labels = labels.map(date => {
-      return `${DateParser[parseInt(date.slice(4,6))].slice(0,3)}` + (date.slice(4,6) === "05" ? ` '${date.slice(2,4)}` : '')
+      return `${DateParser[parseInt(date.slice(4,6), 10)].slice(0,3)}` + (date.slice(4,6) === "05" ? ` '${date.slice(2,4)}` : '')
     } )
     console.log(labels)
     let temp_height = 0
@@ -376,6 +376,26 @@ export const Graph = (props) => {
         }
       },
       datasets: [
+        {
+          label: 'Chosen Month',
+          type: 'bar',
+          backgroundColor: 'rgba(0,0,0,0.2)',
+          borderColor: 'rgba(0,0,0,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(0,0,0,1)',
+          pointBackgroundColor: '#fff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(0,0,0,1)',
+          pointHoverBorderColor: 'rgba(0,0,0,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: year_bar
+        },
         {
           label: `Trend: ${trend_year}ºF / year, ${trend_total}ºF total`,
           fill: false,
