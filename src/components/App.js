@@ -83,7 +83,6 @@ export default class App extends Component {
     //       <div className="ui huge text loader">Loading data, please wait</div>
     //     </div>
     //   ) }
-    console.log("app state", this.state)
     return (
       <Grid celled className="centered">
 

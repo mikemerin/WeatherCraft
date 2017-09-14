@@ -53,7 +53,8 @@ With soon-to-be-released trend lines to view how the weather may look like in th
 - Favorites - save your favorite stations for quick loading
 - Forecasts - show comparisons to MOS forecasts for that day
 - Nearby - show a map with nearby locations to load in data for
+- condense massive state of tabbed main components into arrays
+- convert app to Redux
 -
 ### Future bug fixes
-- Fix primary rendering bug
 - Fix state/station section not loading in information on refresh

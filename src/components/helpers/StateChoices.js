@@ -50,7 +50,7 @@ export const united_states = [
   {key: 'WV', value: 'WV', text: "West Virginia"},
   {key: 'WI', value: 'WI', text: "Wisconsin"},
   {key: 'WY', value: 'WY', text: "Wyoming"},
-  {key: 'OTHER', value: 'OTHER', text: "Other"}
+  // {key: 'OTHER', value: 'OTHER', text: "Other"}
 ]
 
 export const other_states = [
@@ -66,61 +66,3 @@ export const other_states = [
   {key: "PR", value: "PR", text: "Puerto Rico"},
   {key: "PS", value: "PS", text: "Palau"}
 ]
-
-
-
-
-// export const united_states_abbreviations = [
-//   {AL: "Alabama"},
-//   {AK: "Alaska"},
-//   {AZ: "Arizona"},
-//   {AR: "Arkansas"},
-//   {CA: "California"},
-//   {CO: "Colorado"},
-//   {CT: "Connecticut"},
-//   {DE: "Delaware"},
-//   {FL: "Florida"},
-//   {GA: "Georgia"},
-//   {HI: "Hawaii"},
-//   {ID: "Idaho"},
-//   {IL: "Illinois"},
-//   {IN: "Indiana"},
-//   {IA: "Iowa"},
-//   {KS: "Kansas"},
-//   {KY: "Kentucky"},
-//   {LA: "Louisiana"},
-//   {ME: "Maine"},
-//   {MD: "Maryland"},
-//   {MA: "Massachusetts"},
-//   {MI: "Michigan"},
-//   {MN: "Minnesota"},
-//   {MS: "Mississippi"},
-//   {MO: "Missouri"},
-//   {MT: "Montana"},
-//   {NE: "Nebraska"},
-//   {NV: "Nevada"},
-//   {NH: "New Hampshire"},
-//   {NJ: "New Jersey"},
-//   {NM: "New Mexico"},
-//   {NY: "New York"},
-//   {NC: "North Carolina"},
-//   {ND: "North Dakota"},
-//   {OH: "Ohio"},
-//   {OK: "Oklahoma"},
-//   {OR: "Oregon"},
-//   {PA: "Pennsylvania"},
-//   {RI: "Rhode Island"},
-//   {SC: "South Carolina"},
-//   {SD: "South Dakota"},
-//   {TN: "Tennessee"},
-//   {TX: "Texas"},
-//   {UT: "Utah"},
-//   {VT: "Vermont"},
-//   {VA: "Virginia"},
-//   {WA: "Washington"},
-//   {DC: "Washington DC"},
-//   {WV: "West Virginia"},
-//   {WI: "Wisconsin"},
-//   {WY: "Wyoming"},
-//   {OTHER: "Other" }
-// ]

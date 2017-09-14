@@ -8,7 +8,7 @@ export default function Map({ station, stations }) {
   });
 
   const { latitude, longitude } = station
-  console.log("map", station, "stations:", stations.length)
+  // console.log("map", station, "stations:", stations.length)
 
   return (
     <div>

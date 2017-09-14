@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Grid, Dropdown } from 'semantic-ui-react'
+
+import { other_states } from '../helpers/StateChoices'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,7 +10,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 export default function SearchBar(props) {
 
   const { stateChoices, stationState, stations, handleStateChange, handleDateChange, handleStationChange } = props
-  const filtered_stations = stations.filter(x => x.state === stationState).map((x, i) => ({key: i, value: x.name, text: x.name}) )
+  const filtered_stations = stations.filter(x => {
+    // console.log(stationState === "OTHER")
+    //.sort((a,b) => a.location.toLowerCase() > b.location.toLowerCase())
+    return x.state === ( stationState === "OTHER" ? "" : stationState )
+  }).map((x, i) => {
+    return ({key: i, value: x.name, text: `${x.location} - ${x.name}`})
+  })
 
   const selected = props.date.format('YYYYMMDD') === moment().format('YYYYMMDD') ? null : props.date
 
